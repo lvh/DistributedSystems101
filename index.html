@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Distributed Systems 101</title>
+<meta name="author" content="(lvh)"/>
+
+<link rel="stylesheet" href="./reveal.js/css/reveal.min.css"/>
+<link rel="stylesheet" href="./reveal.js/css/theme/lvh.css" id="theme"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = './reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<h1>Distributed Systems 101</h1>
+<h2>lvh</h2>
+<h2><a href="mailto:_@lvh.io">_@lvh.io</a></h2>
+<h2></h2></section>
+
+<section>
+<section id="sec-1" >
+
+<h2>Introduction</h2>
+</section>
+<section id="sec-1-1" >
+
+<h3>Who am I?</h3>
+<img src="./media/lvh.svg" alt="lvh.svg" style="width:80%" />
+
+</section>
+<section id="sec-1-2" >
+
+<h3>Rackspace</h3>
+<img src="./media/rackspace.svg" alt="rackspace.svg" style="width:90%" />
+
+</section>
+<section id="sec-1-3" >
+
+<h3>AutoScale</h3>
+<img src="./media/threeotters.jpg" alt="threeotters.jpg" style="width:90%" />
+
+</section>
+<section id="sec-1-4" >
+
+<h3>AutoScale</h3>
+<ul class="org-ul">
+<li class="fragment roll-in">Distributed system
+</li>
+<li class="fragment roll-in">Manages distributed systems
+</li>
+<li class="fragment roll-in">Running on distributed systems
+</li>
+<li class="fragment roll-in">Interacting with distributed systems
+</li>
+</ul>
+
+</section>
+<section id="sec-1-5" >
+
+<h3>Why this talk?</h3>
+<p>
+Parallels with Crypto 101
+</p>
+
+<ul class="org-ul">
+<li>Field considered exclusive domain of experts
+</li>
+<li>Abstinence-only education doesn&rsquo;t work
+<ul class="org-ul">
+<li>Lots of papers, material out there
+</li>
+<li>Not organized for self-teaching
+</li>
+</ul>
+</li>
+<li>We can no longer afford not to care
+</li>
+</ul>
+
+</section>
+<section id="sec-1-5-1" >
+
+<h4>Disconnect between practice and theory</h4>
+<ul class="org-ul">
+<li>Many theoreticians ignore practice
+</li>
+<li>Many practitioners ignore theory
+</li>
+</ul>
+
+</section>
+<section id="sec-1-6" >
+
+<h3>Distributed Systems 101</h3>
+<p>
+&ldquo;Just enough&rdquo; distributed systems
+</p>
+
+<ul class="org-ul">
+<li class="fragment roll-in">to whet your appetite
+</li>
+<li class="fragment roll-in">to shoot yourself in the foot
+</li>
+</ul>
+
+</section>
+<section id="sec-1-7" >
+
+<h3>What is a distributed system anyway?</h3>
+<p>
+A system is distributed if a machine I&rsquo;ve never heard of can cause
+my program to fail.
+</p>
+
+<p>
+<i>Leslie Lamport</i>
+</p>
+
+</section>
+<section id="sec-1-8" >
+
+<h3>A paradox</h3>
+<ul class="org-ul">
+<li>Why do people build them? Reliability!
+</li>
+<li>Practitioners&rsquo; primary concern? Failure!
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-2" >
+
+<h2>Caveat emptor</h2>
+</section>
+<section id="sec-2-1" >
+
+<h3>Bad horror movie</h3>
+<p>
+Don&rsquo;t go into the basement!
+</p>
+
+</section>
+<section id="sec-2-2" >
+
+<h3>Do you actually need one?</h3>
+<p>
+Single machine performance is <i>great</i>!
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-3" >
+
+<h2>Impossibility results</h2>
+</section>
+<section id="sec-3-1" >
+
+<h3>FLP</h3>
+</section>
+
+</section>
+<section>
+<section id="sec-4" >
+
+<h2>CAP</h2>
+</section>
+<section id="sec-4-1" >
+
+<h3>Pick any two!</h3>
+<ul class="org-ul">
+<li>Consistency
+</li>
+<li>Availability
+</li>
+<li>Partition tolerance
+</li>
+</ul>
+
+</section>
+<section id="sec-4-2" >
+
+<h3>You can&rsquo;t sacrifice partition tolerance</h3>
+
+</section>
+<section id="sec-4-3" >
+
+<h3>So, pick any two</h3>
+<p>
+As long as it&rsquo;s AP or CP ;-)
+</p>
+
+</section>
+<section id="sec-4-4" >
+
+<h3>Reality</h3>
+<img src="./media/shades.svg" alt="shades.svg" />
+</section>
+
+</section>
+<section>
+<section id="sec-5" >
+
+<h2>Components</h2>
+<p>
+(High and low level)
+</p>
+
+</section>
+<section id="sec-5-1" >
+
+<h3>Queues</h3>
+
+</section>
+<section id="sec-5-2" >
+
+<h3>Consensus protocols</h3>
+</section>
+<section id="sec-5-2-1" >
+
+<h4>Set partitioning</h4>
+
+</section>
+<section id="sec-5-2-2" >
+
+<h4>Examples</h4>
+
+</section>
+<section id="sec-5-3" >
+
+<h3>CRDTs</h3>
+</section>
+<section id="sec-5-3-1" >
+
+<h4>Previously: CAP</h4>
+<ul class="org-ul">
+<li>Presented as trade-off: C versus A
+</li>
+<li>Doesn&rsquo;t explain what we can do <i>on</i> that line
+</li>
+<li>CRDTs: wonderful modern example of what we can do
+</li>
+</ul>
+</section>
+
+</section>
+<section>
+<section id="sec-6" >
+
+<h2>Conclusion</h2>
+</section>
+<section id="sec-6-1" >
+
+<h3>Why distributed systems?</h3>
+<p>
+Because you have <i>no other options</i>.
+</p>
+
+<p>
+(This happens somewhat often.)
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-7" >
+
+<h2>Questions?</h2>
+</section>
+</section>
+</div>
+</div>
+
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.min.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: true,
+slideNumber: true,
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+ { src: './reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+ { src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+]
+});
+</script>
+</body>
+</html>

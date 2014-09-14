@@ -1,0 +1,129 @@
+#+Title: Distributed Systems 101
+#+Author: lvh
+#+Email: _@lvh.io
+
+#+OPTIONS: toc:nil reveal_rolling_links:nil num:nil reveal_history:true
+#+REVEAL_TRANS: linear
+#+REVEAL_THEME: lvh
+
+* Introduction
+
+** Who am I?
+
+   #+ATTR_HTML: :style width:80%
+   [[./media/lvh.svg]]
+
+** Rackspace
+
+   #+ATTR_HTML: :style width:90%
+   [[./media/rackspace.svg]]
+
+** AutoScale
+
+   #+ATTR_HTML: :style width:90%
+   [[./media/threeotters.jpg]]
+
+** AutoScale
+
+   #+ATTR_REVEAL: :frag roll-in
+   * Distributed system
+   * Manages distributed systems
+   * Running on distributed systems
+   * Interacting with distributed systems
+
+** Why this talk?
+
+   Parallels with Crypto 101
+
+   * Field considered exclusive domain of experts
+   * Abstinence-only education doesn't work
+     * Lots of papers, material out there
+     * Not organized for self-teaching
+   * We can no longer afford not to care
+
+*** Disconnect between practice and theory
+
+    * Many theoreticians ignore practice
+    * Many practitioners ignore theory
+
+** Distributed Systems 101
+
+   "Just enough" distributed systems
+
+   #+ATTR_REVEAL: :frag roll-in
+   * to whet your appetite
+   * to shoot yourself in the foot
+
+** What is a distributed system anyway?
+
+   A system is distributed if a machine I've never heard of can cause
+   my program to fail.
+
+   /Leslie Lamport/
+
+** A paradox
+
+   * Why do people build them? Reliability!
+   * Practitioners' primary concern? Failure!
+
+* Caveat emptor
+
+** Bad horror movie
+
+   Don't go into the basement!
+
+** Do you actually need one?
+
+   Single machine performance is /great/!
+
+* Impossibility results
+
+** FLP
+
+* CAP
+
+** Pick any two!
+
+   * Consistency
+   * Availability
+   * Partition tolerance
+
+** You can't sacrifice partition tolerance
+
+** So, pick any two
+
+   As long as it's AP or CP ;-)
+
+** Reality
+
+   [[./media/shades.svg]]
+
+* Components
+
+  (High and low level)
+
+** Queues
+
+** Consensus protocols
+
+*** Set partitioning
+
+*** Examples
+
+** CRDTs
+
+*** Previously: CAP
+
+    * Presented as trade-off: C versus A
+    * Doesn't explain what we can do /on/ that line
+    * CRDTs: wonderful modern example of what we can do
+
+* Conclusion
+
+** Why distributed systems?
+
+   Because you have /no other options/.
+
+   (This happens somewhat often.)
+
+* Questions?
