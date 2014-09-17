@@ -9,18 +9,18 @@
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #111111;
-  background-color: #111111; }
+  background: #111;
+  background-color: #111; }
 
 .reveal {
   font-family: "Open Sans", sans-serif;
   font-size: 30px;
   font-weight: normal;
   letter-spacing: -0.02em;
-  color: #eeeeee; }
+  color: #eee; }
 
 ::selection {
-  color: white;
+  color: #fff;
   background: #e7ad52;
   text-shadow: none; }
 
@@ -39,7 +39,7 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #eeeeee;
+  color: #eee;
   font-family: "Montserrat", Impact, sans-serif;
   line-height: 1em;
   letter-spacing: -0.03em;
@@ -217,7 +217,7 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #eeeeee;
+  border: 4px solid #eee;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
 .reveal a img {
@@ -278,3 +278,5 @@ body {
  *********************************************/
 .reveal .slide-number {
   color: #e7ad52; }
+
+/*# sourceMappingURL=night.css.map */

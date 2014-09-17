@@ -26,10 +26,10 @@ body {
   font-size: 36px;
   font-weight: normal;
   letter-spacing: -0.02em;
-  color: #333333; }
+  color: #333; }
 
 ::selection {
-  color: white;
+  color: #fff;
   background: #134674;
   text-shadow: none; }
 
@@ -48,7 +48,7 @@ body {
 .reveal h5,
 .reveal h6 {
   margin: 0 0 20px 0;
-  color: #333333;
+  color: #333;
   font-family: "Quicksand", sans-serif;
   line-height: 1em;
   letter-spacing: -0.08em;
@@ -226,7 +226,7 @@ body {
 .reveal section img {
   margin: 15px 0px;
   background: rgba(255, 255, 255, 0.12);
-  border: 4px solid #333333;
+  border: 4px solid #333;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
 
 .reveal a img {
@@ -287,3 +287,5 @@ body {
  *********************************************/
 .reveal .slide-number {
   color: #3b759e; }
+
+/*# sourceMappingURL=sky.css.map */
