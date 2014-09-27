@@ -75,9 +75,9 @@ Parallels with Crypto 101
 </p>
 
 <ul class="org-ul">
-<li>Field considered exclusive domain of experts
+<li class="fragment roll-in">Field considered exclusive domain of experts
 </li>
-<li>Abstinence-only education doesn&rsquo;t work
+<li class="fragment roll-in">Abstinence-only education doesn&rsquo;t work
 <ul class="org-ul">
 <li>Lots of papers, material out there
 </li>
@@ -85,7 +85,7 @@ Parallels with Crypto 101
 </li>
 </ul>
 </li>
-<li>We can no longer afford not to care
+<li class="fragment roll-in">We can no longer afford not to care
 </li>
 </ul>
 
@@ -118,7 +118,33 @@ Parallels with Crypto 101
 </section>
 <section id="sec-1-7" >
 
-<h3>What is a distributed system anyway?</h3>
+<h3>Caveat emptor</h3>
+</section>
+<section id="sec-1-7-1" >
+
+<h4>Bad horror movie</h4>
+<p>
+Don&rsquo;t go into the basement!
+</p>
+
+</section>
+<section id="sec-1-7-2" >
+
+<h4>Do you actually need one?</h4>
+<p>
+Single machine performance is <i>great</i>!
+</p>
+</section>
+
+</section>
+<section>
+<section id="sec-2" >
+
+<h2>Distributed systems and concurrency</h2>
+</section>
+<section id="sec-2-1" >
+
+<h3>What <i>is</i> a distributed system?</h3>
 <p>
 A system is distributed if a machine I&rsquo;ve never heard of can cause
 my program to fail.
@@ -129,57 +155,60 @@ my program to fail.
 </p>
 
 </section>
-<section id="sec-1-8" >
+<section id="sec-2-2" >
 
 <h3>A paradox</h3>
 <ul class="org-ul">
-<li>Why do people build them? Reliability!
+<li>Why do we use them? Reliability!
 </li>
-<li>Practitioners&rsquo; primary concern? Failure!
+<li>Experts&rsquo; primary concern? Failure!
 </li>
 </ul>
-</section>
 
 </section>
-<section>
-<section id="sec-2" >
+<section id="sec-2-3" >
 
-<h2>Caveat emptor</h2>
+<h3>Distributed system</h3>
+<ul class="org-ul">
+<li>Basically everything (including your laptop)
+<ul class="org-ul">
+<li>Speed of light isn&rsquo;t infinite
+</li>
+<li>RAM is <i>all the way over there</i>
+</li>
+</ul>
+</li>
+<li>Typically:
+<ul class="org-ul">
+<li>Any system with &gt; 1 machine
+</li>
+<li>Connected via network
+</li>
+</ul>
+</li>
+</ul>
+
 </section>
-<section id="sec-2-1" >
+<section id="sec-2-4" >
 
-<h3>Bad horror movie</h3>
+<h3>Concurrency</h3>
 <p>
-Don&rsquo;t go into the basement!
+Overlapping operations
 </p>
 
 </section>
-<section id="sec-2-2" >
+<section id="sec-2-5" >
 
-<h3>Do you actually need one?</h3>
-<p>
-Single machine performance is <i>great</i>!
-</p>
+<h3>Sequence diagrams</h3>
 </section>
 
 </section>
 <section>
 <section id="sec-3" >
 
-<h2>Impossibility results</h2>
-</section>
-<section id="sec-3-1" >
-
-<h3>FLP</h3>
-</section>
-
-</section>
-<section>
-<section id="sec-4" >
-
 <h2>CAP</h2>
 </section>
-<section id="sec-4-1" >
+<section id="sec-3-1" >
 
 <h3>Pick any two!</h3>
 <ul class="org-ul">
@@ -192,23 +221,62 @@ Single machine performance is <i>great</i>!
 </ul>
 
 </section>
-<section id="sec-4-2" >
+<section id="sec-3-2" >
 
-<h3>You can&rsquo;t sacrifice partition tolerance</h3>
+<h3>Venn diagram</h3>
+<img src="./media/cap-venn-base.svg" alt="cap-venn-base.svg" style="width:50%" />
 
 </section>
-<section id="sec-4-3" >
+<section id="sec-3-3" >
 
-<h3>So, pick any two</h3>
+<h3>Pick any two</h3>
+<img src="./media/cap-venn-any2.svg" alt="cap-venn-any2.svg" style="width:50%" />
+
+</section>
+<section id="sec-3-4" >
+
+<h3>You can&rsquo;t sacrifice partition tolerance</h3>
 <p>
-As long as it&rsquo;s AP or CP ;-)
+Networks fail!
+</p>
+
+<p>
+TODO: explain various causes of latency in prod
 </p>
 
 </section>
-<section id="sec-4-4" >
+<section id="sec-3-5" >
+
+<h3>Pick any two: AP or CP</h3>
+<img src="./media/cap-venn-any2-withp.svg" alt="cap-venn-any2-withp.svg" style="width:50%" />
+
+</section>
+<section id="sec-3-6" >
 
 <h3>Reality</h3>
 <img src="./media/shades.svg" alt="shades.svg" />
+
+</section>
+<section id="sec-3-7" >
+
+<h3>Gradations</h3>
+<img src="./media/ap-cp.svg" alt="ap-cp.svg" style="width:80%" />
+</section>
+
+</section>
+<section>
+<section id="sec-4" >
+
+<h2>Impossibility results</h2>
+</section>
+<section id="sec-4-1" >
+
+<h3>FLP</h3>
+
+</section>
+<section id="sec-4-2" >
+
+<h3>Wallclocks</h3>
 </section>
 
 </section>
