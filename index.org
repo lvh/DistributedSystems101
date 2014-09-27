@@ -1,5 +1,5 @@
 #+Title: Distributed Systems 101
-#+Author: lvh
+#+Author: @lvh
 #+Email: _@lvh.io
 
 #+OPTIONS: toc:nil reveal_rolling_links:nil num:nil reveal_history:true
