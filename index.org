@@ -63,7 +63,7 @@
 
    /Leslie Lamport/
 
-** A paradox
+** Paradox
 
    * Why do we use them? Reliability!
    * Experts' primary concern? Failure!
@@ -91,7 +91,13 @@
    * Availability
    * Partition tolerance
 
-** Venn diagram
+** What does that even mean?
+
+   * Availability, n.: any non-failing node answers every query
+   * Consistency:, n.:
+   * Partition tolerance, p.:
+
+** Pick any two:
 
    #+ATTR_HTML: :style width:50%
    [[./media/cap-venn-base.svg]]
