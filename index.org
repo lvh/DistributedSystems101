@@ -141,9 +141,11 @@
 
 ** Consensus protocols
 
-*** Set partitioning
+** Consensus protocol recipes
 
-*** Examples
+   * Set partitioning
+   * Consistent counters
+   * ...
 
 ** CRDTs
 
