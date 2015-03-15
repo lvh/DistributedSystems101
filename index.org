@@ -38,11 +38,10 @@
    #+ATTR_REVEAL: :frag roll-in
    * Field considered exclusive domain of experts
    * Abstinence-only education doesn't work
-     * Lots of papers, material out there
-     * Not organized for self-teaching
-   * We can no longer afford not to care
+   * Lots of material, but not organized for self-teaching
+   * We can't afford not to care
 
-*** Disconnect between practice and theory
+** Disconnect
 
     * Many theoreticians ignore practice
     * Many practitioners ignore theory
@@ -54,16 +53,6 @@
    #+ATTR_REVEAL: :frag roll-in
    * to whet your appetite
    * to shoot yourself in the foot
-
-** Caveat emptor
-
-*** Bad horror movie
-
-   Don't go into the basement!
-
-*** Do you actually need one?
-
-   Single machine performance is /great/!
 
 * Distributed systems and concurrency
 
