@@ -163,7 +163,7 @@
    * More performant
    * Make problems tractable
 
-** Argh, distributed systems
+** Argh, distributed systems!
 
    * Incredibly hard to reason about
    * Expensive to operate
