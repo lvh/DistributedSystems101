@@ -166,6 +166,7 @@
 ** Argh, distributed systems!
 
    * Incredibly hard to reason about
+   * Huge state space means you can't repeat scenarios
    * Expensive to operate
 
 ** Why distributed systems?
