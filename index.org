@@ -155,10 +155,19 @@
 
 * Conclusion
 
+** Yay, distributed systems!
+
+   * More resilient
+   * More performant
+   * Make problems tractable
+
+** Argh, distributed systems
+
+   * Incredibly hard to reason about
+   * Expensive to operate
+
 ** Why distributed systems?
 
-   Because you have /no other options/.
-
-   (This happens somewhat often.)
+   Because you're /out of options/.
 
 * Questions?
