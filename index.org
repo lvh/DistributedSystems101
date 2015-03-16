@@ -68,7 +68,12 @@
    * Why do we use them? Reliability!
    * Experts' primary concern? Failure!
 
-** Distributed system
+** Fundamental constraints
+
+   1. Information travels at /c/
+   2. Independent components fail independently
+
+** Examples
 
    * Basically everything (including your laptop)
      * Speed of light isn't infinite
