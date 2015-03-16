@@ -149,7 +149,7 @@
 
 ** CRDTs
 
-*** Previously: CAP
+** Previously: CAP
 
     * Presented as trade-off: C versus A
     * Doesn't explain what we can do /on/ that line
