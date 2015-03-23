@@ -6,7 +6,7 @@
 <title>Distributed Systems 101</title>
 <meta name="author" content="(@lvh)"/>
 
-<link rel="stylesheet" href="./reveal.js/css/reveal.min.css"/>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
 <link rel="stylesheet" href="./reveal.js/css/theme/lvh.css" id="theme"/>
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
@@ -27,7 +27,8 @@
 <h1>Distributed Systems 101</h1>
 <h2>@lvh</h2>
 <h2><a href="mailto:_@lvh.io">_@lvh.io</a></h2>
-<h2></h2></section>
+<h2></h2>
+</section>
 
 <section>
 <section id="sec-1" >
@@ -77,22 +78,18 @@ Parallels with Crypto 101
 <ul class="org-ul">
 <li class="fragment roll-in">Field considered exclusive domain of experts
 </li>
-<li class="fragment roll-in">Abstinence-only education doesn&rsquo;t work
-<ul class="org-ul">
-<li>Lots of papers, material out there
+<li class="fragment roll-in">Abstinence-only education doesn't work
 </li>
-<li>Not organized for self-teaching
+<li class="fragment roll-in">Lots of material, but not organized for self-teaching
 </li>
-</ul>
-</li>
-<li class="fragment roll-in">We can no longer afford not to care
+<li class="fragment roll-in">We can't afford not to care
 </li>
 </ul>
 
 </section>
-<section id="sec-1-5-1" >
+<section id="sec-1-6" >
 
-<h4>Disconnect between practice and theory</h4>
+<h3>Disconnect</h3>
 <ul class="org-ul">
 <li>Many theoreticians ignore practice
 </li>
@@ -101,11 +98,11 @@ Parallels with Crypto 101
 </ul>
 
 </section>
-<section id="sec-1-6" >
+<section id="sec-1-7" >
 
 <h3>Distributed Systems 101</h3>
 <p>
-&ldquo;Just enough&rdquo; distributed systems
+"Just enough" distributed systems
 </p>
 
 <ul class="org-ul">
@@ -114,26 +111,6 @@ Parallels with Crypto 101
 <li class="fragment roll-in">to shoot yourself in the foot
 </li>
 </ul>
-
-</section>
-<section id="sec-1-7" >
-
-<h3>Caveat emptor</h3>
-</section>
-<section id="sec-1-7-1" >
-
-<h4>Bad horror movie</h4>
-<p>
-Don&rsquo;t go into the basement!
-</p>
-
-</section>
-<section id="sec-1-7-2" >
-
-<h4>Do you actually need one?</h4>
-<p>
-Single machine performance is <i>great</i>!
-</p>
 </section>
 
 </section>
@@ -146,7 +123,7 @@ Single machine performance is <i>great</i>!
 
 <h3>What <i>is</i> a distributed system?</h3>
 <p>
-A system is distributed if a machine I&rsquo;ve never heard of can cause
+A system is distributed if a machine I've never heard of can cause
 my program to fail.
 </p>
 
@@ -157,22 +134,56 @@ my program to fail.
 </section>
 <section id="sec-2-2" >
 
-<h3>A paradox</h3>
+<h3>Paradox</h3>
 <ul class="org-ul">
 <li>Why do we use them? Reliability!
 </li>
-<li>Experts&rsquo; primary concern? Failure!
+<li>Experts' primary concern? Failure!
 </li>
 </ul>
 
 </section>
 <section id="sec-2-3" >
 
-<h3>Distributed system</h3>
+<h3>Fundamental constraints</h3>
+<ol class="org-ol">
+<li>Information travels at <i>c</i>
+</li>
+<li>Independent components fail independently
+</li>
+</ol>
+
+</section>
+<section id="sec-2-4" >
+
+<h3>Fallacies</h3>
+<ol class="org-ol">
+<li>The network is reliable.
+</li>
+<li>Latency is zero.
+</li>
+<li>Bandwidth is infinite.
+</li>
+<li>The network is secure.
+</li>
+<li>Topology doesn't change.
+</li>
+<li>There is one administrator.
+</li>
+<li>Transport cost is zero.
+</li>
+<li>The network is homogeneous.
+</li>
+</ol>
+
+</section>
+<section id="sec-2-5" >
+
+<h3>Examples</h3>
 <ul class="org-ul">
-<li>Basically everything (including your laptop)
+<li>Basically everything (e.g., your laptop)
 <ul class="org-ul">
-<li>Speed of light isn&rsquo;t infinite
+<li>Speed of light isn't infinite
 </li>
 <li>RAM is <i>all the way over there</i>
 </li>
@@ -189,7 +200,7 @@ my program to fail.
 </ul>
 
 </section>
-<section id="sec-2-4" >
+<section id="sec-2-6" >
 
 <h3>Concurrency</h3>
 <p>
@@ -197,9 +208,10 @@ Overlapping operations
 </p>
 
 </section>
-<section id="sec-2-5" >
+<section id="sec-2-7" >
 
-<h3>Sequence diagrams</h3>
+<h3>Consistency models</h3>
+<img src="./media/ConsistencyModels.svg" alt="ConsistencyModels.svg" style="width:80%" />
 </section>
 
 </section>
@@ -223,41 +235,59 @@ Overlapping operations
 </section>
 <section id="sec-3-2" >
 
-<h3>Venn diagram</h3>
-<img src="./media/cap-venn-base.svg" alt="cap-venn-base.svg" style="width:50%" />
+<h3>What does that even mean?</h3>
+<ul class="org-ul">
+<li>Availability, n.: active nodes answer every query
+</li>
+<li>Consistency:, n.: linearizability
+</li>
+<li>Partition tolerance, p.: packets can get lost
+</li>
+</ul>
 
 </section>
 <section id="sec-3-3" >
 
 <h3>Pick any two</h3>
-<img src="./media/cap-venn-any2.svg" alt="cap-venn-any2.svg" style="width:50%" />
+<img src="./media/cap-venn-base.svg" alt="cap-venn-base.svg" style="width:50%" />
 
 </section>
 <section id="sec-3-4" >
 
-<h3>You can&rsquo;t sacrifice partition tolerance</h3>
-<p>
-Networks fail!
-</p>
-
-<p>
-TODO: explain various causes of latency in prod
-</p>
+<h3>Pick any two</h3>
+<img src="./media/cap-venn-any2.svg" alt="cap-venn-any2.svg" style="width:50%" />
 
 </section>
 <section id="sec-3-5" >
+
+<h3>Can't sacrifice partition tolerance</h3>
+<ul class="org-ul">
+<li>Networks fail all the time
+</li>
+<li>Latency happens; indistinguishable
+</li>
+<li>P(no failures) &lt; 1 - P(one node works)<sup>N</sup>
+<ul class="org-ul">
+<li>Cascades, Hurst exponent
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="sec-3-6" >
 
 <h3>Pick any two: AP or CP</h3>
 <img src="./media/cap-venn-any2-withp.svg" alt="cap-venn-any2-withp.svg" style="width:50%" />
 
 </section>
-<section id="sec-3-6" >
+<section id="sec-3-7" >
 
 <h3>Reality</h3>
 <img src="./media/shades.svg" alt="shades.svg" />
 
 </section>
-<section id="sec-3-7" >
+<section id="sec-3-8" >
 
 <h3>Gradations</h3>
 <img src="./media/ap-cp.svg" alt="ap-cp.svg" style="width:80%" />
@@ -297,28 +327,46 @@ TODO: explain various causes of latency in prod
 <section id="sec-5-2" >
 
 <h3>Consensus protocols</h3>
-</section>
-<section id="sec-5-2-1" >
-
-<h4>Set partitioning</h4>
-
-</section>
-<section id="sec-5-2-2" >
-
-<h4>Examples</h4>
 
 </section>
 <section id="sec-5-3" >
 
-<h3>CRDTs</h3>
-</section>
-<section id="sec-5-3-1" >
+<h3>Examples</h3>
+<ul class="org-ul">
+<li>ZAB (used in Zookeeper)
+</li>
+<li>Paxos (think 2PC, but distributed)
+</li>
+<li>Raft (used in <code>etcd</code>)
+</li>
+</ul>
 
-<h4>Previously: CAP</h4>
+</section>
+<section id="sec-5-4" >
+
+<h3>Consensus protocol recipes</h3>
+<ul class="org-ul">
+<li>Set partitioning
+</li>
+<li>Consistent counters
+</li>
+<li>&#x2026;
+</li>
+</ul>
+
+</section>
+<section id="sec-5-5" >
+
+<h3>CRDTs</h3>
+
+</section>
+<section id="sec-5-6" >
+
+<h3>Previously: CAP</h3>
 <ul class="org-ul">
 <li>Presented as trade-off: C versus A
 </li>
-<li>Doesn&rsquo;t explain what we can do <i>on</i> that line
+<li>Doesn't explain what we can do <i>on</i> that line
 </li>
 <li>CRDTs: wonderful modern example of what we can do
 </li>
@@ -333,13 +381,35 @@ TODO: explain various causes of latency in prod
 </section>
 <section id="sec-6-1" >
 
+<h3>Yay, distributed systems!</h3>
+<ul class="org-ul">
+<li>More resilient
+</li>
+<li>More performant
+</li>
+<li>Make problems tractable
+</li>
+</ul>
+
+</section>
+<section id="sec-6-2" >
+
+<h3>Argh, distributed systems!</h3>
+<ul class="org-ul">
+<li>Incredibly hard to reason about
+</li>
+<li>Huge state space means you can't repeat scenarios
+</li>
+<li>Expensive to operate
+</li>
+</ul>
+
+</section>
+<section id="sec-6-3" >
+
 <h3>Why distributed systems?</h3>
 <p>
-Because you have <i>no other options</i>.
-</p>
-
-<p>
-(This happens somewhat often.)
+Because you're <i>out of options</i>.
 </p>
 </section>
 
@@ -354,7 +424,7 @@ Because you have <i>no other options</i>.
 </div>
 
 <script src="./reveal.js/lib/js/head.min.js"></script>
-<script src="./reveal.js/js/reveal.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
 
 <script>
 // Full list of configuration options available here:
@@ -373,6 +443,11 @@ overview: true,
 theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
 transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
 transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
 
 // Optional libraries used to extend on reveal.js
 dependencies: [

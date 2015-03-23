@@ -73,9 +73,20 @@
    1. Information travels at /c/
    2. Independent components fail independently
 
+** Fallacies
+
+   1. The network is reliable.
+   2. Latency is zero.
+   3. Bandwidth is infinite.
+   4. The network is secure.
+   5. Topology doesn't change.
+   6. There is one administrator.
+   7. Transport cost is zero.
+   8. The network is homogeneous.
+
 ** Examples
 
-   * Basically everything (including your laptop)
+   * Basically everything (e.g., your laptop)
      * Speed of light isn't infinite
      * RAM is /all the way over there/
    * Typically:
@@ -86,7 +97,10 @@
 
    Overlapping operations
 
-** Sequence diagrams
+** Consistency models
+
+   #+ATTR_HTML: :style width:80%
+   [[./media/ConsistencyModels.svg]]
 
 * CAP
 
@@ -98,11 +112,11 @@
 
 ** What does that even mean?
 
-   * Availability, n.: any non-failing node answers every query
-   * Consistency:, n.:
-   * Partition tolerance, p.:
+   * Availability, n.: active nodes answer every query
+   * Consistency:, n.: linearizability
+   * Partition tolerance, p.: packets can get lost
 
-** Pick any two:
+** Pick any two
 
    #+ATTR_HTML: :style width:50%
    [[./media/cap-venn-base.svg]]
@@ -112,11 +126,12 @@
    #+ATTR_HTML: :style width:50%
    [[./media/cap-venn-any2.svg]]
 
-** You can't sacrifice partition tolerance
+** Can't sacrifice partition tolerance
 
-   Networks fail!
-
-   TODO: explain various causes of latency in prod
+   * Networks fail all the time
+   * Latency happens; indistinguishable
+   * P(no failures) < 1 - P(one node works)^N
+     * Cascades, Hurst exponent
 
 ** Pick any two: AP or CP
 
@@ -145,6 +160,12 @@
 ** Queues
 
 ** Consensus protocols
+
+** Examples
+
+   * ZAB (used in Zookeeper)
+   * Paxos (think 2PC, but distributed)
+   * Raft (used in ~etcd~)
 
 ** Consensus protocol recipes
 

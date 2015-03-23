@@ -1,0 +1,73 @@
+// This data was taken from:
+/// Highly Available Transactions: Virtues and Limitations
+// Peter Bailis, Aaron Davidson, Alan Fekete, Ali Ghodsi, Joseph M. Hellerstein, Ion Stoica
+
+digraph ConsistencyModels {
+
+bgcolor="transparent";
+node [fontname="Helvetica"];
+
+subgraph Available {
+	node [style=filled,color=green,fillcolor="PaleGreen"];       
+        {
+                rank=same;
+                RU;
+                RC;
+        }
+        MAV;
+        ICI;
+        PCI;
+        WFR;
+        MR;
+        MW;
+}
+
+subgraph Sticky {
+	node [style=filled,color="Gold",fillcolor="LemonChiffon"];       
+        RYW;
+        PRAM;
+        Causal;        
+}
+
+subgraph Unavailable {
+	node [style=filled,color=red,fillcolor="Pink"];       
+        CS;
+        RR;
+        SI;
+        OSR;
+        Recency;
+        Safe;
+        Regular;
+        Linearizable;
+        StrongOSR;
+}
+
+// Unavailable <- Unavailable
+StrongOSR -> Linearizable -> Regular -> Safe -> Recency;
+StrongOSR -> OSR -> RR -> CS;
+OSR -> SI;
+
+// Sticky <-  Unavailable
+Safe -> RYW;
+Linearizable -> Causal;
+
+// Sticky <- Sticky
+Causal -> PRAM -> RYW;
+
+// Available <- Unavailable
+CS -> RC;
+RR -> MAV;
+SI -> MAV;
+SI -> PCI;
+RR -> ICI;
+
+// Available <- Sticky
+Causal -> WFR;
+PRAM -> MR;
+PRAM -> MW;
+
+// Available <- Available
+MAV -> RC -> RU;
+PCI -> ICI;
+
+}
