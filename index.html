@@ -212,17 +212,47 @@ Overlapping operations
 
 <h3>Consistency models</h3>
 <img src="./media/ConsistencyModels.svg" alt="ConsistencyModels.svg" style="width:80%" />
-</section>
+
+<aside class="notes">
+<p>
+<a href="http://www.bailis.org/papers/hat-vldb2014.pdf">http://www.bailis.org/papers/hat-vldb2014.pdf</a>
+<a href="http://www.ics.forth.gr/tech-reports/2013/2013.TR439_Survey_on_Consistency_Conditions.pdf">http://www.ics.forth.gr/tech-reports/2013/2013.TR439_Survey_on_Consistency_Conditions.pdf</a>
+<a href="http://www.allthingsdistributed.com/2008/12/eventually_consistent.html">http://www.allthingsdistributed.com/2008/12/eventually_consistent.html</a>
+</p>
+</aside>
 
 </section>
-<section>
-<section id="sec-3" >
+<section id="sec-2-8" >
 
-<h2>CAP</h2>
+<h3>Serializability</h3>
+<p>
+∃ serial execution of transactions with the same result
+</p>
+
 </section>
-<section id="sec-3-1" >
+<section id="sec-2-9" >
 
-<h3>Pick any two!</h3>
+<h3>Linearizability</h3>
+<p>
+All operations on a register look like they happened instantly
+</p>
+
+</section>
+<section id="sec-2-10" >
+
+<h3>Strong serializability</h3>
+<p>
+Linearizable &amp; serializable
+</p>
+
+</section>
+<section id="sec-2-11" >
+
+<h3>CAP</h3>
+</section>
+<section id="sec-2-12" >
+
+<h3>Pick any two:</h3>
 <ul class="org-ul">
 <li>Consistency
 </li>
@@ -233,36 +263,38 @@ Overlapping operations
 </ul>
 
 </section>
-<section id="sec-3-2" >
+<section id="sec-2-13" >
 
 <h3>What does that even mean?</h3>
 <ul class="org-ul">
-<li>Availability, n.: active nodes answer every query
+<li>Availability, n.: all active nodes answer every query
 </li>
 <li>Consistency:, n.: linearizability
 </li>
-<li>Partition tolerance, p.: packets can get lost
+<li>Partition tolerance, p.: failure-resistant
 </li>
 </ul>
 
 </section>
-<section id="sec-3-3" >
+<section id="sec-2-14" >
 
 <h3>Pick any two</h3>
 <img src="./media/cap-venn-base.svg" alt="cap-venn-base.svg" style="width:50%" />
 
 </section>
-<section id="sec-3-4" >
+<section id="sec-2-15" >
 
 <h3>Pick any two</h3>
 <img src="./media/cap-venn-any2.svg" alt="cap-venn-any2.svg" style="width:50%" />
 
 </section>
-<section id="sec-3-5" >
+<section id="sec-2-16" >
 
 <h3>Can't sacrifice partition tolerance</h3>
 <ul class="org-ul">
-<li>Networks fail all the time
+<li>Partition tolerance is failure tolerance
+</li>
+<li>Networks, nodes fail all the time
 </li>
 <li>Latency happens; indistinguishable
 </li>
@@ -275,43 +307,91 @@ Overlapping operations
 </ul>
 
 </section>
-<section id="sec-3-6" >
+<section id="sec-2-17" >
 
 <h3>Pick any two: AP or CP</h3>
 <img src="./media/cap-venn-any2-withp.svg" alt="cap-venn-any2-withp.svg" style="width:50%" />
 
 </section>
-<section id="sec-3-7" >
+<section id="sec-2-18" >
 
-<h3>Reality</h3>
-<img src="./media/shades.svg" alt="shades.svg" />
+<h3>Examples</h3>
+<ul class="org-ul">
+<li>Zookeeper is CP: consistent ops that sometimes fail
+</li>
+<li>Cassandra is AP: inconsistent ops that (usually) succeed
+</li>
+</ul>
 
 </section>
-<section id="sec-3-8" >
+<section id="sec-2-19" >
+
+<h3>Reality</h3>
+<ul class="org-ul">
+<li>CAP's C is linearizability
+</li>
+<li>CAP's A is ops on <i>any</i> node
+</li>
+<li>These are very strong guarantees!
+</li>
+</ul>
+
+</section>
+<section id="sec-2-20" >
 
 <h3>Gradations</h3>
 <img src="./media/ap-cp.svg" alt="ap-cp.svg" style="width:80%" />
+
+</section>
+<section id="sec-2-21" >
+
+<h3>Reality</h3>
+<ul class="org-ul">
+<li>There are <i>many</i> consistency models (real &amp; theoretical)
+</li>
+<li>There are <i>many</i> levels of availability (0-100%)
+</li>
+<li>No reason to sacrifice either outside of failures
+</li>
+<li>Systems can sacrifice many things during failures
+</li>
+</ul>
+
+</section>
+<section id="sec-2-22" >
+
+<h3>Example of creative sacrifice: <code>etcd</code></h3>
+<ul class="org-ul">
+<li>Normally: consistency all the way
+</li>
+<li>Option of doing inconsistent reads
+</li>
+<li>Maybe get some stale data
+</li>
+<li>&#x2026; but still works if the cluster is on fire!
+</li>
+</ul>
 </section>
 
 </section>
 <section>
-<section id="sec-4" >
+<section id="sec-3" >
 
 <h2>Impossibility results</h2>
 </section>
-<section id="sec-4-1" >
+<section id="sec-3-1" >
 
 <h3>FLP</h3>
 
 </section>
-<section id="sec-4-2" >
+<section id="sec-3-2" >
 
 <h3>Wallclocks</h3>
 </section>
 
 </section>
 <section>
-<section id="sec-5" >
+<section id="sec-4" >
 
 <h2>Components</h2>
 <p>
@@ -319,17 +399,17 @@ Overlapping operations
 </p>
 
 </section>
-<section id="sec-5-1" >
+<section id="sec-4-1" >
 
 <h3>Queues</h3>
 
 </section>
-<section id="sec-5-2" >
+<section id="sec-4-2" >
 
 <h3>Consensus protocols</h3>
 
 </section>
-<section id="sec-5-3" >
+<section id="sec-4-3" >
 
 <h3>Examples</h3>
 <ul class="org-ul">
@@ -342,7 +422,7 @@ Overlapping operations
 </ul>
 
 </section>
-<section id="sec-5-4" >
+<section id="sec-4-4" >
 
 <h3>Consensus protocol recipes</h3>
 <ul class="org-ul">
@@ -355,12 +435,12 @@ Overlapping operations
 </ul>
 
 </section>
-<section id="sec-5-5" >
+<section id="sec-4-5" >
 
 <h3>CRDTs</h3>
 
 </section>
-<section id="sec-5-6" >
+<section id="sec-4-6" >
 
 <h3>Previously: CAP</h3>
 <ul class="org-ul">
@@ -375,11 +455,11 @@ Overlapping operations
 
 </section>
 <section>
-<section id="sec-6" >
+<section id="sec-5" >
 
 <h2>Conclusion</h2>
 </section>
-<section id="sec-6-1" >
+<section id="sec-5-1" >
 
 <h3>Yay, distributed systems!</h3>
 <ul class="org-ul">
@@ -392,20 +472,20 @@ Overlapping operations
 </ul>
 
 </section>
-<section id="sec-6-2" >
+<section id="sec-5-2" >
 
 <h3>Argh, distributed systems!</h3>
 <ul class="org-ul">
 <li>Incredibly hard to reason about
 </li>
-<li>Huge state space means you can't repeat scenarios
+<li>Huge state space, no repeat scenarios
 </li>
 <li>Expensive to operate
 </li>
 </ul>
 
 </section>
-<section id="sec-6-3" >
+<section id="sec-5-3" >
 
 <h3>Why distributed systems?</h3>
 <p>
@@ -415,7 +495,7 @@ Because you're <i>out of options</i>.
 
 </section>
 <section>
-<section id="sec-7" >
+<section id="sec-6" >
 
 <h2>Questions?</h2>
 </section>

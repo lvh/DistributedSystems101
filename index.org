@@ -108,9 +108,20 @@
    http://www.allthingsdistributed.com/2008/12/eventually_consistent.html
    #+END_NOTES
 
-* CAP
+** Serializability
 
-** Pick any two!
+   ∃ serial execution of transactions with the same result
+
+** Linearizability
+
+   All operations on a register look like they happened instantly
+
+** Strong serializability
+
+   Linearizable & serializable
+
+** CAP
+** Pick any two:
 
    * Consistency
    * Availability
@@ -118,9 +129,9 @@
 
 ** What does that even mean?
 
-   * Availability, n.: active nodes answer every query
+   * Availability, n.: all active nodes answer every query
    * Consistency:, n.: linearizability
-   * Partition tolerance, p.: packets can get lost
+   * Partition tolerance, p.: failure-resistant
 
 ** Pick any two
 
@@ -134,7 +145,8 @@
 
 ** Can't sacrifice partition tolerance
 
-   * Networks fail all the time
+   * Partition tolerance is failure tolerance
+   * Networks, nodes fail all the time
    * Latency happens; indistinguishable
    * P(no failures) < 1 - P(one node works)^N
      * Cascades, Hurst exponent
@@ -144,14 +156,35 @@
    #+ATTR_HTML: :style width:50%
    [[./media/cap-venn-any2-withp.svg]]
 
+** Examples
+
+   * Zookeeper is CP: consistent ops that sometimes fail
+   * Cassandra is AP: inconsistent ops that (usually) succeed
+
 ** Reality
 
-   [[./media/shades.svg]]
+   * CAP's C is linearizability
+   * CAP's A is ops on /any/ node
+   * These are very strong guarantees!
 
 ** Gradations
 
    #+ATTR_HTML: :style width:80%
    [[./media/ap-cp.svg]]
+
+** Reality
+
+   * There are /many/ consistency models (real & theoretical)
+   * There are /many/ levels of availability (0-100%)
+   * No reason to sacrifice either outside of failures
+   * Systems can sacrifice many things during failures
+
+** Example of creative sacrifice: ~etcd~
+
+   * Normally: consistency all the way
+   * Option of doing inconsistent reads
+   * Maybe get some stale data
+   * ... but still works if the cluster is on fire!
 
 * Impossibility results
 
@@ -198,7 +231,7 @@
 ** Argh, distributed systems!
 
    * Incredibly hard to reason about
-   * Huge state space means you can't repeat scenarios
+   * Huge state space, no repeat scenarios
    * Expensive to operate
 
 ** Why distributed systems?
