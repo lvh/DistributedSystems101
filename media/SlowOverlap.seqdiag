@@ -1,0 +1,13 @@
+seqdiag {
+        activation = none;
+        default_fontsize = 14;
+        
+        A [label="Process A"];
+        R [label="Register"];
+        B [label="Process B"];
+
+        B ->> R [diagonal, label="Read"];        
+        A ->> R [diagonal, label="Write x"];
+        A <<- R [diagonal, label="Written x"];
+        B <<- R [diagonal, label="Read y", note="y was written before\nread was initiated!"];
+}

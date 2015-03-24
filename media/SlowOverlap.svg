@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg viewBox="0 0 711 535" xmlns="http://www.w3.org/2000/svg" xmlns:inkspace="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs id="defs_block">
+    <filter height="1.504" id="filter_blur" inkspace:collect="always" width="1.1575" x="-0.07875" y="-0.252">
+      <feGaussianBlur id="feGaussianBlur3780" inkspace:collect="always" stdDeviation="4.2" />
+    </filter>
+  </defs>
+  <title>blockdiag</title>
+  <desc>seqdiag {
+        activation = none;
+        default_fontsize = 14;
+        
+        A [label="Process A"];
+        R [label="Register"];
+        B [label="Process B"];
+
+        B -&gt;&gt; R [diagonal, label="Read"];        
+        A -&gt;&gt; R [diagonal, label="Write x"];
+        A &lt;&lt;- R [diagonal, label="Written x"];
+        B &lt;&lt;- R [diagonal, label="Read y", note="y was written before\nread was initiated!"];
+}
+</desc>
+  <polygon fill="rgb(0,0,0)" points="531,420 690,420 698,428 698,455 531,455 531,420" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="67" y="46" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="259" y="46" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="451" y="46" />
+  <path d="M 128 80 L 128 523" fill="none" stroke="rgb(0,0,0)" stroke-dasharray="8 4" />
+  <path d="M 320 80 L 320 523" fill="none" stroke="rgb(0,0,0)" stroke-dasharray="8 4" />
+  <path d="M 512 80 L 512 523" fill="none" stroke="rgb(0,0,0)" stroke-dasharray="8 4" />
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="128" x="64" y="40" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="72" x="128" y="67">Process A</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="128" x="256" y="40" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="57" x="320" y="68">Register</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="128" x="448" y="40" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="71" x="512" y="67">Process B</text>
+  <path d="M 328 167 L 504 137" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 336 163 L 328 167" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 328 167 L 336 171" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 136 234 L 312 264" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 304 260 L 312 264" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 312 264 L 304 268" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 136 361 L 312 331" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 144 357 L 136 361" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 136 361 L 144 365" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 328 431 L 504 461" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 496 457 L 504 461" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 504 461 L 496 465" fill="none" stroke="rgb(0,0,0)" />
+  <polygon fill="rgb(255,182,193)" points="528,414 687,414 695,422 695,449 528,449 528,414" stroke="rgb(0,0,0)" />
+  <path d="M 687 414 L 687 422" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 687 422 L 695 422" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="143" x="607" y="432">y was written before</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="125" x="598" y="447">read was initiated!</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="35" x="486" y="135">Read</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="49" x="164" y="232">Write x</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="63" x="280" y="329">Written x</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="48" x="356" y="429">Read y</text>
+</svg>

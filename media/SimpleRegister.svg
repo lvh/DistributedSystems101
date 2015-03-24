@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg viewBox="0 0 448 418" xmlns="http://www.w3.org/2000/svg" xmlns:inkspace="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs id="defs_block">
+    <filter height="1.504" id="filter_blur" inkspace:collect="always" width="1.1575" x="-0.07875" y="-0.252">
+      <feGaussianBlur id="feGaussianBlur3780" inkspace:collect="always" stdDeviation="4.2" />
+    </filter>
+  </defs>
+  <title>blockdiag</title>
+  <desc>seqdiag {
+        activation = none;
+        default_fontsize = 14;
+        
+        Process;
+        Register;
+        
+        Process -&gt;&gt; Register [label="Write x"];
+        Process &lt;&lt;- Register [label="Read x"];
+
+        Process -&gt;&gt; Register [label="Write y"];
+        Process &lt;&lt;- Register [label="Read y"];
+}
+</desc>
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="67" y="46" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="259" y="46" />
+  <path d="M 128 80 L 128 406" fill="none" stroke="rgb(0,0,0)" stroke-dasharray="8 4" />
+  <path d="M 320 80 L 320 406" fill="none" stroke="rgb(0,0,0)" stroke-dasharray="8 4" />
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="128" x="64" y="40" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="56" x="128" y="67">Process</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="128" x="256" y="40" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="57" x="320" y="68">Register</text>
+  <path d="M 136 137 L 312 137" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 304 133 L 312 137" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 312 137 L 304 141" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 136 204 L 312 204" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 144 200 L 136 204" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 136 204 L 144 208" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 136 274 L 312 274" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 304 270 L 312 274" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 312 274 L 304 278" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 136 344 L 312 344" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 144 340 L 136 344" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 136 344 L 144 348" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="49" x="164" y="135">Write x</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="48" x="288" y="202">Read x</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="49" x="164" y="272">Write y</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="48" x="288" y="342">Read y</text>
+</svg>

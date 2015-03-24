@@ -1,0 +1,13 @@
+seqdiag {
+        activation = none;
+        default_fontsize = 14;
+        
+        Process;
+        Register;
+        
+        Process ->> Register [label="Write x"];
+        Process <<- Register [label="Read x"];
+
+        Process ->> Register [label="Write y"];
+        Process <<- Register [label="Read y"];
+}

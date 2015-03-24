@@ -1,0 +1,13 @@
+seqdiag {
+        activation = none;
+        default_fontsize = 14;
+        
+        A [label="Process A"];
+        R [label="Register"];
+        B [label="Process B"]; 
+        
+        A ->> R [label="Write x"];
+        B <<- R [label="Read x"];
+        B ->> R [label="Write y"];
+        A <<- R [label="Read y"];
+}
