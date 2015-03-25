@@ -71,7 +71,7 @@
 ** Fundamental constraints
 
    1. Information travels at /c/
-   2. Independent components fail independently
+   2. Components fail
 
 ** Fallacies
 
@@ -84,7 +84,7 @@
    7. Transport cost is zero.
    8. The network is homogeneous.
 
-** Examples
+** Examples of distributed systems
 
    * Basically everything (e.g., your laptop)
      * Speed of light isn't infinite
@@ -93,7 +93,25 @@
      * Any system with > 1 machine
      * Connected via network
 
+* Consequences
+
 ** Concurrency
+
+*** One process, one register
+
+    #+ATTR_HTML: :style width:70%
+   [[./media/SimpleRegister.svg]]
+
+*** Two processes, one register
+
+   [[./media/SimpleRegisterTwoWriters.svg]]
+
+*** Information travels at /c/
+
+    #+ATTR_HTML: :style width:50%
+   [[./media/SlowRegisters.svg]]
+
+*** Concurrency
 
    Overlapping operations
 
@@ -108,42 +126,63 @@
    http://www.allthingsdistributed.com/2008/12/eventually_consistent.html
    #+END_NOTES
 
-** Serializability
+*** Serializability
 
-   ∃ serial execution of transactions with the same result
+   * ∃ serial execution with the same result
+   * /Some/ serial execution: fairly weak
+     * No restrictions on /which/ serial execution
+     * No restrictions on /when/ they execute
 
-** Linearizability
+*** Linearizability
 
-   All operations on a register look like they happened instantly
+   All operations appear to happen instantly
 
-** Strong serializability
+*** Strong serializability
 
-   Linearizable & serializable
+   * Linearizable & serializable
+   * There is a serial execution ...
+   * ... and that execution is unique & matches wallclock time (???)
+
+*** Your computer is distributed
+
+    * Models also exist in "centralized" systems
+    * SQL databases support many of these models
+    * Clojure's reference types
+
+*** In Python: Twisted, asyncyio... vs threads
+
+    * Twisted: strongly serializable
+      * Event loop with 1 reactor thread
+      * Serializable: reactor finds the ordering
+      * Linearizable: callbacks run by themselves
+    * Threads: usually more like read uncommitted
+      * Many Python opcodes are atomic
+      * Correct use of locks?
 
 ** CAP
-** Pick any two:
+*** Pick any two:
 
    * Consistency
    * Availability
    * Partition tolerance
 
-** What does that even mean?
+*** What does that even mean?
 
    * Availability, n.: all active nodes answer every query
    * Consistency:, n.: linearizability
    * Partition tolerance, p.: failure-resistant
 
-** Pick any two
+*** Pick any two
 
    #+ATTR_HTML: :style width:50%
    [[./media/cap-venn-base.svg]]
 
-** Pick any two
+*** Pick any two
 
    #+ATTR_HTML: :style width:50%
    [[./media/cap-venn-any2.svg]]
 
-** Can't sacrifice partition tolerance
+*** Can't sacrifice partition tolerance
 
    * Partition tolerance is failure tolerance
    * Networks, nodes fail all the time
@@ -151,40 +190,41 @@
    * P(no failures) < 1 - P(one node works)^N
      * Cascades, Hurst exponent
 
-** Pick any two: AP or CP
+*** Pick any two: AP or CP
 
    #+ATTR_HTML: :style width:50%
    [[./media/cap-venn-any2-withp.svg]]
 
-** Examples
+*** Examples
 
    * Zookeeper is CP: consistent ops that sometimes fail
    * Cassandra is AP: inconsistent ops that (usually) succeed
 
-** Reality
+*** Reality
 
    * CAP's C is linearizability
    * CAP's A is ops on /any/ node
    * These are very strong guarantees!
 
-** Gradations
+*** Gradations
 
    #+ATTR_HTML: :style width:80%
    [[./media/ap-cp.svg]]
 
-** Reality
+*** Reality
 
    * There are /many/ consistency models (real & theoretical)
    * There are /many/ levels of availability (0-100%)
    * No reason to sacrifice either outside of failures
    * Systems can sacrifice many things during failures
 
-** Example of creative sacrifice: ~etcd~
+*** Example of creative sacrifice: ~etcd~
 
    * Normally: consistency all the way
    * Option of doing inconsistent reads
    * Maybe get some stale data
    * ... but still works if the cluster is on fire!
+
 
 * Impossibility results
 
@@ -192,7 +232,8 @@
 
 ** Wallclocks
 
-* Components
+
+* Tools and components
 
   (High and low level)
 
@@ -200,7 +241,7 @@
 
 ** Consensus protocols
 
-** Examples
+*** Examples
 
    * ZAB (used in Zookeeper)
    * Paxos (think 2PC, but distributed)
@@ -220,8 +261,7 @@
     * Doesn't explain what we can do /on/ that line
     * CRDTs: wonderful modern example of what we can do
 
-* Conclusion
-
+* Wrap-up
 ** Yay, distributed systems!
 
    * More resilient
@@ -238,4 +278,4 @@
 
    Because you're /out of options/.
 
-* Questions?
+** Questions?

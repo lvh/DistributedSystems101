@@ -149,7 +149,7 @@ my program to fail.
 <ol class="org-ol">
 <li>Information travels at <i>c</i>
 </li>
-<li>Independent components fail independently
+<li>Components fail
 </li>
 </ol>
 
@@ -179,7 +179,7 @@ my program to fail.
 </section>
 <section id="sec-2-5" >
 
-<h3>Examples</h3>
+<h3>Examples of distributed systems</h3>
 <ul class="org-ul">
 <li>Basically everything (e.g., your laptop)
 <ul class="org-ul">
@@ -198,17 +198,45 @@ my program to fail.
 </ul>
 </li>
 </ul>
+</section>
 
 </section>
-<section id="sec-2-6" >
+<section>
+<section id="sec-3" >
+
+<h2>Consequences</h2>
+</section>
+<section id="sec-3-1" >
 
 <h3>Concurrency</h3>
+</section>
+<section id="sec-3-1-1" >
+
+<h4>One process, one register</h4>
+<img src="./media/SimpleRegister.svg" alt="SimpleRegister.svg" style="width:70%" />
+
+</section>
+<section id="sec-3-1-2" >
+
+<h4>Two processes, one register</h4>
+<img src="./media/SimpleRegisterTwoWriters.svg" alt="SimpleRegisterTwoWriters.svg" />
+
+</section>
+<section id="sec-3-1-3" >
+
+<h4>Information travels at <i>c</i></h4>
+<img src="./media/SlowRegisters.svg" alt="SlowRegisters.svg" style="width:50%" />
+
+</section>
+<section id="sec-3-1-4" >
+
+<h4>Concurrency</h4>
 <p>
 Overlapping operations
 </p>
 
 </section>
-<section id="sec-2-7" >
+<section id="sec-3-2" >
 
 <h3>Consistency models</h3>
 <img src="./media/ConsistencyModels.svg" alt="ConsistencyModels.svg" style="width:80%" />
@@ -222,37 +250,85 @@ Overlapping operations
 </aside>
 
 </section>
-<section id="sec-2-8" >
+<section id="sec-3-2-1" >
 
-<h3>Serializability</h3>
+<h4>Serializability</h4>
+<ul class="org-ul">
+<li>∃ serial execution of transactions with the same result
+</li>
+<li><i>Some</i> serial execution: fairly weak
+</li>
+<li>No restrictions on <i>which</i> serial execution
+</li>
+<li>No restrictions on <i>when</i> they execute
+</li>
+</ul>
+
+</section>
+<section id="sec-3-2-2" >
+
+<h4>Linearizability</h4>
 <p>
-∃ serial execution of transactions with the same result
+All operations appear to happen instantly
 </p>
 
 </section>
-<section id="sec-2-9" >
+<section id="sec-3-2-3" >
 
-<h3>Linearizability</h3>
-<p>
-All operations on a register look like they happened instantly
-</p>
-
-</section>
-<section id="sec-2-10" >
-
-<h3>Strong serializability</h3>
-<p>
-Linearizable &amp; serializable
-</p>
+<h4>Strong serializability</h4>
+<ul class="org-ul">
+<li>Linearizable &amp; serializable
+</li>
+<li>There is a serial execution &#x2026; ()
+</li>
+</ul>
 
 </section>
-<section id="sec-2-11" >
+<section id="sec-3-2-4" >
+
+<h4>Your computer is distributed</h4>
+<ul class="org-ul">
+<li>Models also exist in "centralized" systems
+</li>
+<li>SQL databases support many of these models
+</li>
+<li>Clojure's reference types
+</li>
+</ul>
+
+</section>
+<section id="sec-3-2-5" >
+
+<h4>In Python: Twisted, asyncyio&#x2026; vs threads</h4>
+<ul class="org-ul">
+<li>Twisted: strongly serializable
+<ul class="org-ul">
+<li>Event loop with 1 reactor thread
+</li>
+<li>Serializable: reactor finds the ordering
+</li>
+<li>Linearizable: callbacks run by themselves
+</li>
+</ul>
+</li>
+<li>Threads: usually more like read uncommitted
+<ul class="org-ul">
+<li>Many Python opcodes are atomic
+</li>
+<li>Correct use of locks?
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="sec-3-3" >
 
 <h3>CAP</h3>
 </section>
-<section id="sec-2-12" >
+<section id="sec-3-3-1" >
 
-<h3>Pick any two:</h3>
+<h4>Pick any two:</h4>
 <ul class="org-ul">
 <li>Consistency
 </li>
@@ -263,9 +339,9 @@ Linearizable &amp; serializable
 </ul>
 
 </section>
-<section id="sec-2-13" >
+<section id="sec-3-3-2" >
 
-<h3>What does that even mean?</h3>
+<h4>What does that even mean?</h4>
 <ul class="org-ul">
 <li>Availability, n.: all active nodes answer every query
 </li>
@@ -276,21 +352,21 @@ Linearizable &amp; serializable
 </ul>
 
 </section>
-<section id="sec-2-14" >
+<section id="sec-3-3-3" >
 
-<h3>Pick any two</h3>
+<h4>Pick any two</h4>
 <img src="./media/cap-venn-base.svg" alt="cap-venn-base.svg" style="width:50%" />
 
 </section>
-<section id="sec-2-15" >
+<section id="sec-3-3-4" >
 
-<h3>Pick any two</h3>
+<h4>Pick any two</h4>
 <img src="./media/cap-venn-any2.svg" alt="cap-venn-any2.svg" style="width:50%" />
 
 </section>
-<section id="sec-2-16" >
+<section id="sec-3-3-5" >
 
-<h3>Can't sacrifice partition tolerance</h3>
+<h4>Can't sacrifice partition tolerance</h4>
 <ul class="org-ul">
 <li>Partition tolerance is failure tolerance
 </li>
@@ -307,15 +383,15 @@ Linearizable &amp; serializable
 </ul>
 
 </section>
-<section id="sec-2-17" >
+<section id="sec-3-3-6" >
 
-<h3>Pick any two: AP or CP</h3>
+<h4>Pick any two: AP or CP</h4>
 <img src="./media/cap-venn-any2-withp.svg" alt="cap-venn-any2-withp.svg" style="width:50%" />
 
 </section>
-<section id="sec-2-18" >
+<section id="sec-3-3-7" >
 
-<h3>Examples</h3>
+<h4>Examples</h4>
 <ul class="org-ul">
 <li>Zookeeper is CP: consistent ops that sometimes fail
 </li>
@@ -324,9 +400,9 @@ Linearizable &amp; serializable
 </ul>
 
 </section>
-<section id="sec-2-19" >
+<section id="sec-3-3-8" >
 
-<h3>Reality</h3>
+<h4>Reality</h4>
 <ul class="org-ul">
 <li>CAP's C is linearizability
 </li>
@@ -337,15 +413,15 @@ Linearizable &amp; serializable
 </ul>
 
 </section>
-<section id="sec-2-20" >
+<section id="sec-3-3-9" >
 
-<h3>Gradations</h3>
+<h4>Gradations</h4>
 <img src="./media/ap-cp.svg" alt="ap-cp.svg" style="width:80%" />
 
 </section>
-<section id="sec-2-21" >
+<section id="sec-3-3-10" >
 
-<h3>Reality</h3>
+<h4>Reality</h4>
 <ul class="org-ul">
 <li>There are <i>many</i> consistency models (real &amp; theoretical)
 </li>
@@ -358,9 +434,9 @@ Linearizable &amp; serializable
 </ul>
 
 </section>
-<section id="sec-2-22" >
+<section id="sec-3-3-11" >
 
-<h3>Example of creative sacrifice: <code>etcd</code></h3>
+<h4>Example of creative sacrifice: <code>etcd</code></h4>
 <ul class="org-ul">
 <li>Normally: consistency all the way
 </li>
@@ -373,43 +449,45 @@ Linearizable &amp; serializable
 </ul>
 </section>
 
-</section>
-<section>
-<section id="sec-3" >
-
-<h2>Impossibility results</h2>
-</section>
-<section id="sec-3-1" >
-
-<h3>FLP</h3>
-
-</section>
-<section id="sec-3-2" >
-
-<h3>Wallclocks</h3>
-</section>
 
 </section>
 <section>
 <section id="sec-4" >
 
-<h2>Components</h2>
+<h2>Impossibility results</h2>
+</section>
+<section id="sec-4-1" >
+
+<h3>FLP</h3>
+
+</section>
+<section id="sec-4-2" >
+
+<h3>Wallclocks</h3>
+</section>
+
+
+</section>
+<section>
+<section id="sec-5" >
+
+<h2>Tools and components</h2>
 <p>
 (High and low level)
 </p>
 
 </section>
-<section id="sec-4-1" >
+<section id="sec-5-1" >
 
 <h3>Queues</h3>
 
 </section>
-<section id="sec-4-2" >
+<section id="sec-5-2" >
 
 <h3>Consensus protocols</h3>
 
 </section>
-<section id="sec-4-3" >
+<section id="sec-5-3" >
 
 <h3>Examples</h3>
 <ul class="org-ul">
@@ -422,7 +500,7 @@ Linearizable &amp; serializable
 </ul>
 
 </section>
-<section id="sec-4-4" >
+<section id="sec-5-4" >
 
 <h3>Consensus protocol recipes</h3>
 <ul class="org-ul">
@@ -435,12 +513,12 @@ Linearizable &amp; serializable
 </ul>
 
 </section>
-<section id="sec-4-5" >
+<section id="sec-5-5" >
 
 <h3>CRDTs</h3>
 
 </section>
-<section id="sec-4-6" >
+<section id="sec-5-6" >
 
 <h3>Previously: CAP</h3>
 <ul class="org-ul">
@@ -455,11 +533,11 @@ Linearizable &amp; serializable
 
 </section>
 <section>
-<section id="sec-5" >
+<section id="sec-6" >
 
-<h2>Conclusion</h2>
+<h2>Wrap-up</h2>
 </section>
-<section id="sec-5-1" >
+<section id="sec-6-1" >
 
 <h3>Yay, distributed systems!</h3>
 <ul class="org-ul">
@@ -472,7 +550,7 @@ Linearizable &amp; serializable
 </ul>
 
 </section>
-<section id="sec-5-2" >
+<section id="sec-6-2" >
 
 <h3>Argh, distributed systems!</h3>
 <ul class="org-ul">
@@ -485,19 +563,17 @@ Linearizable &amp; serializable
 </ul>
 
 </section>
-<section id="sec-5-3" >
+<section id="sec-6-3" >
 
 <h3>Why distributed systems?</h3>
 <p>
 Because you're <i>out of options</i>.
 </p>
-</section>
 
 </section>
-<section>
-<section id="sec-6" >
+<section id="sec-6-4" >
 
-<h2>Questions?</h2>
+<h3>Questions?</h3>
 </section>
 </section>
 </div>
