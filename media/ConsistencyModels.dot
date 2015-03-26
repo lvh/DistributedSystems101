@@ -10,7 +10,8 @@ bgcolor="transparent";
 node [fontname="Helvetica"];
 
 subgraph Available {
-	node [style=filled,color=green,fillcolor="PaleGreen"];       
+	node [style=filled,color=blue,fillcolor="LightBlue", penwidth=1];       
+
         {
                 rank=same;
                 RU;
@@ -25,23 +26,25 @@ subgraph Available {
 }
 
 subgraph Sticky {
-	node [style=filled,color="Gold",fillcolor="LemonChiffon"];       
+	node [style=filled,color="Gold",fillcolor="LemonChiffon", penwidth=3];       
+
         RYW;
         PRAM;
         Causal;        
 }
 
 subgraph Unavailable {
-	node [style=filled,color=red,fillcolor="Pink"];       
+	node [style=filled,color=red,fillcolor="Pink", penwidth=4];
+        
         CS;
         RR;
         SI;
-        OSR;
+        OSR [label="Serializable"];
         Recency;
         Safe;
         Regular;
         Linearizable;
-        StrongOSR;
+        StrongOSR [label="Strongly serializable"];
 }
 
 // Unavailable <- Unavailable
