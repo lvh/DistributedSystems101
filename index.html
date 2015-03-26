@@ -117,7 +117,7 @@ Parallels with Crypto 101
 <section>
 <section id="sec-2" >
 
-<h2>Distributed systems and concurrency</h2>
+<h2>What are distributed systems?</h2>
 </section>
 <section id="sec-2-1" >
 
@@ -208,27 +208,173 @@ my program to fail.
 </section>
 <section id="sec-3-1" >
 
-<h3>Concurrency</h3>
+<h3>CAP theorem</h3>
 </section>
 <section id="sec-3-1-1" >
+
+<h4>Pick any two:</h4>
+<ul class="org-ul">
+<li>Consistency
+</li>
+<li>Availability
+</li>
+<li>Partition tolerance
+</li>
+</ul>
+
+</section>
+<section id="sec-3-1-2" >
+
+<h4>What does that even mean?</h4>
+<ul class="org-ul">
+<li>Availability: all active nodes answer every query
+</li>
+<li>Consistency: linearizability
+</li>
+<li>Partition tolerance: failure-resistant
+</li>
+</ul>
+
+</section>
+<section id="sec-3-1-3" >
+
+<h4>Pick any two</h4>
+<img src="./media/cap-venn-base.svg" alt="cap-venn-base.svg" style="width:50%" />
+
+</section>
+<section id="sec-3-1-4" >
+
+<h4>Pick any two</h4>
+<img src="./media/cap-venn-any2.svg" alt="cap-venn-any2.svg" style="width:50%" />
+
+</section>
+<section id="sec-3-1-5" >
+
+<h4>Can't sacrifice partition tolerance</h4>
+<ul class="org-ul">
+<li>Partition tolerance is failure tolerance
+</li>
+<li>Networks, nodes fail all the time
+</li>
+<li>Latency happens; indistinguishable
+</li>
+<li>P(no failures) &lt; 1 - P(one node works)<sup>N</sup>
+<ul class="org-ul">
+<li>Cascades, Hurst exponent
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="sec-3-1-6" >
+
+<h4>Pick any two: AP or CP</h4>
+<img src="./media/cap-venn-any2-withp.svg" alt="cap-venn-any2-withp.svg" style="width:50%" />
+
+</section>
+<section id="sec-3-1-7" >
+
+<h4>Examples</h4>
+<ul class="org-ul">
+<li>Zookeeper is CP: consistent ops that sometimes fail
+</li>
+<li>Cassandra is AP: inconsistent ops that (usually) succeed
+</li>
+</ul>
+
+</section>
+<section id="sec-3-1-8" >
+
+<h4>Reality</h4>
+<ul class="org-ul">
+<li>CAP's C is linearizability
+</li>
+<li>CAP's A is ops on <i>any</i> node
+</li>
+<li>These are very strong guarantees!
+</li>
+</ul>
+
+</section>
+<section id="sec-3-1-9" >
+
+<h4>Gradations</h4>
+<img src="./media/ap-cp.svg" alt="ap-cp.svg" style="width:80%" />
+
+</section>
+<section id="sec-3-1-10" >
+
+<h4>Reality</h4>
+<ul class="org-ul">
+<li><i>Many</i> consistency models (real &amp; theoretical)
+</li>
+<li><i>Many</i> levels of availability (0-100%)
+</li>
+<li>No reason to sacrifice either outside of failures
+</li>
+<li>Systems can choose what to sacrifice (A vs C)
+</li>
+</ul>
+
+</section>
+<section id="sec-3-1-11" >
+
+<h4>Example of creative sacrifice: <code>etcd</code></h4>
+<ul class="org-ul">
+<li>Normally: consistency all the way
+</li>
+<li>Option of doing inconsistent reads
+</li>
+<li>Maybe get some stale data
+</li>
+<li>&#x2026; but still works if the cluster is on fire!
+</li>
+</ul>
+
+</section>
+<section id="sec-3-1-12" >
+
+<h4>What lives in those gray areas?</h4>
+
+</section>
+<section id="sec-3-2" >
+
+<h3>Concurrency and consistency models</h3>
+</section>
+<section id="sec-3-2-1" >
 
 <h4>One process, one register</h4>
 <img src="./media/SimpleRegister.svg" alt="SimpleRegister.svg" style="width:70%" />
 
 </section>
-<section id="sec-3-1-2" >
+<section id="sec-3-2-2" >
 
 <h4>Two processes, one register</h4>
 <img src="./media/SimpleRegisterTwoWriters.svg" alt="SimpleRegisterTwoWriters.svg" />
 
 </section>
-<section id="sec-3-1-3" >
+<section id="sec-3-2-3" >
+
+<h4>This is how we expect stuff to work</h4>
+<p>
+We are a spoiled bunch :-)
+</p>
+
+</section>
+<section id="sec-3-2-4" >
 
 <h4>Information travels at <i>c</i></h4>
 <img src="./media/SlowRegisters.svg" alt="SlowRegisters.svg" style="width:50%" />
 
 </section>
-<section id="sec-3-1-4" >
+<section id="sec-3-2-5" >
+
+<h4>Slow stuff can overlap</h4>
+<img src="./media/SlowOverlap.svg" alt="SlowOverlap.svg" style="width:90%" />
+
+</section>
+<section id="sec-3-2-6" >
 
 <h4>Concurrency</h4>
 <p>
@@ -236,9 +382,9 @@ Overlapping operations
 </p>
 
 </section>
-<section id="sec-3-2" >
+<section id="sec-3-2-7" >
 
-<h3>Consistency models</h3>
+<h4>Consistency models</h4>
 <img src="./media/ConsistencyModels.svg" alt="ConsistencyModels.svg" style="width:80%" />
 
 <aside class="notes">
@@ -250,22 +396,66 @@ Overlapping operations
 </aside>
 
 </section>
-<section id="sec-3-2-1" >
+<section id="sec-3-2-8" >
 
 <h4>Serializability</h4>
 <ul class="org-ul">
-<li>∃ serial execution of transactions with the same result
+<li>∃ serial execution with the same result
 </li>
 <li><i>Some</i> serial execution: fairly weak
-</li>
+<ul class="org-ul">
 <li>No restrictions on <i>which</i> serial execution
 </li>
 <li>No restrictions on <i>when</i> they execute
 </li>
 </ul>
+</li>
+</ul>
 
 </section>
-<section id="sec-3-2-2" >
+<section id="sec-3-2-9" >
+
+<h4>Example: serializability being weak</h4>
+<p>
+Precondition: <i>x = 0</i>
+</p>
+
+<ol class="org-ol">
+<li><i>x ← 0</i>
+</li>
+<li><i>x ← 1</i>
+</li>
+<li><i>x ← 2</i>
+</li>
+</ol>
+
+</section>
+<section id="sec-3-2-10" >
+
+<h4>Example: serializability being strong</h4>
+<p>
+Precondition: <i>x = y = 0</i>
+</p>
+
+<ol class="org-ol">
+<li><i>y ← 2</i>, assuming <i>y = 1</i>
+</li>
+<li><i>x ← 1</i>, assuming <i>x = 0</i>
+</li>
+<li><i>y ← x</i>, assuming <i>x = 1</i>
+</li>
+</ol>
+
+</section>
+<section id="sec-3-2-11" >
+
+<h4>Compare and set</h4>
+<p>
+Important primitive
+</p>
+
+</section>
+<section id="sec-3-2-12" >
 
 <h4>Linearizability</h4>
 <p>
@@ -273,33 +463,37 @@ All operations appear to happen instantly
 </p>
 
 </section>
-<section id="sec-3-2-3" >
+<section id="sec-3-2-13" >
 
 <h4>Strong serializability</h4>
 <ul class="org-ul">
 <li>Linearizable &amp; serializable
 </li>
-<li>There is a serial execution &#x2026; ()
+<li>There is a serial execution &#x2026;
+</li>
+<li>&#x2026; and that execution is unique &amp; matches wallclock time (???)
 </li>
 </ul>
 
 </section>
-<section id="sec-3-2-4" >
+<section id="sec-3-2-14" >
 
 <h4>Your computer is distributed</h4>
+<p>
+Models also exist in "centralized" systems
+</p>
+
 <ul class="org-ul">
-<li>Models also exist in "centralized" systems
-</li>
-<li>SQL databases support many of these models
+<li>SQL databases
 </li>
 <li>Clojure's reference types
 </li>
 </ul>
 
 </section>
-<section id="sec-3-2-5" >
+<section id="sec-3-2-15" >
 
-<h4>In Python: Twisted, asyncyio&#x2026; vs threads</h4>
+<h4>Twisted vs threads</h4>
 <ul class="org-ul">
 <li>Twisted: strongly serializable
 <ul class="org-ul">
@@ -321,175 +515,36 @@ All operations appear to happen instantly
 </li>
 </ul>
 
+
 </section>
 <section id="sec-3-3" >
 
-<h3>CAP</h3>
-</section>
-<section id="sec-3-3-1" >
-
-<h4>Pick any two:</h4>
-<ul class="org-ul">
-<li>Consistency
-</li>
-<li>Availability
-</li>
-<li>Partition tolerance
-</li>
-</ul>
+<h3>FLP</h3>
 
 </section>
-<section id="sec-3-3-2" >
+<section id="sec-3-4" >
 
-<h4>What does that even mean?</h4>
-<ul class="org-ul">
-<li>Availability, n.: all active nodes answer every query
-</li>
-<li>Consistency:, n.: linearizability
-</li>
-<li>Partition tolerance, p.: failure-resistant
-</li>
-</ul>
-
+<h3>Wallclocks</h3>
 </section>
-<section id="sec-3-3-3" >
-
-<h4>Pick any two</h4>
-<img src="./media/cap-venn-base.svg" alt="cap-venn-base.svg" style="width:50%" />
-
-</section>
-<section id="sec-3-3-4" >
-
-<h4>Pick any two</h4>
-<img src="./media/cap-venn-any2.svg" alt="cap-venn-any2.svg" style="width:50%" />
-
-</section>
-<section id="sec-3-3-5" >
-
-<h4>Can't sacrifice partition tolerance</h4>
-<ul class="org-ul">
-<li>Partition tolerance is failure tolerance
-</li>
-<li>Networks, nodes fail all the time
-</li>
-<li>Latency happens; indistinguishable
-</li>
-<li>P(no failures) &lt; 1 - P(one node works)<sup>N</sup>
-<ul class="org-ul">
-<li>Cascades, Hurst exponent
-</li>
-</ul>
-</li>
-</ul>
-
-</section>
-<section id="sec-3-3-6" >
-
-<h4>Pick any two: AP or CP</h4>
-<img src="./media/cap-venn-any2-withp.svg" alt="cap-venn-any2-withp.svg" style="width:50%" />
-
-</section>
-<section id="sec-3-3-7" >
-
-<h4>Examples</h4>
-<ul class="org-ul">
-<li>Zookeeper is CP: consistent ops that sometimes fail
-</li>
-<li>Cassandra is AP: inconsistent ops that (usually) succeed
-</li>
-</ul>
-
-</section>
-<section id="sec-3-3-8" >
-
-<h4>Reality</h4>
-<ul class="org-ul">
-<li>CAP's C is linearizability
-</li>
-<li>CAP's A is ops on <i>any</i> node
-</li>
-<li>These are very strong guarantees!
-</li>
-</ul>
-
-</section>
-<section id="sec-3-3-9" >
-
-<h4>Gradations</h4>
-<img src="./media/ap-cp.svg" alt="ap-cp.svg" style="width:80%" />
-
-</section>
-<section id="sec-3-3-10" >
-
-<h4>Reality</h4>
-<ul class="org-ul">
-<li>There are <i>many</i> consistency models (real &amp; theoretical)
-</li>
-<li>There are <i>many</i> levels of availability (0-100%)
-</li>
-<li>No reason to sacrifice either outside of failures
-</li>
-<li>Systems can sacrifice many things during failures
-</li>
-</ul>
-
-</section>
-<section id="sec-3-3-11" >
-
-<h4>Example of creative sacrifice: <code>etcd</code></h4>
-<ul class="org-ul">
-<li>Normally: consistency all the way
-</li>
-<li>Option of doing inconsistent reads
-</li>
-<li>Maybe get some stale data
-</li>
-<li>&#x2026; but still works if the cluster is on fire!
-</li>
-</ul>
-</section>
-
 
 </section>
 <section>
 <section id="sec-4" >
 
-<h2>Impossibility results</h2>
+<h2>Tools and components</h2>
 </section>
 <section id="sec-4-1" >
-
-<h3>FLP</h3>
-
-</section>
-<section id="sec-4-2" >
-
-<h3>Wallclocks</h3>
-</section>
-
-
-</section>
-<section>
-<section id="sec-5" >
-
-<h2>Tools and components</h2>
-<p>
-(High and low level)
-</p>
-
-</section>
-<section id="sec-5-1" >
 
 <h3>Queues</h3>
 
 </section>
-<section id="sec-5-2" >
+<section id="sec-4-2" >
 
 <h3>Consensus protocols</h3>
-
 </section>
-<section id="sec-5-3" >
+<section id="sec-4-2-1" >
 
-<h3>Examples</h3>
+<h4>Examples</h4>
 <ul class="org-ul">
 <li>ZAB (used in Zookeeper)
 </li>
@@ -500,7 +555,7 @@ All operations appear to happen instantly
 </ul>
 
 </section>
-<section id="sec-5-4" >
+<section id="sec-4-3" >
 
 <h3>Consensus protocol recipes</h3>
 <ul class="org-ul">
@@ -513,12 +568,12 @@ All operations appear to happen instantly
 </ul>
 
 </section>
-<section id="sec-5-5" >
+<section id="sec-4-4" >
 
 <h3>CRDTs</h3>
 
 </section>
-<section id="sec-5-6" >
+<section id="sec-4-5" >
 
 <h3>Previously: CAP</h3>
 <ul class="org-ul">
@@ -533,11 +588,11 @@ All operations appear to happen instantly
 
 </section>
 <section>
-<section id="sec-6" >
+<section id="sec-5" >
 
 <h2>Wrap-up</h2>
 </section>
-<section id="sec-6-1" >
+<section id="sec-5-1" >
 
 <h3>Yay, distributed systems!</h3>
 <ul class="org-ul">
@@ -550,7 +605,7 @@ All operations appear to happen instantly
 </ul>
 
 </section>
-<section id="sec-6-2" >
+<section id="sec-5-2" >
 
 <h3>Argh, distributed systems!</h3>
 <ul class="org-ul">
@@ -563,7 +618,7 @@ All operations appear to happen instantly
 </ul>
 
 </section>
-<section id="sec-6-3" >
+<section id="sec-5-3" >
 
 <h3>Why distributed systems?</h3>
 <p>
@@ -571,7 +626,7 @@ Because you're <i>out of options</i>.
 </p>
 
 </section>
-<section id="sec-6-4" >
+<section id="sec-5-4" >
 
 <h3>Questions?</h3>
 </section>

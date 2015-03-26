@@ -54,7 +54,7 @@
    * to whet your appetite
    * to shoot yourself in the foot
 
-* Distributed systems and concurrency
+* What are distributed systems?
 
 ** What /is/ a distributed system?
 
@@ -95,71 +95,9 @@
 
 * Consequences
 
-** Concurrency
 
-*** One process, one register
+** CAP theorem
 
-    #+ATTR_HTML: :style width:70%
-   [[./media/SimpleRegister.svg]]
-
-*** Two processes, one register
-
-   [[./media/SimpleRegisterTwoWriters.svg]]
-
-*** Information travels at /c/
-
-    #+ATTR_HTML: :style width:50%
-   [[./media/SlowRegisters.svg]]
-
-*** Concurrency
-
-   Overlapping operations
-
-** Consistency models
-
-   #+ATTR_HTML: :style width:80%
-   [[./media/ConsistencyModels.svg]]
-
-   #+BEGIN_NOTES
-   http://www.bailis.org/papers/hat-vldb2014.pdf
-   http://www.ics.forth.gr/tech-reports/2013/2013.TR439_Survey_on_Consistency_Conditions.pdf
-   http://www.allthingsdistributed.com/2008/12/eventually_consistent.html
-   #+END_NOTES
-
-*** Serializability
-
-   * ∃ serial execution with the same result
-   * /Some/ serial execution: fairly weak
-     * No restrictions on /which/ serial execution
-     * No restrictions on /when/ they execute
-
-*** Linearizability
-
-   All operations appear to happen instantly
-
-*** Strong serializability
-
-   * Linearizable & serializable
-   * There is a serial execution ...
-   * ... and that execution is unique & matches wallclock time (???)
-
-*** Your computer is distributed
-
-    * Models also exist in "centralized" systems
-    * SQL databases support many of these models
-    * Clojure's reference types
-
-*** In Python: Twisted, asyncyio... vs threads
-
-    * Twisted: strongly serializable
-      * Event loop with 1 reactor thread
-      * Serializable: reactor finds the ordering
-      * Linearizable: callbacks run by themselves
-    * Threads: usually more like read uncommitted
-      * Many Python opcodes are atomic
-      * Correct use of locks?
-
-** CAP
 *** Pick any two:
 
    * Consistency
@@ -168,9 +106,9 @@
 
 *** What does that even mean?
 
-   * Availability, n.: all active nodes answer every query
-   * Consistency:, n.: linearizability
-   * Partition tolerance, p.: failure-resistant
+   * Availability: all active nodes answer every query
+   * Consistency: linearizability
+   * Partition tolerance: failure-resistant
 
 *** Pick any two
 
@@ -213,10 +151,10 @@
 
 *** Reality
 
-   * There are /many/ consistency models (real & theoretical)
-   * There are /many/ levels of availability (0-100%)
+   * /Many/ consistency models (real & theoretical)
+   * /Many/ levels of availability (0-100%)
    * No reason to sacrifice either outside of failures
-   * Systems can sacrifice many things during failures
+   * Systems can choose what to sacrifice (A vs C)
 
 *** Example of creative sacrifice: ~etcd~
 
@@ -225,17 +163,108 @@
    * Maybe get some stale data
    * ... but still works if the cluster is on fire!
 
+*** What lives in those gray areas?
 
-* Impossibility results
+** Concurrency and consistency models
+
+*** One process, one register
+
+    #+ATTR_HTML: :style width:70%
+   [[./media/SimpleRegister.svg]]
+
+*** Two processes, one register
+
+   [[./media/SimpleRegisterTwoWriters.svg]]
+
+*** This is how we expect stuff to work
+
+    We are a spoiled bunch :-)
+
+*** Information travels at /c/
+
+    #+ATTR_HTML: :style width:50%
+    [[./media/SlowRegisters.svg]]
+
+*** Slow stuff can overlap
+
+    #+ATTR_HTML: :style width:90%
+   [[./media/SlowOverlap.svg]]
+
+*** Concurrency
+
+   Overlapping operations
+
+*** Consistency models
+
+   #+ATTR_HTML: :style width:80%
+   [[./media/ConsistencyModels.svg]]
+
+   #+BEGIN_NOTES
+   http://www.bailis.org/papers/hat-vldb2014.pdf
+   http://www.ics.forth.gr/tech-reports/2013/2013.TR439_Survey_on_Consistency_Conditions.pdf
+   http://www.allthingsdistributed.com/2008/12/eventually_consistent.html
+   #+END_NOTES
+
+*** Serializability
+
+   * ∃ serial execution with the same result
+   * /Some/ serial execution: fairly weak
+     * No restrictions on /which/ serial execution
+     * No restrictions on /when/ they execute
+
+*** Example: serializability being weak
+
+    Precondition: /x = 0/
+
+    1. /x ← 0/
+    2. /x ← 1/
+    3. /x ← 2/
+
+*** Example: serializability being strong
+
+    Precondition: /x = y = 0/
+
+    1. /y ← 2/, assuming /y = 1/
+    2. /x ← 1/, assuming /x = 0/
+    3. /y ← x/, assuming /x = 1/
+
+*** Compare and set
+
+    Important primitive
+
+*** Linearizability
+
+   All operations appear to happen instantly
+
+*** Strong serializability
+
+   * Linearizable & serializable
+   * There is a serial execution ...
+   * ... and that execution is unique & matches wallclock time (???)
+
+*** Your computer is distributed
+
+    Models also exist in "centralized" systems
+
+    * SQL databases
+    * Clojure's reference types
+
+*** Twisted vs threads
+
+    * Twisted: strongly serializable
+      * Event loop with 1 reactor thread
+      * Serializable: reactor finds the ordering
+      * Linearizable: callbacks run by themselves
+    * Threads: usually more like read uncommitted
+      * Many Python opcodes are atomic
+      * Correct use of locks?
+
 
 ** FLP
 
 ** Wallclocks
 
-
 * Tools and components
-
-  (High and low level)
 
 ** Queues
 
