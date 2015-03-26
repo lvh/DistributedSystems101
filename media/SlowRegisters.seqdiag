@@ -6,7 +6,7 @@ seqdiag {
         R [label="Register"];
         
         A ->> R [diagonal, label="Write x"];
-        R ->> A [diagonal];
+        R ->> A [diagonal, label="Written x"];
 
         A ->> R [diagonal, label="Read"];
         R ->> A [diagonal, label="Read x"];
