@@ -54,14 +54,16 @@
    * to whet your appetite
    * to shoot yourself in the foot
 
-* What are distributed systems?
+* Distributed systems?
 
 ** What /is/ a distributed system?
 
-   A system is distributed if a machine I've never heard of can cause
-   my program to fail.
+   #+BEGIN_QUOTE
+   [...] when a machine I've never heard of can cause my program to
+   fail.
+   #+END_QUOTE
 
-   /Leslie Lamport/
+   /-- Leslie Lamport/
 
 ** Paradox
 
@@ -95,7 +97,6 @@
 
 * Consequences
 
-
 ** CAP theorem
 
 *** Pick any two:
@@ -106,9 +107,9 @@
 
 *** What does that even mean?
 
-   * Availability: all active nodes answer every query
-   * Consistency: linearizability
-   * Partition tolerance: failure-resistant
+   * C: linearizability (~ local behavior)
+   * A: all active nodes answer every query
+   * P: failure-resistance
 
 *** Pick any two
 
@@ -133,10 +134,15 @@
    #+ATTR_HTML: :style width:50%
    [[./media/cap-venn-any2-withp.svg]]
 
-*** Examples
+*** Example: Zookeeper
 
-   * Zookeeper is CP: consistent ops that sometimes fail
-   * Cassandra is AP: inconsistent ops that (usually) succeed
+    * Zookeeper is CP
+    * Consistent ops that sometimes fail
+
+*** Examples: Cassandra
+
+   * Cassandra is AP
+   * inconsistent ops that (usually) succeed
 
 *** Reality
 
@@ -165,7 +171,7 @@
 
 *** What lives in those gray areas?
 
-** Concurrency and consistency models
+** Consistency models
 
 *** One process, one register
 
@@ -259,9 +265,7 @@
       * Many Python opcodes are atomic
       * Correct use of locks?
 
-
 ** FLP
-
 ** Wallclocks
 
 * Tools and components
@@ -272,9 +276,9 @@
 
 *** Examples
 
-   * ZAB (used in Zookeeper)
-   * Paxos (think 2PC, but distributed)
-   * Raft (used in ~etcd~)
+   * ZAB (Zookeeper)
+   * Paxos* (Chubby)
+   * Raft (~etcd~)
 
 ** Consensus protocol recipes
 
@@ -282,13 +286,97 @@
    * Consistent counters
    * ...
 
+*** Example
+
 ** CRDTs
 
-** Previously: CAP
+   * Conflict-free
+   * Replicated
+   * Data
+   * Type
 
-    * Presented as trade-off: C versus A
-    * Doesn't explain what we can do /on/ that line
-    * CRDTs: wonderful modern example of what we can do
+*** Problem
+
+    * Read, compute, write back
+    * Concurrency: multiple results
+    * Conflicts!
+
+*** Solutions?
+
+    * Coordination?  Expensive! :-(
+    * I want highly available data stores...
+    * ... but I don't want nonsense data
+
+*** Idea!
+
+    * Describe what you want
+    * Describe how to resolve conflicts
+
+*** Specializations
+
+    The C in CRDT can mean:
+
+    * Commutative (CmRDT)
+    * Convergent (CvRDT)
+
+*** Commutative RDTs
+
+    * Broadcast operations
+    * Commutative merge operation (~f(x, y) = f(y, x)~)
+    * Not necessarily idempotent (~f(x, y) != f(f(x, y))~)
+
+*** Example: integers
+
+    * +1, -2, +3, +5, -4 => +3
+    * Always get same answer:
+      * As long as I see all ops /once/
+      * Duplicate an op, get wrong answer
+      * Order doesn't matter, though
+
+*** Convergent RDTs
+
+    * Broadcast states
+    * Merge operation has many properties:
+      * Commutative (~f(x, y) = f(y, x)~)
+      * Idempotent (~f(x, y) = f(f(x, y))~)
+      * Associative (~f(f(x, y), z) = f(x, f(y, z))~)
+      * Informally: apply a bunch of times until done
+
+*** Simple CvRDT conflict resolution
+
+    [[./media/CvRDTMerge.svg]]
+
+*** Complex CvRDT conflict resolution
+
+    [[./media/ComplexCvRDTMerge.svg]]
+
+*** CRDTs in practice
+
+    Usually convergent, not commutative
+
+    Solve a hard algorithmic problem once
+
+    vs
+
+    Solve a hard distributed problem constantly
+
+*** Examples
+
+    * Counters (G, PN)
+    * Sets (G, 2P, LWW, PN, OR)
+
+*** Using CRDTs
+
+    * Designing them is fairly tricky
+    * Using them is fairly easy
+
+*** Riak
+
+    * Flags
+    * Registers
+    * Counters
+    * Sets
+    * Maps
 
 * Wrap-up
 ** Yay, distributed systems!

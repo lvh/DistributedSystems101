@@ -117,18 +117,20 @@ Parallels with Crypto 101
 <section>
 <section id="sec-2" >
 
-<h2>What are distributed systems?</h2>
+<h2>Distributed systems?</h2>
 </section>
 <section id="sec-2-1" >
 
 <h3>What <i>is</i> a distributed system?</h3>
+<blockquote nil>
 <p>
-A system is distributed if a machine I've never heard of can cause
-my program to fail.
+[&#x2026;] when a machine I've never heard of can cause my program to
+fail.
 </p>
+</blockquote>
 
 <p>
-<i>Leslie Lamport</i>
+<i>&#x2013; Leslie Lamport</i>
 </p>
 
 </section>
@@ -227,11 +229,11 @@ my program to fail.
 
 <h4>What does that even mean?</h4>
 <ul class="org-ul">
-<li>Availability: all active nodes answer every query
+<li>C: linearizability (~ local behavior)
 </li>
-<li>Consistency: linearizability
+<li>A: all active nodes answer every query
 </li>
-<li>Partition tolerance: failure-resistant
+<li>P: failure-resistance
 </li>
 </ul>
 
@@ -275,16 +277,27 @@ my program to fail.
 </section>
 <section id="sec-3-1-7" >
 
-<h4>Examples</h4>
+<h4>Example: Zookeeper</h4>
 <ul class="org-ul">
-<li>Zookeeper is CP: consistent ops that sometimes fail
+<li>Zookeeper is CP
 </li>
-<li>Cassandra is AP: inconsistent ops that (usually) succeed
+<li>Consistent ops that sometimes fail
 </li>
 </ul>
 
 </section>
 <section id="sec-3-1-8" >
+
+<h4>Examples: Cassandra</h4>
+<ul class="org-ul">
+<li>Cassandra is AP
+</li>
+<li>inconsistent ops that (usually) succeed
+</li>
+</ul>
+
+</section>
+<section id="sec-3-1-9" >
 
 <h4>Reality</h4>
 <ul class="org-ul">
@@ -297,13 +310,13 @@ my program to fail.
 </ul>
 
 </section>
-<section id="sec-3-1-9" >
+<section id="sec-3-1-10" >
 
 <h4>Gradations</h4>
 <img src="./media/ap-cp.svg" alt="ap-cp.svg" style="width:80%" />
 
 </section>
-<section id="sec-3-1-10" >
+<section id="sec-3-1-11" >
 
 <h4>Reality</h4>
 <ul class="org-ul">
@@ -318,7 +331,7 @@ my program to fail.
 </ul>
 
 </section>
-<section id="sec-3-1-11" >
+<section id="sec-3-1-12" >
 
 <h4>Example of creative sacrifice: <code>etcd</code></h4>
 <ul class="org-ul">
@@ -333,14 +346,14 @@ my program to fail.
 </ul>
 
 </section>
-<section id="sec-3-1-12" >
+<section id="sec-3-1-13" >
 
 <h4>What lives in those gray areas?</h4>
 
 </section>
 <section id="sec-3-2" >
 
-<h3>Concurrency and consistency models</h3>
+<h3>Consistency models</h3>
 </section>
 <section id="sec-3-2-1" >
 
@@ -515,12 +528,10 @@ Models also exist in "centralized" systems
 </li>
 </ul>
 
-
 </section>
 <section id="sec-3-3" >
 
 <h3>FLP</h3>
-
 </section>
 <section id="sec-3-4" >
 
@@ -546,11 +557,11 @@ Models also exist in "centralized" systems
 
 <h4>Examples</h4>
 <ul class="org-ul">
-<li>ZAB (used in Zookeeper)
+<li>ZAB (Zookeeper)
 </li>
-<li>Paxos (think 2PC, but distributed)
+<li>Paxos* (Chubby)
 </li>
-<li>Raft (used in <code>etcd</code>)
+<li>Raft (<code>etcd</code>)
 </li>
 </ul>
 
@@ -568,20 +579,198 @@ Models also exist in "centralized" systems
 </ul>
 
 </section>
+<section id="sec-4-3-1" >
+
+<h4>Example</h4>
+
+</section>
 <section id="sec-4-4" >
 
 <h3>CRDTs</h3>
+<ul class="org-ul">
+<li>Conflict-free
+</li>
+<li>Replicated
+</li>
+<li>Data
+</li>
+<li>Type
+</li>
+</ul>
 
 </section>
-<section id="sec-4-5" >
+<section id="sec-4-4-1" >
 
-<h3>Previously: CAP</h3>
+<h4>Problem</h4>
 <ul class="org-ul">
-<li>Presented as trade-off: C versus A
+<li>Read, compute, write back
 </li>
-<li>Doesn't explain what we can do <i>on</i> that line
+<li>Concurrency: multiple results
 </li>
-<li>CRDTs: wonderful modern example of what we can do
+<li>Conflicts!
+</li>
+</ul>
+
+</section>
+<section id="sec-4-4-2" >
+
+<h4>Solutions?</h4>
+<ul class="org-ul">
+<li>Coordination?  Expensive! :-(
+</li>
+<li>I want highly available data stores&#x2026;
+</li>
+<li>&#x2026; but I don't want nonsense data
+</li>
+</ul>
+
+</section>
+<section id="sec-4-4-3" >
+
+<h4>Idea!</h4>
+<ul class="org-ul">
+<li>Describe what you want
+</li>
+<li>Describe how to resolve conflicts
+</li>
+</ul>
+
+</section>
+<section id="sec-4-4-4" >
+
+<h4>Specializations</h4>
+<p>
+The C in CRDT can mean:
+</p>
+
+<ul class="org-ul">
+<li>Commutative (CmRDT)
+</li>
+<li>Convergent (CvRDT)
+</li>
+</ul>
+
+</section>
+<section id="sec-4-4-5" >
+
+<h4>Commutative RDTs</h4>
+<ul class="org-ul">
+<li>Broadcast operations
+</li>
+<li>Commutative merge operation (<code>f(x, y) = f(y, x)</code>)
+</li>
+<li>Not necessarily idempotent (<code>f(x, y) != f(f(x, y))</code>)
+</li>
+</ul>
+
+</section>
+<section id="sec-4-4-6" >
+
+<h4>Example: integers</h4>
+<ul class="org-ul">
+<li>+1, -2, +3, +5, -4 =&gt; +3
+</li>
+<li>Always get same answer:
+<ul class="org-ul">
+<li>As long as I see all ops <i>once</i>
+</li>
+<li>Duplicate an op, get wrong answer
+</li>
+<li>Order doesn't matter, though
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="sec-4-4-7" >
+
+<h4>Convergent RDTs</h4>
+<ul class="org-ul">
+<li>Broadcast states
+</li>
+<li>Merge operation has many properties:
+<ul class="org-ul">
+<li>Commutative (<code>f(x, y) = f(y, x)</code>)
+</li>
+<li>Idempotent (<code>f(x, y) = f(f(x, y))</code>)
+</li>
+<li>Associative (<code>f(f(x, y), z) = f(x, f(y, z))</code>)
+</li>
+<li>Informally: apply a bunch of times until done
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="sec-4-4-8" >
+
+<h4>Simple CvRDT conflict resolution</h4>
+<img src="./media/CvRDTMerge.svg" alt="CvRDTMerge.svg" />
+
+</section>
+<section id="sec-4-4-9" >
+
+<h4>Complex CvRDT conflict resolution</h4>
+<img src="./media/ComplexCvRDTMerge.svg" alt="ComplexCvRDTMerge.svg" />
+
+</section>
+<section id="sec-4-4-10" >
+
+<h4>CRDTs in practice</h4>
+<p>
+Usually convergent, not commutative
+</p>
+
+<p>
+Solve a hard algorithmic problem once
+</p>
+
+<p>
+vs
+</p>
+
+<p>
+Solve a hard distributed problem constantly
+</p>
+
+</section>
+<section id="sec-4-4-11" >
+
+<h4>Examples</h4>
+<ul class="org-ul">
+<li>Counters (G, PN)
+</li>
+<li>Sets (G, 2P, LWW, PN, OR)
+</li>
+</ul>
+
+</section>
+<section id="sec-4-4-12" >
+
+<h4>Using CRDTs</h4>
+<ul class="org-ul">
+<li>Designing them is fairly tricky
+</li>
+<li>Using them is fairly easy
+</li>
+</ul>
+
+</section>
+<section id="sec-4-4-13" >
+
+<h4>Riak</h4>
+<ul class="org-ul">
+<li>Flags
+</li>
+<li>Registers
+</li>
+<li>Counters
+</li>
+<li>Sets
+</li>
+<li>Maps
 </li>
 </ul>
 </section>
