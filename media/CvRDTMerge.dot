@@ -1,0 +1,15 @@
+digraph CvRDTMerge {
+        bgcolor="transparent";
+        node [fontname="Helvetica"];
+
+        O [label="{name: lvh}"];
+        W1 [label="{name: lvh, fav_color: blue}"];        
+        W2 [label="{name: lvh, city: SF}"];
+        M [label="{name: lvh, fav_color: blue, city: SF}"]        
+
+        O -> W1;
+        O -> W2;
+
+        W1 -> M;
+        W2 -> M;        
+}
