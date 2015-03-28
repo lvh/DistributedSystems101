@@ -350,11 +350,9 @@
 
     [[./media/ComplexCvRDTMerge.svg]]
 
-*** CRDTs in practice
+*** CRDTs in practice: usually CvRDT
 
-    Usually convergent, not commutative
-
-    Solve a hard algorithmic problem once
+    Solve a hard local problem once
 
     vs
 
@@ -364,13 +362,17 @@
 
     * Counters (G, PN)
     * Sets (G, 2P, LWW, PN, OR)
+    * Maps (sets of ~(k, v)~ tuples)
+    * Graphs (using multiple sets)
+    * Registers (LWW, MV)
+    * Sequences (continuous, RGA)
 
 *** Using CRDTs
 
-    * Designing them is fairly tricky
+    * Designing them is tricky
     * Using them is fairly easy
 
-*** Riak
+*** Riak <3
 
     * Flags
     * Registers
