@@ -299,7 +299,53 @@ fail.
 </section>
 <section id="sec-3-1-9" >
 
-<h4>Reality</h4>
+<h4>Informally</h4>
+<p>
+Let's look at a 5 node cluster
+</p>
+
+</section>
+<section id="sec-3-1-10" >
+
+<h4>Connected</h4>
+<img src="./media/CAP/Connected.svg" alt="Connected.svg" style="width:50%" />
+
+</section>
+<section id="sec-3-1-11" >
+
+<h4>What happens when stuff fails?</h4>
+<p>
+Idea: (N+1)/2 quorum
+</p>
+
+</section>
+<section id="sec-3-1-12" >
+
+<h4>Some failures</h4>
+<img src="./media/CAP/Quorum.svg" alt="Quorum.svg" style="width:50%" />
+
+</section>
+<section id="sec-3-1-13" >
+
+<h4>Failures are indistinguishable</h4>
+<img src="./media/CAP/QuorumWithNodeFailures.svg" alt="QuorumWithNodeFailures.svg" style="width:50%" />
+
+</section>
+<section id="sec-3-1-14" >
+
+<h4>Too many failures, no quorum</h4>
+<img src="./media/CAP/NoQuorum.svg" alt="NoQuorum.svg" style="width:50%" />
+
+</section>
+<section id="sec-3-1-15" >
+
+<h4>Simple quorum isn't enough</h4>
+<img src="./media/CAP/DoubleQuorum.svg" alt="DoubleQuorum.svg" style="width:50%" />
+
+</section>
+<section id="sec-3-1-16" >
+
+<h4>Back to reality</h4>
 <ul class="org-ul">
 <li>CAP's C is linearizability
 </li>
@@ -310,13 +356,13 @@ fail.
 </ul>
 
 </section>
-<section id="sec-3-1-10" >
+<section id="sec-3-1-17" >
 
 <h4>Gradations</h4>
 <img src="./media/ap-cp.svg" alt="ap-cp.svg" style="width:80%" />
 
 </section>
-<section id="sec-3-1-11" >
+<section id="sec-3-1-18" >
 
 <h4>Reality</h4>
 <ul class="org-ul">
@@ -331,7 +377,7 @@ fail.
 </ul>
 
 </section>
-<section id="sec-3-1-12" >
+<section id="sec-3-1-19" >
 
 <h4>Example of creative sacrifice: <code>etcd</code></h4>
 <ul class="org-ul">
@@ -346,7 +392,7 @@ fail.
 </ul>
 
 </section>
-<section id="sec-3-1-13" >
+<section id="sec-3-1-20" >
 
 <h4>What lives in those gray areas?</h4>
 

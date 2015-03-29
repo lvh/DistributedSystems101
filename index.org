@@ -144,7 +144,40 @@
    * Cassandra is AP
    * inconsistent ops that (usually) succeed
 
-*** Reality
+*** Informally
+
+    Let's look at a 5 node cluster
+
+*** Connected
+
+    #+ATTR_HTML: :style width:50%
+    [[./media/CAP/Connected.svg]]
+
+*** What happens when stuff fails?
+
+    Idea: (N+1)/2 quorum
+
+*** Some failures
+
+    #+ATTR_HTML: :style width:50%
+    [[./media/CAP/Quorum.svg]]
+
+*** Failures are indistinguishable
+
+    #+ATTR_HTML: :style width:50%
+    [[./media/CAP/QuorumWithNodeFailures.svg]]
+
+*** Too many failures, no quorum
+
+    #+ATTR_HTML: :style width:50%
+    [[./media/CAP/NoQuorum.svg]]
+
+*** Simple quorum isn't enough
+
+    #+ATTR_HTML: :style width:50%
+    [[./media/CAP/DoubleQuorum.svg]]
+
+*** Back to reality
 
    * CAP's C is linearizability
    * CAP's A is ops on /any/ node
