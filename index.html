@@ -703,9 +703,13 @@ The C in CRDT can mean:
 <ul class="org-ul">
 <li>Broadcast operations
 </li>
-<li>Commutative merge operation (<code>f(x, y) = f(y, x)</code>)
+<li>Merge operation:
+<ul class="org-ul">
+<li>Commutative: <code>f(x, y) = f(y, x)</code>
 </li>
-<li>Not necessarily idempotent (<code>f(x, y) != f(f(x, y))</code>)
+<li>Not idempotent <code>f(x, y) != f(f(x, y), y)</code>
+</li>
+</ul>
 </li>
 </ul>
 
@@ -737,11 +741,11 @@ The C in CRDT can mean:
 </li>
 <li>Merge operation has many properties:
 <ul class="org-ul">
-<li>Commutative (<code>f(x, y) = f(y, x)</code>)
+<li>Commutative: <code>f(x, y) = f(y, x)</code>
 </li>
-<li>Idempotent (<code>f(x, y) = f(f(x, y))</code>)
+<li>Idempotent: <code>f(x, y) = f(f(x, y), y)</code>
 </li>
-<li>Associative (<code>f(f(x, y), z) = f(x, f(y, z))</code>)
+<li>Associative: <code>f(f(x, y), z) = f(x, f(y, z))</code>
 </li>
 <li>Informally: apply a bunch of times until done
 </li>

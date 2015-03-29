@@ -355,8 +355,9 @@
 *** Commutative RDTs
 
     * Broadcast operations
-    * Commutative merge operation (~f(x, y) = f(y, x)~)
-    * Not necessarily idempotent (~f(x, y) != f(f(x, y))~)
+    * Merge operation:
+      * Commutative: ~f(x, y) = f(y, x)~
+      * Not idempotent ~f(x, y) != f(f(x, y), y)~
 
 *** Example: integers
 
@@ -370,9 +371,9 @@
 
     * Broadcast states
     * Merge operation has many properties:
-      * Commutative (~f(x, y) = f(y, x)~)
-      * Idempotent (~f(x, y) = f(f(x, y))~)
-      * Associative (~f(f(x, y), z) = f(x, f(y, z))~)
+      * Commutative: ~f(x, y) = f(y, x)~
+      * Idempotent: ~f(x, y) = f(f(x, y), y)~
+      * Associative: ~f(f(x, y), z) = f(x, f(y, z))~
       * Informally: apply a bunch of times until done
 
 *** Simple CvRDT conflict resolution
