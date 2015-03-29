@@ -204,6 +204,14 @@
 
 *** What lives in those gray areas?
 
+*** Trade-offs
+
+    Performance, availability, scalability, ...
+
+    vs
+
+    Ease of reasoning, transactionality, guarantees, ...
+
 ** Consistency models
 
 *** One process, one register
@@ -217,7 +225,7 @@
 
 *** This is how we expect stuff to work
 
-    We are a spoiled bunch :-)
+    (We are a spoiled bunch)
 
 *** Information travels at /c/
 
