@@ -1,0 +1,27 @@
+graph Connected {
+        bgcolor="transparent";
+        node [fontname="Helvetica"];
+        layout=fdp;
+        
+        Node1 [label="A"];
+        Node2 [label="B"];
+        Node3 [label="C"];
+        Node4 [label="D"];
+        Node5 [label="E"];
+
+        edge [penwidth=3];        
+        
+        Node1 -- Node2;
+        Node1 -- Node3;
+        Node1 -- Node4;
+        Node1 -- Node5;
+
+        Node2 -- Node3;
+        Node2 -- Node4;
+        Node2 -- Node5;
+
+        Node3 -- Node4;
+        Node3 -- Node5;
+
+        Node4 -- Node5;
+}
