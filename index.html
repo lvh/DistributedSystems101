@@ -6,7 +6,7 @@
 <title>Distributed Systems 101</title>
 <meta name="author" content="(@lvh)"/>
 
-<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
+<link rel="stylesheet" href="./reveal.js/css/reveal.min.css"/>
 <link rel="stylesheet" href="./reveal.js/css/theme/lvh.css" id="theme"/>
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
@@ -206,7 +206,11 @@ fail.
 <section>
 <section id="sec-3" >
 
-<h2>Consequences</h2>
+<h2>Bad news</h2>
+<p>
+Theory and consequences
+</p>
+
 </section>
 <section id="sec-3-1" >
 
@@ -233,7 +237,7 @@ fail.
 </li>
 <li>A: all active nodes answer every query
 </li>
-<li>P: failure-resistance
+<li>P: failure resistance
 </li>
 </ul>
 
@@ -307,7 +311,7 @@ Let's look at a 5 node cluster
 </section>
 <section id="sec-3-1-10" >
 
-<h4>Connected</h4>
+<h4>5-node connected cluster</h4>
 <img src="./media/CAP/Connected.svg" alt="Connected.svg" style="width:50%" />
 
 </section>
@@ -400,17 +404,30 @@ Idea: (N+1)/2 quorum
 <section id="sec-3-1-21" >
 
 <h4>Trade-offs</h4>
-<p>
-Performance, availability, scalability, &#x2026;
-</p>
+<table nil>
+<tbody>
+<tr>
+<td class="left">Availability</td>
+<td class="left">Consistency</td>
+</tr>
 
-<p>
-vs
-</p>
+<tr>
+<td class="left">Performance</td>
+<td class="left">Ease of reasoning</td>
+</tr>
 
-<p>
-Ease of reasoning, transactionality, guarantees, &#x2026;
-</p>
+<tr>
+<td class="left">Availability</td>
+<td class="left">Transactionality</td>
+</tr>
+
+<tr>
+<td class="left">Scalability</td>
+<td class="left">Guarantees</td>
+</tr>
+</tbody>
+</table>
+
 
 </section>
 <section id="sec-3-2" >
@@ -604,7 +621,11 @@ Models also exist in "centralized" systems
 <section>
 <section id="sec-4" >
 
-<h2>Tools and components</h2>
+<h2>Good news</h2>
+<p>
+Stuff you <i>can</i> rely on
+</p>
+
 </section>
 <section id="sec-4-1" >
 
@@ -693,7 +714,7 @@ Models also exist in "centralized" systems
 <ul class="org-ul">
 <li>Describe what you want
 </li>
-<li>Describe how to resolve conflicts
+<li>Describe conflict resolution
 </li>
 </ul>
 
@@ -894,7 +915,7 @@ Because you're <i>out of options</i>.
 </div>
 
 <script src="./reveal.js/lib/js/head.min.js"></script>
-<script src="./reveal.js/js/reveal.js"></script>
+<script src="./reveal.js/js/reveal.min.js"></script>
 
 <script>
 // Full list of configuration options available here:
