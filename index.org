@@ -95,7 +95,9 @@
      * Any system with > 1 machine
      * Connected via network
 
-* Consequences
+* Bad news
+
+  Theory and consequences
 
 ** CAP theorem
 
