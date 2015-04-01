@@ -19,7 +19,7 @@ graph Quorum {
         }
              
         {
-                edge [color=lightgrey, style=dashed];
+                edge [color=red, style=dashed];
                 
                 Node3 -- Node4;                
                 Node3 -- Node5;               

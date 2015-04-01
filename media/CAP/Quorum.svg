@@ -38,7 +38,7 @@
 </g>
 <!-- Node1&#45;&#45;Node4 -->
 <g id="edge6" class="edge"><title>Node1&#45;&#45;Node4</title>
-<path fill="none" stroke="lightgrey" stroke-dasharray="5,2" d="M75.3773,-103.344C67.3378,-100.22 58.3563,-96.7304 50.3321,-93.6125"/>
+<path fill="none" stroke="red" stroke-dasharray="5,2" d="M75.3773,-103.344C67.3378,-100.22 58.3563,-96.7304 50.3321,-93.6125"/>
 </g>
 <!-- Node5 -->
 <g id="node5" class="node"><title>Node5</title>
@@ -47,7 +47,7 @@
 </g>
 <!-- Node1&#45;&#45;Node5 -->
 <g id="edge7" class="edge"><title>Node1&#45;&#45;Node5</title>
-<path fill="none" stroke="lightgrey" stroke-dasharray="5,2" d="M119.3,-100.445C127.563,-95.5463 137.087,-89.9003 145.338,-85.0092"/>
+<path fill="none" stroke="red" stroke-dasharray="5,2" d="M119.3,-100.445C127.563,-95.5463 137.087,-89.9003 145.338,-85.0092"/>
 </g>
 <!-- Node2&#45;&#45;Node3 -->
 <g id="edge3" class="edge"><title>Node2&#45;&#45;Node3</title>
@@ -55,19 +55,19 @@
 </g>
 <!-- Node2&#45;&#45;Node4 -->
 <g id="edge8" class="edge"><title>Node2&#45;&#45;Node4</title>
-<path fill="none" stroke="lightgrey" stroke-dasharray="5,2" d="M103.76,-30.7532C86.9777,-42.5013 62.5896,-59.5741 45.8195,-71.3139"/>
+<path fill="none" stroke="red" stroke-dasharray="5,2" d="M103.76,-30.7532C86.9777,-42.5013 62.5896,-59.5741 45.8195,-71.3139"/>
 </g>
 <!-- Node2&#45;&#45;Node5 -->
 <g id="edge9" class="edge"><title>Node2&#45;&#45;Node5</title>
-<path fill="none" stroke="lightgrey" stroke-dasharray="5,2" d="M135.076,-33.5691C140.717,-40.8695 147.378,-49.4916 153.033,-56.8106"/>
+<path fill="none" stroke="red" stroke-dasharray="5,2" d="M135.076,-33.5691C140.717,-40.8695 147.378,-49.4916 153.033,-56.8106"/>
 </g>
 <!-- Node3&#45;&#45;Node4 -->
 <g id="edge4" class="edge"><title>Node3&#45;&#45;Node4</title>
-<path fill="none" stroke="lightgrey" stroke-dasharray="5,2" d="M49.8809,-41.6825C45.5906,-49.6972 40.4794,-59.2452 36.1722,-67.2915"/>
+<path fill="none" stroke="red" stroke-dasharray="5,2" d="M49.8809,-41.6825C45.5906,-49.6972 40.4794,-59.2452 36.1722,-67.2915"/>
 </g>
 <!-- Node3&#45;&#45;Node5 -->
 <g id="edge5" class="edge"><title>Node3&#45;&#45;Node5</title>
-<path fill="none" stroke="lightgrey" stroke-dasharray="5,2" d="M81.3163,-34.8286C99.3851,-43.0207 124.718,-54.5061 142.876,-62.7388"/>
+<path fill="none" stroke="red" stroke-dasharray="5,2" d="M81.3163,-34.8286C99.3851,-43.0207 124.718,-54.5061 142.876,-62.7388"/>
 </g>
 </g>
 </svg>
