@@ -309,7 +309,9 @@
 ** FLP
 ** Wallclocks
 
-* Tools and components
+* Good news
+
+  Stuff you /can/ rely on
 
 ** Queues
 
