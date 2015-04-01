@@ -208,11 +208,11 @@
 
 *** Trade-offs
 
-    Performance, availability, scalability, ...
+    | Availability | Consistency       |
+    | Performance  | Ease of reasoning |
+    | Availability | Transactionality  |
+    | Scalability  | Guarantees        |
 
-    vs
-
-    Ease of reasoning, transactionality, guarantees, ...
 
 ** Consistency models
 
