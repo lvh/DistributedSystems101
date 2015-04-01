@@ -150,7 +150,7 @@
 
     Let's look at a 5 node cluster
 
-*** Connected
+*** 5-node connected cluster
 
     #+ATTR_HTML: :style width:50%
     [[./media/CAP/Connected.svg]]
