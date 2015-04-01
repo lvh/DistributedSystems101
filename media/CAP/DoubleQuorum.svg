@@ -63,15 +63,15 @@
 </g>
 <!-- Node3&#45;&#45;Node4 -->
 <g id="edge4" class="edge"><title>Node3&#45;&#45;Node4</title>
-<path fill="none" stroke="red" stroke-width="5" d="M89.0094,-33.9811C75.404,-49.3314 54.7531,-72.6309 41.1781,-87.9469"/>
+<path fill="none" stroke="orange" stroke-width="5" d="M89.0094,-33.9811C75.404,-49.3314 54.7531,-72.6309 41.1781,-87.9469"/>
 </g>
 <!-- Node3&#45;&#45;Node5 -->
 <g id="edge5" class="edge"><title>Node3&#45;&#45;Node5</title>
-<path fill="none" stroke="red" stroke-width="5" d="M101.36,-36.585C99.801,-55.771 97.3607,-85.802 95.808,-104.909"/>
+<path fill="none" stroke="orange" stroke-width="5" d="M101.36,-36.585C99.801,-55.771 97.3607,-85.802 95.808,-104.909"/>
 </g>
 <!-- Node4&#45;&#45;Node5 -->
 <g id="edge6" class="edge"><title>Node4&#45;&#45;Node5</title>
-<path fill="none" stroke="red" stroke-width="5" d="M52.3503,-110.697C57.8492,-112.296 63.6781,-113.991 69.1866,-115.593"/>
+<path fill="none" stroke="orange" stroke-width="5" d="M52.3503,-110.697C57.8492,-112.296 63.6781,-113.991 69.1866,-115.593"/>
 </g>
 </g>
 </svg>

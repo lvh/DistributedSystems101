@@ -20,7 +20,7 @@ graph DoubleQuorum {
         }
 
         {
-                edge [color=red, penwidth=5];
+                edge [color=orange, penwidth=5];
                 
                 Node3 -- Node4;                
                 Node3 -- Node5;               
