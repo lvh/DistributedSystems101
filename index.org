@@ -351,7 +351,7 @@
 *** Idea!
 
     * Describe what you want
-    * Describe how to resolve conflicts
+    * Describe conflict resolution
 
 *** Specializations
 
