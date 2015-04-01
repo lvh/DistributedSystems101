@@ -109,7 +109,7 @@
 
    * C: linearizability (~ local behavior)
    * A: all active nodes answer every query
-   * P: failure-resistance
+   * P: failure resistance
 
 *** Pick any two
 
