@@ -383,10 +383,10 @@
 
     * Broadcast states
     * Merge operation has many properties:
-      * Commutative: ~f(x, y) = f(y, x)~
-      * Idempotent: ~f(x, y) = f(f(x, y), y)~
-      * Associative: ~f(f(x, y), z) = f(x, f(y, z))~
-      * Informally: apply a bunch of times until done
+      * Commutative: /f(x, y) = f(y, x)/
+      * Idempotent: /f(x, y) = f(f(x, y), y)/
+      * Associative: /f(f(x, y), z) = f(x, f(y, z))/
+      * Informally: apply lots until done
 
 *** Simple CvRDT conflict resolution
 
