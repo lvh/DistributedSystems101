@@ -213,6 +213,14 @@
     | Availability | Transactionality  |
     | Scalability  | Guarantees        |
 
+*** High availability can be OK...
+
+    Stats, aggregates...
+
+    * Counting Twitter followers: can be stale
+    * Average e-mail size: OK if you miss a few
+
+    Doesn't need to be strongly consistent
 
 ** Consistency models
 
@@ -308,8 +316,51 @@
       * Many Python opcodes are atomic
       * Correct use of locks?
 
-** FLP
-** Wallclocks
+** Time
+
+*** What do we do with time?
+
+*** Global clock model
+
+    [[./media/Clock/GlobalClock.svg]]
+
+*** Global clock
+
+    * Everyone accesses the same clock instantly
+    * Can compare
+    * Mental mode
+
+*** Local clock model
+
+    [[./media/Clock/LocalClocks.svg]]
+
+*** Local clocks
+
+    * Each clock is kinda reliable
+    * Can't compare with other timestamps
+    * Mental model: stopwatch
+
+*** No clock model
+
+    [[./media/Clock/NoClocks.svg]]
+
+*** Google Spanner
+
+    GPS & atomic clocks
+    #+BEGIN_QUOTE
+    Atomic clocks [...] drift significantly due to frequency
+    error.
+    #+END_QUOTE
+
+    #+BEGIN_QUOTE
+    uncertainty [...] generally less than 10ms
+    #+END_QUOTE
+
+*** Time is a proxy
+
+    Actual timestamp vs total order
+
+*** Vector clocks
 
 * Good news
 
@@ -325,13 +376,31 @@
    * Paxos* (Chubby)
    * Raft (~etcd~)
 
-** Consensus protocol recipes
+** Recipes
+
+   On top of consensus protocols:
 
    * Set partitioning
-   * Consistent counters
+   * Locks
+   * Barriers
    * ...
 
-*** Example
+*** Set partitioning
+
+    {1, 2, 3, 4, 5}
+
+    #+ATTR_HTML: :style width:60%
+    [[./media/SetPartitioning/Happy.svg]]
+
+*** Failures
+
+    #+ATTR_HTML: :style width:60%
+    [[./media/SetPartitioning/Failures.svg]]
+
+*** Recovery
+
+    #+ATTR_HTML: :style width:60%
+    [[./media/SetPartitioning/Recovery.svg]]
 
 ** CRDTs
 
@@ -348,9 +417,12 @@
 
 *** Solutions?
 
+    * Last write wins? Some write loses :-(
     * Coordination?  Expensive! :-(
-    * I want highly available data stores...
-    * ... but I don't want nonsense data
+
+*** I want highly available data stores...
+
+    .. but I don't want nonsense data
 
 *** Idea!
 
@@ -368,12 +440,12 @@
 
     * Broadcast operations
     * Merge operation:
-      * Commutative: ~f(x, y) = f(y, x)~
-      * Not idempotent ~f(x, y) != f(f(x, y), y)~
+      * Commutative: /f(x, y) = f(y, x)/
+      * Not idempotent /f(x, y) != f(f(x, y), y)/
 
 *** Example: integers
 
-    * +1, -2, +3, +5, -4 => +3
+    * +1, -2, +3, +5, -4: +3
     * Always get same answer:
       * As long as I see all ops /once/
       * Duplicate an op, get wrong answer
@@ -394,6 +466,8 @@
 
 *** Complex CvRDT conflict resolution
 
+    It's okay if you see writes more than once!
+
     [[./media/ComplexCvRDTMerge.svg]]
 
 *** CRDTs in practice: usually CvRDT
@@ -408,7 +482,7 @@
 
     * Counters (G, PN)
     * Sets (G, 2P, LWW, PN, OR)
-    * Maps (sets of ~(k, v)~ tuples)
+    * Maps (sets of /(k, v)/ tuples)
     * Graphs (using multiple sets)
     * Registers (LWW, MV)
     * Sequences (continuous, RGA)
@@ -420,11 +494,7 @@
 
 *** Riak <3
 
-    * Flags
-    * Registers
-    * Counters
-    * Sets
-    * Maps
+    Flags, registers, counters, sets, maps
 
 * Wrap-up
 ** Yay, distributed systems!

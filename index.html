@@ -428,6 +428,24 @@ Idea: (N+1)/2 quorum
 </tbody>
 </table>
 
+</section>
+<section id="sec-3-1-22" >
+
+<h4>High availability can be OK&#x2026;</h4>
+<p>
+Stats, aggregates&#x2026;
+</p>
+
+<ul class="org-ul">
+<li>Counting Twitter followers: can be stale
+</li>
+<li>Average e-mail size: OK if you miss a few
+</li>
+</ul>
+
+<p>
+Doesn't need to be strongly consistent
+</p>
 
 </section>
 <section id="sec-3-2" >
@@ -610,11 +628,88 @@ Models also exist in "centralized" systems
 </section>
 <section id="sec-3-3" >
 
-<h3>FLP</h3>
+<h3>Time</h3>
 </section>
-<section id="sec-3-4" >
+<section id="sec-3-3-1" >
 
-<h3>Wallclocks</h3>
+<h4>What do we do with time?</h4>
+
+</section>
+<section id="sec-3-3-2" >
+
+<h4>Global clock model</h4>
+<img src="./media/Clock/GlobalClock.svg" alt="GlobalClock.svg" />
+
+</section>
+<section id="sec-3-3-3" >
+
+<h4>Global clock</h4>
+<ul class="org-ul">
+<li>Everyone accesses the same clock instantly
+</li>
+<li>Can compare
+</li>
+<li>Mental mode
+</li>
+</ul>
+
+</section>
+<section id="sec-3-3-4" >
+
+<h4>Local clock model</h4>
+<img src="./media/Clock/LocalClocks.svg" alt="LocalClocks.svg" />
+
+</section>
+<section id="sec-3-3-5" >
+
+<h4>Local clocks</h4>
+<ul class="org-ul">
+<li>Each clock is kinda reliable
+</li>
+<li>Can't compare with other timestamps
+</li>
+<li>Mental model: stopwatch
+</li>
+</ul>
+
+</section>
+<section id="sec-3-3-6" >
+
+<h4>No clock model</h4>
+<img src="./media/Clock/NoClocks.svg" alt="NoClocks.svg" />
+
+</section>
+<section id="sec-3-3-7" >
+
+<h4>Google Spanner</h4>
+<p>
+GPS &amp; atomic clocks
+</p>
+<blockquote nil>
+<p>
+Atomic clocks [&#x2026;] drift significantly due to frequency
+error.
+</p>
+</blockquote>
+
+<blockquote nil>
+<p>
+uncertainty [&#x2026;] generally less than 10ms
+</p>
+</blockquote>
+
+</section>
+<section id="sec-3-3-8" >
+
+<h4>Time is a proxy</h4>
+<p>
+Actual timestamp vs total order
+</p>
+
+</section>
+<section id="sec-3-3-9" >
+
+<h4>Vector clocks</h4>
 </section>
 
 </section>
@@ -651,11 +746,17 @@ Stuff you <i>can</i> rely on
 </section>
 <section id="sec-4-3" >
 
-<h3>Consensus protocol recipes</h3>
+<h3>Recipes</h3>
+<p>
+On top of consensus protocols:
+</p>
+
 <ul class="org-ul">
 <li>Set partitioning
 </li>
-<li>Consistent counters
+<li>Locks
+</li>
+<li>Barriers
 </li>
 <li>&#x2026;
 </li>
@@ -664,7 +765,24 @@ Stuff you <i>can</i> rely on
 </section>
 <section id="sec-4-3-1" >
 
-<h4>Example</h4>
+<h4>Set partitioning</h4>
+<p>
+{1, 2, 3, 4, 5}
+</p>
+
+<img src="./media/SetPartitioning/Happy.svg" alt="Happy.svg" style="width:60%" />
+
+</section>
+<section id="sec-4-3-2" >
+
+<h4>Failures</h4>
+<img src="./media/SetPartitioning/Failures.svg" alt="Failures.svg" style="width:60%" />
+
+</section>
+<section id="sec-4-3-3" >
+
+<h4>Recovery</h4>
+<img src="./media/SetPartitioning/Recovery.svg" alt="Recovery.svg" style="width:60%" />
 
 </section>
 <section id="sec-4-4" >
@@ -699,16 +817,22 @@ Stuff you <i>can</i> rely on
 
 <h4>Solutions?</h4>
 <ul class="org-ul">
+<li>Last write wins? Some write loses :-(
+</li>
 <li>Coordination?  Expensive! :-(
-</li>
-<li>I want highly available data stores&#x2026;
-</li>
-<li>&#x2026; but I don't want nonsense data
 </li>
 </ul>
 
 </section>
 <section id="sec-4-4-3" >
+
+<h4>I want highly available data stores&#x2026;</h4>
+<p>
+.. but I don't want nonsense data
+</p>
+
+</section>
+<section id="sec-4-4-4" >
 
 <h4>Idea!</h4>
 <ul class="org-ul">
@@ -719,7 +843,7 @@ Stuff you <i>can</i> rely on
 </ul>
 
 </section>
-<section id="sec-4-4-4" >
+<section id="sec-4-4-5" >
 
 <h4>Specializations</h4>
 <p>
@@ -734,7 +858,7 @@ The C in CRDT can mean:
 </ul>
 
 </section>
-<section id="sec-4-4-5" >
+<section id="sec-4-4-6" >
 
 <h4>Commutative RDTs</h4>
 <ul class="org-ul">
@@ -742,20 +866,20 @@ The C in CRDT can mean:
 </li>
 <li>Merge operation:
 <ul class="org-ul">
-<li>Commutative: <code>f(x, y) = f(y, x)</code>
+<li>Commutative: <i>f(x, y) = f(y, x)</i>
 </li>
-<li>Not idempotent <code>f(x, y) != f(f(x, y), y)</code>
+<li>Not idempotent <i>f(x, y) != f(f(x, y), y)</i>
 </li>
 </ul>
 </li>
 </ul>
 
 </section>
-<section id="sec-4-4-6" >
+<section id="sec-4-4-7" >
 
 <h4>Example: integers</h4>
 <ul class="org-ul">
-<li>+1, -2, +3, +5, -4 =&gt; +3
+<li>+1, -2, +3, +5, -4: +3
 </li>
 <li>Always get same answer:
 <ul class="org-ul">
@@ -770,7 +894,7 @@ The C in CRDT can mean:
 </ul>
 
 </section>
-<section id="sec-4-4-7" >
+<section id="sec-4-4-8" >
 
 <h4>Convergent RDTs</h4>
 <ul class="org-ul">
@@ -778,32 +902,36 @@ The C in CRDT can mean:
 </li>
 <li>Merge operation has many properties:
 <ul class="org-ul">
-<li>Commutative: <code>f(x, y) = f(y, x)</code>
+<li>Commutative: <i>f(x, y) = f(y, x)</i>
 </li>
-<li>Idempotent: <code>f(x, y) = f(f(x, y), y)</code>
+<li>Idempotent: <i>f(x, y) = f(f(x, y), y)</i>
 </li>
-<li>Associative: <code>f(f(x, y), z) = f(x, f(y, z))</code>
+<li>Associative: <i>f(f(x, y), z) = f(x, f(y, z))</i>
 </li>
-<li>Informally: apply a bunch of times until done
+<li>Informally: apply lots until done
 </li>
 </ul>
 </li>
 </ul>
 
 </section>
-<section id="sec-4-4-8" >
+<section id="sec-4-4-9" >
 
 <h4>Simple CvRDT conflict resolution</h4>
 <img src="./media/CvRDTMerge.svg" alt="CvRDTMerge.svg" />
 
 </section>
-<section id="sec-4-4-9" >
+<section id="sec-4-4-10" >
 
 <h4>Complex CvRDT conflict resolution</h4>
+<p>
+It's okay if you see writes more than once!
+</p>
+
 <img src="./media/ComplexCvRDTMerge.svg" alt="ComplexCvRDTMerge.svg" />
 
 </section>
-<section id="sec-4-4-10" >
+<section id="sec-4-4-11" >
 
 <h4>CRDTs in practice: usually CvRDT</h4>
 <p>
@@ -819,7 +947,7 @@ Solve a hard distributed problem constantly
 </p>
 
 </section>
-<section id="sec-4-4-11" >
+<section id="sec-4-4-12" >
 
 <h4>Examples</h4>
 <ul class="org-ul">
@@ -827,7 +955,7 @@ Solve a hard distributed problem constantly
 </li>
 <li>Sets (G, 2P, LWW, PN, OR)
 </li>
-<li>Maps (sets of <code>(k, v)</code> tuples)
+<li>Maps (sets of <i>(k, v)</i> tuples)
 </li>
 <li>Graphs (using multiple sets)
 </li>
@@ -838,7 +966,7 @@ Solve a hard distributed problem constantly
 </ul>
 
 </section>
-<section id="sec-4-4-12" >
+<section id="sec-4-4-13" >
 
 <h4>Using CRDTs</h4>
 <ul class="org-ul">
@@ -849,21 +977,12 @@ Solve a hard distributed problem constantly
 </ul>
 
 </section>
-<section id="sec-4-4-13" >
+<section id="sec-4-4-14" >
 
 <h4>Riak &lt;3</h4>
-<ul class="org-ul">
-<li>Flags
-</li>
-<li>Registers
-</li>
-<li>Counters
-</li>
-<li>Sets
-</li>
-<li>Maps
-</li>
-</ul>
+<p>
+Flags, registers, counters, sets, maps
+</p>
 </section>
 
 </section>
@@ -908,7 +1027,7 @@ Because you're <i>out of options</i>.
 </section>
 <section id="sec-5-4" >
 
-<h3>Questions?</h3>
+<h3>Thank you!</h3>
 </section>
 </section>
 </div>

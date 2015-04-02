@@ -1,0 +1,40 @@
+graph SingleClock {
+        bgcolor="transparent";
+        node [fontname="Helvetica"];
+
+        {
+                node [style=filled,color=blue,fillcolor="LightBlue", penwidth=1];
+                Clock [label="Clock"];
+        }
+
+        {
+                Node1 [label="A"];
+                Node2 [label="B"];
+                Node3 [label="C"];
+                Node4 [label="D"];
+                Node5 [label="E"];
+        }                
+
+        {
+                Node1 -- Clock;
+                Node2 -- Clock;
+                Node3 -- Clock;
+                Node4 -- Clock;
+                Node5 -- Clock;
+        }
+
+        {
+                edge [constraint=false];
+                
+                Node1 -- Node2;
+                Node1 -- Node3;
+                Node2 -- Node3;                               
+                Node3 -- Node4;                
+                Node3 -- Node5;               
+                Node1 -- Node4;
+                Node1 -- Node5;
+                Node2 -- Node4;
+                Node2 -- Node5;
+                Node4 -- Node5;                
+        }        
+}

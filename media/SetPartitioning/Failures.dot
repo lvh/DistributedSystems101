@@ -1,0 +1,26 @@
+graph {
+        bgcolor="transparent";
+        node [fontname="Helvetica"];
+        layout=fdp;
+
+        A [label="???"];
+        B [label="???"];
+        C [label="???"];
+        D [label="???"];
+        E [label="???"];        
+
+        A -- B -- C -- D;
+        A -- C;
+        A -- D;
+        B -- D;        
+
+        
+        {
+                edge [color=red, style=dashed];
+
+                A -- E;
+                B -- E;
+                C -- E;
+                D -- E;                
+        }
+}

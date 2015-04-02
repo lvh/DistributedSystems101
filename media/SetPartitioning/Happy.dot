@@ -1,0 +1,19 @@
+graph {
+        bgcolor="transparent";
+        node [fontname="Helvetica"];
+        layout=fdp;
+
+        A [label="{1}"];
+        B [label="{2}"];
+        C [label="{3}"];
+        D [label="{4}"];
+        E [label="{5}"];        
+
+        A -- B -- C -- D -- E;
+        A -- C;
+        A -- D;
+        A -- E;        
+        B -- D;
+        B -- E;
+        C -- E;       
+}
