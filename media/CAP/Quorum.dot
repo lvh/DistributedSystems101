@@ -6,7 +6,6 @@ graph Quorum {
         Node1 [label="A"];
         Node2 [label="B"];
         Node3 [label="C"];
-
         Node4 [label="D"];
         Node5 [label="E"];
         
