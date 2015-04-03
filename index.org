@@ -54,6 +54,12 @@
    * to whet your appetite
    * to shoot yourself in the foot
 
+** Goals
+
+   * /Not/ exhaustive, /not/ pedantically correct
+   * Give you some idea of where to look
+   * Convince you distributed systems are tricky
+
 * Distributed systems?
 
 ** What /is/ a distributed system?
@@ -247,9 +253,26 @@
     #+ATTR_HTML: :style width:90%
    [[./media/SlowOverlap.svg]]
 
-*** Concurrency
+*** Writes don't replicate instantly
 
-   Overlapping operations
+    [[./media/SequenceDiagrams/StaleRead.svg]]
+
+*** Writes can get reordered
+
+    [[./media/SequenceDiagrams/ReorderedWrites.svg]]
+
+*** All sorts of stuff can happen
+
+    * Only get worse!
+      * Multiple registers, semantics, nodes, failure modes...
+    * E.g. SQL transactions
+      * Phantom reads (the rows change)
+      * Non-repeatable reads (a row changes)
+
+*** We need to reason about the system
+
+    * Need to know what can and can't happen
+    * Set of stuff that can happen: "consistency model"
 
 *** Consistency models
 
@@ -266,8 +289,7 @@
 
    * ∃ serial execution with the same result
    * /Some/ serial execution: fairly weak
-     * No restrictions on /which/ serial execution
-     * No restrictions on /when/ they execute
+   * No restrictions on /which/ serial execution
 
 *** Example: serializability being weak
 
@@ -284,10 +306,6 @@
     1. /y ← 2/, assuming /y = 1/
     2. /x ← 1/, assuming /x = 0/
     3. /y ← x/, assuming /x = 1/
-
-*** Compare and set
-
-    Important primitive
 
 *** Linearizability
 
@@ -322,6 +340,7 @@
 
 *** Global clock model
 
+    #+ATTR_HTML: :style width:60%
     [[./media/Clock/GlobalClock.svg]]
 
 *** Global clock
@@ -332,6 +351,7 @@
 
 *** Local clock model
 
+    #+ATTR_HTML: :style width:60%
     [[./media/Clock/LocalClocks.svg]]
 
 *** Local clocks
@@ -342,6 +362,7 @@
 
 *** No clock model
 
+    #+ATTR_HTML: :style width:60%
     [[./media/Clock/NoClocks.svg]]
 
 *** Google Spanner

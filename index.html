@@ -111,6 +111,19 @@ Parallels with Crypto 101
 <li class="fragment roll-in">to shoot yourself in the foot
 </li>
 </ul>
+
+</section>
+<section id="sec-1-8" >
+
+<h3>Goals</h3>
+<ul class="org-ul">
+<li><i>Not</i> exhaustive, <i>not</i> pedantically correct
+</li>
+<li>Give you some idea of where to look
+</li>
+<li>Convince you distributed systems are tricky
+</li>
+</ul>
 </section>
 
 </section>
@@ -486,13 +499,49 @@ Doesn't need to be strongly consistent
 </section>
 <section id="sec-3-2-6" >
 
-<h4>Concurrency</h4>
-<p>
-Overlapping operations
-</p>
+<h4>Writes don't replicate instantly</h4>
+<img src="./media/SequenceDiagrams/StaleRead.svg" alt="StaleRead.svg" />
 
 </section>
 <section id="sec-3-2-7" >
+
+<h4>Writes can get reordered</h4>
+<img src="./media/SequenceDiagrams/ReorderedWrites.svg" alt="ReorderedWrites.svg" />
+
+</section>
+<section id="sec-3-2-8" >
+
+<h4>All sorts of stuff can happen</h4>
+<ul class="org-ul">
+<li>Only get worse!
+<ul class="org-ul">
+<li>Multiple registers, semantics, nodes, failure modes&#x2026;
+</li>
+</ul>
+</li>
+<li>E.g. SQL transactions
+<ul class="org-ul">
+<li>Phantom reads (the rows change)
+</li>
+<li>Non-repeatable reads (a row changes)
+</li>
+</ul>
+</li>
+</ul>
+
+</section>
+<section id="sec-3-2-9" >
+
+<h4>We need to reason about the system</h4>
+<ul class="org-ul">
+<li>Need to know what can and can't happen
+</li>
+<li>Set of stuff that can happen: "consistency model"
+</li>
+</ul>
+
+</section>
+<section id="sec-3-2-10" >
 
 <h4>Consistency models</h4>
 <img src="./media/ConsistencyModels.svg" alt="ConsistencyModels.svg" style="width:80%" />
@@ -506,24 +555,20 @@ Overlapping operations
 </aside>
 
 </section>
-<section id="sec-3-2-8" >
+<section id="sec-3-2-11" >
 
 <h4>Serializability</h4>
 <ul class="org-ul">
 <li>∃ serial execution with the same result
 </li>
 <li><i>Some</i> serial execution: fairly weak
-<ul class="org-ul">
+</li>
 <li>No restrictions on <i>which</i> serial execution
-</li>
-<li>No restrictions on <i>when</i> they execute
-</li>
-</ul>
 </li>
 </ul>
 
 </section>
-<section id="sec-3-2-9" >
+<section id="sec-3-2-12" >
 
 <h4>Example: serializability being weak</h4>
 <p>
@@ -540,7 +585,7 @@ Precondition: <i>x = 0</i>
 </ol>
 
 </section>
-<section id="sec-3-2-10" >
+<section id="sec-3-2-13" >
 
 <h4>Example: serializability being strong</h4>
 <p>
@@ -557,15 +602,7 @@ Precondition: <i>x = y = 0</i>
 </ol>
 
 </section>
-<section id="sec-3-2-11" >
-
-<h4>Compare and set</h4>
-<p>
-Important primitive
-</p>
-
-</section>
-<section id="sec-3-2-12" >
+<section id="sec-3-2-14" >
 
 <h4>Linearizability</h4>
 <p>
@@ -573,7 +610,7 @@ All operations appear to happen instantly
 </p>
 
 </section>
-<section id="sec-3-2-13" >
+<section id="sec-3-2-15" >
 
 <h4>Strong serializability</h4>
 <ul class="org-ul">
@@ -586,7 +623,7 @@ All operations appear to happen instantly
 </ul>
 
 </section>
-<section id="sec-3-2-14" >
+<section id="sec-3-2-16" >
 
 <h4>Your computer is distributed</h4>
 <p>
@@ -601,7 +638,7 @@ Models also exist in "centralized" systems
 </ul>
 
 </section>
-<section id="sec-3-2-15" >
+<section id="sec-3-2-17" >
 
 <h4>Twisted vs threads</h4>
 <ul class="org-ul">
@@ -638,7 +675,7 @@ Models also exist in "centralized" systems
 <section id="sec-3-3-2" >
 
 <h4>Global clock model</h4>
-<img src="./media/Clock/GlobalClock.svg" alt="GlobalClock.svg" />
+<img src="./media/Clock/GlobalClock.svg" alt="GlobalClock.svg" style="width:60%" />
 
 </section>
 <section id="sec-3-3-3" >
@@ -657,7 +694,7 @@ Models also exist in "centralized" systems
 <section id="sec-3-3-4" >
 
 <h4>Local clock model</h4>
-<img src="./media/Clock/LocalClocks.svg" alt="LocalClocks.svg" />
+<img src="./media/Clock/LocalClocks.svg" alt="LocalClocks.svg" style="width:60%" />
 
 </section>
 <section id="sec-3-3-5" >
@@ -676,7 +713,7 @@ Models also exist in "centralized" systems
 <section id="sec-3-3-6" >
 
 <h4>No clock model</h4>
-<img src="./media/Clock/NoClocks.svg" alt="NoClocks.svg" />
+<img src="./media/Clock/NoClocks.svg" alt="NoClocks.svg" style="width:60%" />
 
 </section>
 <section id="sec-3-3-7" >
