@@ -4,16 +4,17 @@ graph DoubleQuorum {
         layout=fdp;        
         
         Node1 [label="A"];
+        
         Node2 [label="B"];
-
         Node3 [label="C"];
 
         Node4 [label="D"];
         Node5 [label="E"];
 
-        {
+        {                
                 edge [color=blue, penwidth=5];
-                
+
+                // A B C
                 Node1 -- Node2;
                 Node1 -- Node3;       
                 Node2 -- Node3;
@@ -21,18 +22,19 @@ graph DoubleQuorum {
 
         {
                 edge [color=orange, penwidth=5];
-                
-                Node3 -- Node4;                
-                Node3 -- Node5;               
+
+                // A D E
+                Node1 -- Node4;                
+                Node1 -- Node5;               
                 Node4 -- Node5;
         }
         
         {
                 edge [color=lightgrey, style=dashed];                
                 
-                Node1 -- Node4;
-                Node1 -- Node5;
                 Node2 -- Node4;
                 Node2 -- Node5;
+                Node3 -- Node4;
+                Node3 -- Node5;
         }
 }

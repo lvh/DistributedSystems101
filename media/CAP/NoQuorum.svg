@@ -20,7 +20,7 @@
 </g>
 <!-- Node1&#45;&#45;Node2 -->
 <g id="edge1" class="edge"><title>Node1&#45;&#45;Node2</title>
-<path fill="none" stroke="black" stroke-width="5" d="M61.3011,-46.8531C78.5885,-53.126 101.824,-61.557 119.089,-67.822"/>
+<path fill="none" stroke="blue" stroke-width="5" d="M61.3011,-46.8531C78.5885,-53.126 101.824,-61.557 119.089,-67.822"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
@@ -71,7 +71,7 @@
 </g>
 <!-- Node4&#45;&#45;Node5 -->
 <g id="edge2" class="edge"><title>Node4&#45;&#45;Node5</title>
-<path fill="none" stroke="black" stroke-width="5" d="M52.3503,-110.697C57.8492,-112.296 63.6781,-113.991 69.1866,-115.593"/>
+<path fill="none" stroke="orange" stroke-width="5" d="M52.3503,-110.697C57.8492,-112.296 63.6781,-113.991 69.1866,-115.593"/>
 </g>
 </g>
 </svg>

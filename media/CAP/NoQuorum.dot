@@ -13,10 +13,15 @@ graph NoQuorum {
 
         
         {
-                edge [penwidth=5];
+                edge [penwidth=5, color=blue];
                 
                 Node1 -- Node2;
-                Node4 -- Node5;               
+        }
+
+        {
+                edge [penwidth=5, color=orange];
+                
+                Node4 -- Node5;
         }
         
       
