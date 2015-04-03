@@ -25,11 +25,12 @@ graph Quorum {
         {
                 edge [color=lightgrey, style=dashed];
                 
-                Node3 -- Node4;                
-                Node3 -- Node5;               
                 Node1 -- Node4;
                 Node1 -- Node5;
                 Node2 -- Node4;
                 Node2 -- Node5;
+                Node3 -- Node4;                
+                Node3 -- Node5;               
+                Node4 -- Node5;              
         }
 }
