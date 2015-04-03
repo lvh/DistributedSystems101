@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<svg viewBox="0 0 832 564" xmlns="http://www.w3.org/2000/svg" xmlns:inkspace="http://www.inkscape.org/namespaces/inkscape" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs id="defs_block">
+    <filter height="1.504" id="filter_blur" inkspace:collect="always" width="1.1575" x="-0.07875" y="-0.252">
+      <feGaussianBlur id="feGaussianBlur3780" inkspace:collect="always" stdDeviation="4.2" />
+    </filter>
+  </defs>
+  <title>blockdiag</title>
+  <desc>seqdiag {
+        activation = none;
+        default_fontsize = 14;
+
+        P [label="Process P"];
+        RA [label="Node A"];
+        RB [label="Node B"];
+        Q [label="Process Q"]
+
+        P -&gt;&gt; RA [label="Append x"];
+        Q -&gt;&gt; RB [label="Append y"];
+
+        RA -&gt;&gt; RB [label="Replicate append x"];
+        RB -&gt;&gt; RA [label="Replicate append y"];
+
+        P &lt;&lt;- RA [label="Read x, y"];
+        Q &lt;&lt;- RB [label="Read y, x"];
+}
+</desc>
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="67" y="46" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="259" y="46" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="451" y="46" />
+  <rect fill="rgb(0,0,0)" height="40" stroke="rgb(0,0,0)" style="filter:url(#filter_blur);opacity:0.7;fill-opacity:1" width="128" x="643" y="46" />
+  <path d="M 128 80 L 128 552" fill="none" stroke="rgb(0,0,0)" stroke-dasharray="8 4" />
+  <path d="M 320 80 L 320 552" fill="none" stroke="rgb(0,0,0)" stroke-dasharray="8 4" />
+  <path d="M 512 80 L 512 552" fill="none" stroke="rgb(0,0,0)" stroke-dasharray="8 4" />
+  <path d="M 704 80 L 704 552" fill="none" stroke="rgb(0,0,0)" stroke-dasharray="8 4" />
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="128" x="64" y="40" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="70" x="128" y="67">Process P</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="128" x="256" y="40" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="53" x="320" y="67">Node A</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="128" x="448" y="40" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="52" x="512" y="67">Node B</text>
+  <rect fill="rgb(255,255,255)" height="40" stroke="rgb(0,0,0)" width="128" x="640" y="40" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="72" x="704" y="67">Process Q</text>
+  <path d="M 136 140 L 312 140" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 304 136 L 312 140" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 312 140 L 304 144" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 520 210 L 696 210" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 528 206 L 520 210" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 520 210 L 528 214" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 328 280 L 504 280" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 496 276 L 504 280" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 504 280 L 496 284" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 328 350 L 504 350" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 336 346 L 328 350" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 328 350 L 336 354" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 136 420 L 312 420" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 144 416 L 136 420" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 136 420 L 144 424" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 520 490 L 696 490" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 688 486 L 696 490" fill="none" stroke="rgb(0,0,0)" />
+  <path d="M 696 490 L 688 494" fill="none" stroke="rgb(0,0,0)" />
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="68" x="174" y="138">Append x</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="68" x="662" y="208">Append y</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="132" x="398" y="278">Replicate append x</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="132" x="438" y="348">Replicate append y</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="64" x="280" y="418">Read x, y</text>
+  <text fill="rgb(0,0,0)" font-family="sans-serif" font-size="14" font-style="normal" font-weight="normal" text-anchor="middle" textLength="64" x="556" y="488">Read y, x</text>
+</svg>

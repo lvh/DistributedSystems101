@@ -1,0 +1,16 @@
+seqdiag {
+        activation = none;
+        default_fontsize = 14;
+
+        A [label="Process"];
+        RA [label="Node A"];
+        RB [label="Node B"];
+
+        A ->> RA [label="Write x"];
+        A <<- RA [label="Written x"];
+
+        A ->> RB [label="Read"];
+        A <<- RB [label="Read y"];
+
+        RA ->> RB [label="Replicate write x"];
+}
