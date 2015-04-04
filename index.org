@@ -360,9 +360,10 @@
 
 *** Global clock
 
-    * Everyone accesses the same clock instantly
-    * Can compare
-    * Mental mode
+    * Everyone sees the same clock
+    * Access instant, uncertainty 0
+    * Can compare different timestamps
+    * Mental model: wallclock
 
 *** Local clock model
 
