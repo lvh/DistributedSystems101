@@ -43,8 +43,12 @@
 
 ** Disconnect
 
+   Theory ⚡ practice
+
+   #+BEGIN_NOTES
     * Many theoreticians ignore practice
     * Many practitioners ignore theory
+   #+END_NOTES
 
 ** Distributed Systems 101
 
