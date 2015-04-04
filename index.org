@@ -273,10 +273,10 @@
       * Phantom reads (the rows change)
       * Non-repeatable reads (a row changes)
 
-*** We need to reason about the system
+*** Reasoning about the system
 
-    * Need to know what can and can't happen
-    * Set of stuff that can happen: "consistency model"
+    * What can and can't happen?
+    * What /can/ happen: consistency model
 
 *** Consistency models
 
