@@ -3,15 +3,15 @@ digraph ComplexCvRDTMerge {
         node [fontname="Helvetica"];
 
         subgraph NodeA {                
-                NodeAState1 [label="{a: 1}"];                
-                NodeAState2 [label="{b: 2}"];
-                NodeAState3 [label="{c: 3}"];
-                NodeAState4 [label="{d: 4}"];
+                NodeAState1 [label="{1}"];                
+                NodeAState2 [label="{2}"];
+                NodeAState3 [label="{3}"];
+                NodeAState4 [label="{4}"];
 
-                NodeAIntermediate1 [label="{a: 1, b: 2}"];
-                NodeAIntermediate2 [label="{c: 3, d: 4}"];
+                NodeAIntermediate1 [label="{1, 2}"];
+                NodeAIntermediate2 [label="{3, 4}"];
 
-                NodeAFinal [label="{a: 1, b: 2, c: 3, d: 4}"];
+                NodeAFinal [label="{1, 2, 3, 4}"];
 
                 NodeAState1 -> NodeAIntermediate1;
                 NodeAState2 -> NodeAIntermediate1;
@@ -24,21 +24,21 @@ digraph ComplexCvRDTMerge {
         }
 
         subgraph NodeB {
-                NodeBState1 [label="{a: 1, b: 2}"];                
-                NodeBState2 [label="{a: 1, b: 2, c: 3}"];
-                NodeBState3 [label="{c: 3}"];
-                NodeBState4 [label="{d: 4}"];
+                NodeBState1 [label="{1, 2}"];                
+                NodeBState2 [label="{1, 2, 3}"];
+                NodeBState3 [label="{3}"];
+                NodeBState4 [label="{4}"];
                             
                 NodeBState1 -> NodeBIntermediate1;
                 NodeBState2 -> NodeBIntermediate1;
-                NodeBIntermediate1 [label="{a: 1, b: 2, c: 3}"];
+                NodeBIntermediate1 [label="{1, 2, 3}"];
                 
                 NodeBState3 -> NodeBIntermediate2;
                 NodeBState4 -> NodeBIntermediate2;
-                NodeBIntermediate2 [label="{c: 3, d: 4}"];               
+                NodeBIntermediate2 [label="{3, 4}"];               
 
                 NodeBIntermediate1 -> NodeBFinal;                
                 NodeBIntermediate2 -> NodeBFinal;                
-                NodeBFinal [label="{a: 1, b: 2, c: 3, d: 4}"];
+                NodeBFinal [label="{1, 2, 3, 4}"];
         }
 }
