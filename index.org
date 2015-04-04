@@ -333,10 +333,10 @@
 
 *** Your computer is distributed
 
-    Models also exist in "centralized" systems
+    Models in "centralized" systems
 
     * SQL databases
-    * Clojure's reference types
+    * Clojure reftypes
 
 *** Twisted vs threads
 
