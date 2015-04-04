@@ -278,7 +278,7 @@
     * What can and can't happen?
     * What /can/ happen: consistency model
 
-*** Consistency models
+*** Theoretical consistency models
 
    #+ATTR_HTML: :style width:80%
    [[./media/ConsistencyModels.svg]]
