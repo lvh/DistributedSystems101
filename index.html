@@ -6,7 +6,7 @@
 <title>Distributed Systems 101</title>
 <meta name="author" content="(@lvh)"/>
 
-<link rel="stylesheet" href="./reveal.js/css/reveal.min.css"/>
+<link rel="stylesheet" href="./reveal.js/css/reveal.css"/>
 <link rel="stylesheet" href="./reveal.js/css/theme/lvh.css" id="theme"/>
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
@@ -23,7 +23,7 @@
 <body>
 <div class="reveal">
 <div class="slides">
-<section>
+<section id="sec-title-slide">
 <h1>Distributed Systems 101</h1>
 <h2>@lvh</h2>
 <h2><a href="mailto:_@lvh.io">_@lvh.io</a></h2>
@@ -31,65 +31,79 @@
 </section>
 
 <section>
-<section id="sec-1" >
-
-<h2>Introduction</h2>
-</section>
-<section id="sec-1-1" >
-
-<h3>Who am I?</h3>
-<img src="./media/lvh.svg" alt="lvh.svg" style="width:80%" />
+<section id="slide-sec-1">
+<h2 id="sec-1">Slides</h2>
+<p>
+<code>www.lvh.io/DistributedSystems101</code>
+</p>
 
 </section>
-<section id="sec-1-2" >
+</section>
+<section>
+<section id="slide-sec-2">
+<h2 id="sec-2">Introduction</h2>
+<div class="outline-text-2" id="text-2">
+</div></section>
+<section id="slide-sec-2-1">
+<h3 id="sec-2-1">Who am I?</h3>
 
-<h3>Rackspace</h3>
-<img src="./media/rackspace.svg" alt="rackspace.svg" style="width:90%" />
+<div class="figure">
+<p><img src="./media/lvh.svg" alt="lvh.svg" style="width:80%" />
+</p>
+</div>
 
 </section>
-<section id="sec-1-3" >
+<section id="slide-sec-2-2">
+<h3 id="sec-2-2">Rackspace</h3>
 
-<h3>AutoScale</h3>
-<img src="./media/threeotters.jpg" alt="threeotters.jpg" style="width:90%" />
+<div class="figure">
+<p><img src="./media/rackspace.svg" alt="rackspace.svg" style="width:50%" />
+</p>
+</div>
 
 </section>
-<section id="sec-1-4" >
+<section id="slide-sec-2-3">
+<h3 id="sec-2-3">AutoScale</h3>
 
-<h3>AutoScale</h3>
-<ul class="org-ul">
-<li class="fragment roll-in">Distributed system
-</li>
-<li class="fragment roll-in">Manages distributed systems
-</li>
-<li class="fragment roll-in">Running on distributed systems
-</li>
-<li class="fragment roll-in">Interacting with distributed systems
-</li>
+<div class="figure">
+<p><img src="./media/threeotters.jpg" alt="threeotters.jpg" style="width:90%" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-2-4">
+<h3 id="sec-2-4">AutoScale</h3>
+<ul>
+<li>Distributed system</li>
+<li>Manages distributed systems</li>
+<li>Running on distributed systems</li>
+<li>Interacting with distributed systems</li>
+
 </ul>
 
 </section>
-<section id="sec-1-5" >
-
-<h3>Why this talk?</h3>
+<section id="slide-sec-2-5">
+<h3 id="sec-2-5">Why this talk?</h3>
 <p>
 Parallels with Crypto 101
 </p>
 
-<ul class="org-ul">
-<li class="fragment roll-in">Field considered exclusive domain of experts
-</li>
-<li class="fragment roll-in">Abstinence-only education doesn't work
-</li>
-<li class="fragment roll-in">Lots of material, but not organized for self-teaching
-</li>
-<li class="fragment roll-in">We can't afford not to care
-</li>
+<ul>
+<li>Field considered exclusive domain of experts</li>
+<li>Abstinence-only education doesn't work</li>
+<li>Lots of material, but not organized for self-teaching</li>
+<li>We can't afford not to care</li>
+
 </ul>
 
 </section>
-<section id="sec-1-6" >
+<section id="slide-sec-2-6">
+<h3 id="sec-2-6">Disconnect</h3>
+<p>
+Theory ⚡ practice
+</p>
 
-<h3>Disconnect</h3>
+<aside class="notes">
 <ul class="org-ul">
 <li>Many theoreticians ignore practice
 </li>
@@ -97,45 +111,41 @@ Parallels with Crypto 101
 </li>
 </ul>
 
-</section>
-<section id="sec-1-7" >
+</aside>
 
-<h3>Distributed Systems 101</h3>
+</section>
+<section id="slide-sec-2-7">
+<h3 id="sec-2-7">Distributed Systems 101</h3>
 <p>
 "Just enough" distributed systems
 </p>
 
-<ul class="org-ul">
-<li class="fragment roll-in">to whet your appetite
-</li>
-<li class="fragment roll-in">to shoot yourself in the foot
-</li>
+<ul>
+<li>to whet your appetite</li>
+<li>to shoot yourself in the foot</li>
+
 </ul>
 
 </section>
-<section id="sec-1-8" >
+<section id="slide-sec-2-8">
+<h3 id="sec-2-8">Goals</h3>
+<ul>
+<li><i>Not</i> exhaustive, <i>not</i> pedantically correct</li>
+<li>Give you some idea of where to look</li>
+<li>Convince you distributed systems are tricky</li>
 
-<h3>Goals</h3>
-<ul class="org-ul">
-<li><i>Not</i> exhaustive, <i>not</i> pedantically correct
-</li>
-<li>Give you some idea of where to look
-</li>
-<li>Convince you distributed systems are tricky
-</li>
 </ul>
-</section>
 
+</section>
 </section>
 <section>
-<section id="sec-2" >
-
-<h2>Distributed systems?</h2>
-</section>
-<section id="sec-2-1" >
-
-<h3>What <i>is</i> a distributed system?</h3>
-<blockquote nil>
+<section id="slide-sec-3">
+<h2 id="sec-3">Distributed systems?</h2>
+<div class="outline-text-2" id="text-3">
+</div></section>
+<section id="slide-sec-3-1">
+<h3 id="sec-3-1">What <i>is</i> a distributed system?</h3>
+<blockquotenil>
 <p>
 [&#x2026;] when a machine I've never heard of can cause my program to
 fail.
@@ -147,277 +157,265 @@ fail.
 </p>
 
 </section>
-<section id="sec-2-2" >
+<section id="slide-sec-3-2">
+<h3 id="sec-3-2">Paradox</h3>
+<ul>
+<li>Why do we use them? Reliability!</li>
+<li>Experts' primary concern? Failure!</li>
 
-<h3>Paradox</h3>
-<ul class="org-ul">
-<li>Why do we use them? Reliability!
-</li>
-<li>Experts' primary concern? Failure!
-</li>
 </ul>
 
 </section>
-<section id="sec-2-3" >
+<section id="slide-sec-3-3">
+<h3 id="sec-3-3">Fundamental constraints</h3>
+<ol>
+<li>Information travels at <i>c</i></li>
+<li>Components fail</li>
 
-<h3>Fundamental constraints</h3>
-<ol class="org-ol">
-<li>Information travels at <i>c</i>
-</li>
-<li>Components fail
-</li>
 </ol>
 
 </section>
-<section id="sec-2-4" >
+<section id="slide-sec-3-4">
+<h3 id="sec-3-4">Fallacies</h3>
+<ol>
+<li>The network is reliable.</li>
+<li>Latency is zero.</li>
+<li>Bandwidth is infinite.</li>
+<li>The network is secure.</li>
+<li>Topology doesn't change.</li>
+<li>There is one administrator.</li>
+<li>Transport cost is zero.</li>
+<li>The network is homogeneous.</li>
 
-<h3>Fallacies</h3>
-<ol class="org-ol">
-<li>The network is reliable.
-</li>
-<li>Latency is zero.
-</li>
-<li>Bandwidth is infinite.
-</li>
-<li>The network is secure.
-</li>
-<li>Topology doesn't change.
-</li>
-<li>There is one administrator.
-</li>
-<li>Transport cost is zero.
-</li>
-<li>The network is homogeneous.
-</li>
 </ol>
 
 </section>
-<section id="sec-2-5" >
-
-<h3>Examples of distributed systems</h3>
-<ul class="org-ul">
+<section id="slide-sec-3-5">
+<h3 id="sec-3-5">Examples of distributed systems</h3>
+<ul>
 <li>Basically everything (e.g., your laptop)
-<ul class="org-ul">
-<li>Speed of light isn't infinite
-</li>
-<li>RAM is <i>all the way over there</i>
-</li>
-</ul>
-</li>
-<li>Typically:
-<ul class="org-ul">
-<li>Any system with &gt; 1 machine
-</li>
-<li>Connected via network
-</li>
-</ul>
-</li>
-</ul>
-</section>
+<ul>
+<li>Speed of light isn't infinite</li>
+<li>RAM is <i>all the way over there</i></li>
 
+</ul></li>
+<li>Typically:
+<ul>
+<li>Any system with &gt; 1 machine</li>
+<li>Connected via network</li>
+
+</ul></li>
+
+</ul>
+
+</section>
 </section>
 <section>
-<section id="sec-3" >
-
-<h2>Bad news</h2>
+<section id="slide-sec-4">
+<h2 id="sec-4">Bad news</h2>
 <p>
 Theory and consequences
 </p>
 
 </section>
-<section id="sec-3-1" >
+<section id="slide-sec-4-1">
+<h3 id="sec-4-1">CAP theorem</h3>
+<div class="outline-text-3" id="text-4-1">
+</div></section>
+<section id="slide-sec-4-1-1">
+<h4 id="sec-4-1-1">Pick any two:</h4>
+<ul>
+<li>Consistency</li>
+<li>Availability</li>
+<li>Partition tolerance</li>
 
-<h3>CAP theorem</h3>
-</section>
-<section id="sec-3-1-1" >
-
-<h4>Pick any two:</h4>
-<ul class="org-ul">
-<li>Consistency
-</li>
-<li>Availability
-</li>
-<li>Partition tolerance
-</li>
 </ul>
 
 </section>
-<section id="sec-3-1-2" >
+<section id="slide-sec-4-1-2">
+<h4 id="sec-4-1-2">What does that even mean?</h4>
+<ul>
+<li>C: linearizability (~ local behavior)</li>
+<li>A: all active nodes answer every query</li>
+<li>P: failure resistance</li>
 
-<h4>What does that even mean?</h4>
-<ul class="org-ul">
-<li>C: linearizability (~ local behavior)
-</li>
-<li>A: all active nodes answer every query
-</li>
-<li>P: failure resistance
-</li>
 </ul>
 
 </section>
-<section id="sec-3-1-3" >
+<section id="slide-sec-4-1-3">
+<h4 id="sec-4-1-3">Pick any two</h4>
 
-<h4>Pick any two</h4>
-<img src="./media/cap-venn-base.svg" alt="cap-venn-base.svg" style="width:50%" />
-
-</section>
-<section id="sec-3-1-4" >
-
-<h4>Pick any two</h4>
-<img src="./media/cap-venn-any2.svg" alt="cap-venn-any2.svg" style="width:50%" />
+<div class="figure">
+<p><img src="./media/cap-venn-base.svg" alt="cap-venn-base.svg" style="width:50%" />
+</p>
+</div>
 
 </section>
-<section id="sec-3-1-5" >
+<section id="slide-sec-4-1-4">
+<h4 id="sec-4-1-4">Pick any two</h4>
 
-<h4>Can't sacrifice partition tolerance</h4>
-<ul class="org-ul">
-<li>Partition tolerance is failure tolerance
-</li>
-<li>Networks, nodes fail all the time
-</li>
-<li>Latency happens; indistinguishable
-</li>
+<div class="figure">
+<p><img src="./media/cap-venn-any2.svg" alt="cap-venn-any2.svg" style="width:50%" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-4-1-5">
+<h4 id="sec-4-1-5">Can't sacrifice partition tolerance</h4>
+<ul>
+<li>Partition tolerance is failure tolerance</li>
+<li>Networks, nodes fail all the time</li>
+<li>Latency happens; indistinguishable</li>
 <li>P(no failures) &lt; 1 - P(one node works)<sup>N</sup>
-<ul class="org-ul">
-<li>Cascades, Hurst exponent
-</li>
-</ul>
-</li>
-</ul>
+<ul>
+<li>Cascades, Hurst exponent</li>
 
-</section>
-<section id="sec-3-1-6" >
+</ul></li>
 
-<h4>Pick any two: AP or CP</h4>
-<img src="./media/cap-venn-any2-withp.svg" alt="cap-venn-any2-withp.svg" style="width:50%" />
-
-</section>
-<section id="sec-3-1-7" >
-
-<h4>Example: Zookeeper</h4>
-<ul class="org-ul">
-<li>Zookeeper is CP
-</li>
-<li>Consistent ops that sometimes fail
-</li>
 </ul>
 
 </section>
-<section id="sec-3-1-8" >
+<section id="slide-sec-4-1-6">
+<h4 id="sec-4-1-6">Pick any two: AP or CP</h4>
 
-<h4>Examples: Cassandra</h4>
-<ul class="org-ul">
-<li>Cassandra is AP
-</li>
-<li>inconsistent ops that (usually) succeed
-</li>
+<div class="figure">
+<p><img src="./media/cap-venn-any2-withp.svg" alt="cap-venn-any2-withp.svg" style="width:50%" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-4-1-7">
+<h4 id="sec-4-1-7">Example: Zookeeper</h4>
+<ul>
+<li>Zookeeper is CP</li>
+<li>Consistent ops that sometimes fail</li>
+
 </ul>
 
 </section>
-<section id="sec-3-1-9" >
+<section id="slide-sec-4-1-8">
+<h4 id="sec-4-1-8">Examples: Cassandra</h4>
+<ul>
+<li>Cassandra is AP</li>
+<li>inconsistent ops that (usually) succeed</li>
 
-<h4>Informally</h4>
+</ul>
+
+</section>
+<section id="slide-sec-4-1-9">
+<h4 id="sec-4-1-9">Informally</h4>
 <p>
 Let's look at a 5 node cluster
 </p>
 
 </section>
-<section id="sec-3-1-10" >
+<section id="slide-sec-4-1-10">
+<h4 id="sec-4-1-10">5-node connected cluster</h4>
 
-<h4>5-node connected cluster</h4>
-<img src="./media/CAP/Connected.svg" alt="Connected.svg" style="width:50%" />
+<div class="figure">
+<p><img src="./media/CAP/Connected.svg" alt="Connected.svg" style="width:50%" />
+</p>
+</div>
 
 </section>
-<section id="sec-3-1-11" >
-
-<h4>What happens when stuff fails?</h4>
+<section id="slide-sec-4-1-11">
+<h4 id="sec-4-1-11">What happens when stuff fails?</h4>
 <p>
 Idea: (N+1)/2 quorum
 </p>
 
 </section>
-<section id="sec-3-1-12" >
+<section id="slide-sec-4-1-12">
+<h4 id="sec-4-1-12">Some failures</h4>
 
-<h4>Some failures</h4>
-<img src="./media/CAP/Quorum.svg" alt="Quorum.svg" style="width:50%" />
-
-</section>
-<section id="sec-3-1-13" >
-
-<h4>Failures are indistinguishable</h4>
-<img src="./media/CAP/QuorumWithNodeFailures.svg" alt="QuorumWithNodeFailures.svg" style="width:50%" />
+<div class="figure">
+<p><img src="./media/CAP/Quorum.svg" alt="Quorum.svg" style="width:50%" />
+</p>
+</div>
 
 </section>
-<section id="sec-3-1-14" >
+<section id="slide-sec-4-1-13">
+<h4 id="sec-4-1-13">Failures are indistinguishable</h4>
 
-<h4>Too many failures, no quorum</h4>
-<img src="./media/CAP/NoQuorum.svg" alt="NoQuorum.svg" style="width:50%" />
-
-</section>
-<section id="sec-3-1-15" >
-
-<h4>Simple quorum isn't enough</h4>
-<img src="./media/CAP/DoubleQuorum.svg" alt="DoubleQuorum.svg" style="width:50%" />
+<div class="figure">
+<p><img src="./media/CAP/QuorumWithNodeFailures.svg" alt="QuorumWithNodeFailures.svg" style="width:50%" />
+</p>
+</div>
 
 </section>
-<section id="sec-3-1-16" >
+<section id="slide-sec-4-1-14">
+<h4 id="sec-4-1-14">Too many failures, no quorum</h4>
 
-<h4>Back to reality</h4>
-<ul class="org-ul">
-<li>CAP's C is linearizability
-</li>
-<li>CAP's A is ops on <i>any</i> node
-</li>
-<li>These are very strong guarantees!
-</li>
+<div class="figure">
+<p><img src="./media/CAP/NoQuorum.svg" alt="NoQuorum.svg" style="width:50%" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-4-1-15">
+<h4 id="sec-4-1-15">Simple quorum isn't enough</h4>
+
+<div class="figure">
+<p><img src="./media/CAP/DoubleQuorum.svg" alt="DoubleQuorum.svg" style="width:50%" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-4-1-16">
+<h4 id="sec-4-1-16">Back to reality</h4>
+<ul>
+<li>CAP's C is linearizability</li>
+<li>CAP's A is ops on <i>any</i> node</li>
+<li>These are very strong guarantees!</li>
+
 </ul>
 
 </section>
-<section id="sec-3-1-17" >
+<section id="slide-sec-4-1-17">
+<h4 id="sec-4-1-17">Gradations</h4>
 
-<h4>Gradations</h4>
-<img src="./media/ap-cp.svg" alt="ap-cp.svg" style="width:80%" />
+<div class="figure">
+<p><img src="./media/ap-cp.svg" alt="ap-cp.svg" style="width:80%" />
+</p>
+</div>
 
 </section>
-<section id="sec-3-1-18" >
+<section id="slide-sec-4-1-18">
+<h4 id="sec-4-1-18">Reality</h4>
+<ul>
+<li><i>Many</i> consistency models (real &amp; theoretical)</li>
+<li><i>Many</i> levels of availability (0-100%)</li>
+<li>No reason to sacrifice either outside of failures</li>
+<li>Systems can choose what to sacrifice (A vs C)</li>
 
-<h4>Reality</h4>
-<ul class="org-ul">
-<li><i>Many</i> consistency models (real &amp; theoretical)
-</li>
-<li><i>Many</i> levels of availability (0-100%)
-</li>
-<li>No reason to sacrifice either outside of failures
-</li>
-<li>Systems can choose what to sacrifice (A vs C)
-</li>
 </ul>
 
 </section>
-<section id="sec-3-1-19" >
+<section id="slide-sec-4-1-19">
+<h4 id="sec-4-1-19">Example of creative sacrifice: <code>etcd</code></h4>
+<ul>
+<li>Normally: consistency all the way</li>
+<li>Option of doing inconsistent reads</li>
+<li>Maybe get some stale data</li>
+<li>&#x2026; but still works if the cluster is on fire!</li>
 
-<h4>Example of creative sacrifice: <code>etcd</code></h4>
-<ul class="org-ul">
-<li>Normally: consistency all the way
-</li>
-<li>Option of doing inconsistent reads
-</li>
-<li>Maybe get some stale data
-</li>
-<li>&#x2026; but still works if the cluster is on fire!
-</li>
 </ul>
 
 </section>
-<section id="sec-3-1-20" >
-
-<h4>What lives in those gray areas?</h4>
+<section id="slide-sec-4-1-20">
+<h4 id="sec-4-1-20">What lives in those gray areas?</h4>
 
 </section>
-<section id="sec-3-1-21" >
+<section id="slide-sec-4-1-21">
+<h4 id="sec-4-1-21">Trade-offs</h4>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
-<h4>Trade-offs</h4>
-<table nil>
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
 <tbody>
 <tr>
 <td class="left">Availability</td>
@@ -442,18 +440,16 @@ Idea: (N+1)/2 quorum
 </table>
 
 </section>
-<section id="sec-3-1-22" >
-
-<h4>High availability can be OK&#x2026;</h4>
+<section id="slide-sec-4-1-22">
+<h4 id="sec-4-1-22">High availability can be OK&#x2026;</h4>
 <p>
 Stats, aggregates&#x2026;
 </p>
 
-<ul class="org-ul">
-<li>Counting Twitter followers: can be stale
-</li>
-<li>Average e-mail size: OK if you miss a few
-</li>
+<ul>
+<li>Counting Twitter followers: can be stale</li>
+<li>Average e-mail size: OK if you miss a few</li>
+
 </ul>
 
 <p>
@@ -461,90 +457,105 @@ Doesn't need to be strongly consistent
 </p>
 
 </section>
-<section id="sec-3-2" >
+<section id="slide-sec-4-2">
+<h3 id="sec-4-2">Consistency models</h3>
+<div class="outline-text-3" id="text-4-2">
+</div></section>
+<section id="slide-sec-4-2-1">
+<h4 id="sec-4-2-1">One process, one register</h4>
 
-<h3>Consistency models</h3>
-</section>
-<section id="sec-3-2-1" >
-
-<h4>One process, one register</h4>
-<img src="./media/SimpleRegister.svg" alt="SimpleRegister.svg" style="width:70%" />
-
-</section>
-<section id="sec-3-2-2" >
-
-<h4>Two processes, one register</h4>
-<img src="./media/SimpleRegisterTwoWriters.svg" alt="SimpleRegisterTwoWriters.svg" />
+<div class="figure">
+<p><img src="./media/SimpleRegister.svg" alt="SimpleRegister.svg" style="width:70%" />
+</p>
+</div>
 
 </section>
-<section id="sec-3-2-3" >
+<section id="slide-sec-4-2-2">
+<h4 id="sec-4-2-2">Two processes, one register</h4>
 
-<h4>This is how we expect stuff to work</h4>
+<div class="figure">
+<p><img src="./media/SimpleRegisterTwoWriters.svg" alt="SimpleRegisterTwoWriters.svg" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-4-2-3">
+<h4 id="sec-4-2-3">This is how we expect stuff to work</h4>
 <p>
 (We are a spoiled bunch)
 </p>
 
 </section>
-<section id="sec-3-2-4" >
+<section id="slide-sec-4-2-4">
+<h4 id="sec-4-2-4">Information travels at <i>c</i></h4>
 
-<h4>Information travels at <i>c</i></h4>
-<img src="./media/SlowRegisters.svg" alt="SlowRegisters.svg" style="width:50%" />
-
-</section>
-<section id="sec-3-2-5" >
-
-<h4>Slow stuff can overlap</h4>
-<img src="./media/SlowOverlap.svg" alt="SlowOverlap.svg" style="width:90%" />
+<div class="figure">
+<p><img src="./media/SlowRegisters.svg" alt="SlowRegisters.svg" style="width:50%" />
+</p>
+</div>
 
 </section>
-<section id="sec-3-2-6" >
+<section id="slide-sec-4-2-5">
+<h4 id="sec-4-2-5">Slow stuff can overlap</h4>
 
-<h4>Writes don't replicate instantly</h4>
-<img src="./media/SequenceDiagrams/StaleRead.svg" alt="StaleRead.svg" />
-
-</section>
-<section id="sec-3-2-7" >
-
-<h4>Writes can get reordered</h4>
-<img src="./media/SequenceDiagrams/ReorderedWrites.svg" alt="ReorderedWrites.svg" />
+<div class="figure">
+<p><img src="./media/SlowOverlap.svg" alt="SlowOverlap.svg" style="width:90%" />
+</p>
+</div>
 
 </section>
-<section id="sec-3-2-8" >
+<section id="slide-sec-4-2-6">
+<h4 id="sec-4-2-6">Writes don't replicate instantly</h4>
 
-<h4>All sorts of stuff can happen</h4>
-<ul class="org-ul">
+<div class="figure">
+<p><img src="./media/SequenceDiagrams/StaleRead.svg" alt="StaleRead.svg" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-4-2-7">
+<h4 id="sec-4-2-7">Writes can get reordered</h4>
+
+<div class="figure">
+<p><img src="./media/SequenceDiagrams/ReorderedWrites.svg" alt="ReorderedWrites.svg" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-4-2-8">
+<h4 id="sec-4-2-8">All sorts of stuff can happen</h4>
+<ul>
 <li>Only get worse!
-<ul class="org-ul">
-<li>Multiple registers, semantics, nodes, failure modes&#x2026;
-</li>
-</ul>
-</li>
+<ul>
+<li>Multiple registers, semantics, nodes, failure modes&#x2026;</li>
+
+</ul></li>
 <li>E.g. SQL transactions
-<ul class="org-ul">
-<li>Phantom reads (the rows change)
-</li>
-<li>Non-repeatable reads (a row changes)
-</li>
-</ul>
-</li>
-</ul>
+<ul>
+<li>Phantom reads (the rows change)</li>
+<li>Non-repeatable reads (a row changes)</li>
 
-</section>
-<section id="sec-3-2-9" >
+</ul></li>
 
-<h4>We need to reason about the system</h4>
-<ul class="org-ul">
-<li>Need to know what can and can't happen
-</li>
-<li>Set of stuff that can happen: "consistency model"
-</li>
 </ul>
 
 </section>
-<section id="sec-3-2-10" >
+<section id="slide-sec-4-2-9">
+<h4 id="sec-4-2-9">Reasoning about the system</h4>
+<ul>
+<li>What can and can't happen?</li>
+<li>What <i>can</i> happen: consistency model</li>
 
-<h4>Consistency models</h4>
-<img src="./media/ConsistencyModels.svg" alt="ConsistencyModels.svg" style="width:80%" />
+</ul>
+
+</section>
+<section id="slide-sec-4-2-10">
+<h4 id="sec-4-2-10">Theoretical consistency models</h4>
+
+<div class="figure">
+<p><img src="./media/ConsistencyModels.svg" alt="ConsistencyModels.svg" style="width:85%" />
+</p>
+</div>
 
 <aside class="notes">
 <p>
@@ -552,427 +563,407 @@ Doesn't need to be strongly consistent
 <a href="http://www.ics.forth.gr/tech-reports/2013/2013.TR439_Survey_on_Consistency_Conditions.pdf">http://www.ics.forth.gr/tech-reports/2013/2013.TR439_Survey_on_Consistency_Conditions.pdf</a>
 <a href="http://www.allthingsdistributed.com/2008/12/eventually_consistent.html">http://www.allthingsdistributed.com/2008/12/eventually_consistent.html</a>
 </p>
+
 </aside>
 
 </section>
-<section id="sec-3-2-11" >
+<section id="slide-sec-4-2-11">
+<h4 id="sec-4-2-11">Serializability</h4>
+<ul>
+<li>∃ serial execution with the same result</li>
+<li><i>Some</i> serial execution: fairly weak</li>
+<li>No restrictions on which one</li>
 
-<h4>Serializability</h4>
-<ul class="org-ul">
-<li>∃ serial execution with the same result
-</li>
-<li><i>Some</i> serial execution: fairly weak
-</li>
-<li>No restrictions on <i>which</i> serial execution
-</li>
 </ul>
 
 </section>
-<section id="sec-3-2-12" >
-
-<h4>Example: serializability being weak</h4>
+<section id="slide-sec-4-2-12">
+<h4 id="sec-4-2-12">Example: serializability being weak</h4>
 <p>
 Precondition: <i>x = 0</i>
 </p>
 
-<ol class="org-ol">
-<li><i>x ← 0</i>
-</li>
-<li><i>x ← 1</i>
-</li>
-<li><i>x ← 2</i>
-</li>
+<ol>
+<li><i>x ← 0</i></li>
+<li><i>x ← 1</i></li>
+<li><i>x ← 2</i></li>
+
 </ol>
 
-</section>
-<section id="sec-3-2-13" >
+<aside class="notes">
+<p>
+Can be executed in any order
+Therefore any answer is valid
+</p>
 
-<h4>Example: serializability being strong</h4>
+</aside>
+
+</section>
+<section id="slide-sec-4-2-13">
+<h4 id="sec-4-2-13">Example: serializability being strong</h4>
 <p>
 Precondition: <i>x = y = 0</i>
 </p>
 
-<ol class="org-ol">
-<li><i>y ← 2</i>, assuming <i>y = 1</i>
-</li>
-<li><i>x ← 1</i>, assuming <i>x = 0</i>
-</li>
-<li><i>y ← x</i>, assuming <i>x = 1</i>
-</li>
+<ol>
+<li><i>y ← 2</i>, assuming <i>y = 1</i></li>
+<li><i>x ← 1</i>, assuming <i>x = 0</i></li>
+<li><i>y ← x</i>, assuming <i>x = 1</i></li>
+
 </ol>
 
-</section>
-<section id="sec-3-2-14" >
+<aside class="notes">
+<p>
+Can only be executed in 1 order
+(2, then 3 because x=1, then 1 because y = 1, net result: x=1 y=2)
+</p>
 
-<h4>Linearizability</h4>
+</aside>
+
+</section>
+<section id="slide-sec-4-2-14">
+<h4 id="sec-4-2-14">Linearizability</h4>
 <p>
 All operations appear to happen instantly
 </p>
 
 </section>
-<section id="sec-3-2-15" >
+<section id="slide-sec-4-2-15">
+<h4 id="sec-4-2-15">Strong serializability</h4>
+<ul>
+<li>Linearizable &amp; serializable</li>
+<li>There is a serial execution &#x2026;</li>
+<li>&#x2026; and that execution is unique &amp; matches wallclock time (???)</li>
 
-<h4>Strong serializability</h4>
-<ul class="org-ul">
-<li>Linearizable &amp; serializable
-</li>
-<li>There is a serial execution &#x2026;
-</li>
-<li>&#x2026; and that execution is unique &amp; matches wallclock time (???)
-</li>
 </ul>
 
 </section>
-<section id="sec-3-2-16" >
-
-<h4>Your computer is distributed</h4>
+<section id="slide-sec-4-2-16">
+<h4 id="sec-4-2-16">Your computer is distributed</h4>
 <p>
-Models also exist in "centralized" systems
+Models in "centralized" systems
 </p>
 
-<ul class="org-ul">
-<li>SQL databases
-</li>
-<li>Clojure's reference types
-</li>
+<ul>
+<li>SQL databases</li>
+<li>Clojure reftypes</li>
+
 </ul>
 
 </section>
-<section id="sec-3-2-17" >
-
-<h4>Twisted vs threads</h4>
-<ul class="org-ul">
-<li>Twisted: strongly serializable
-<ul class="org-ul">
-<li>Event loop with 1 reactor thread
-</li>
-<li>Serializable: reactor finds the ordering
-</li>
-<li>Linearizable: callbacks run by themselves
-</li>
-</ul>
-</li>
-<li>Threads: usually more like read uncommitted
-<ul class="org-ul">
-<li>Many Python opcodes are atomic
-</li>
-<li>Correct use of locks?
-</li>
-</ul>
-</li>
-</ul>
-
-</section>
-<section id="sec-3-3" >
-
-<h3>Time</h3>
-</section>
-<section id="sec-3-3-1" >
-
-<h4>What do we do with time?</h4>
-
-</section>
-<section id="sec-3-3-2" >
-
-<h4>Global clock model</h4>
-<img src="./media/Clock/GlobalClock.svg" alt="GlobalClock.svg" style="width:60%" />
-
-</section>
-<section id="sec-3-3-3" >
-
-<h4>Global clock</h4>
-<ul class="org-ul">
-<li>Everyone accesses the same clock instantly
-</li>
-<li>Can compare
-</li>
-<li>Mental mode
-</li>
-</ul>
-
-</section>
-<section id="sec-3-3-4" >
-
-<h4>Local clock model</h4>
-<img src="./media/Clock/LocalClocks.svg" alt="LocalClocks.svg" style="width:60%" />
-
-</section>
-<section id="sec-3-3-5" >
-
-<h4>Local clocks</h4>
-<ul class="org-ul">
-<li>Each clock is kinda reliable
-</li>
-<li>Can't compare with other timestamps
-</li>
-<li>Mental model: stopwatch
-</li>
-</ul>
-
-</section>
-<section id="sec-3-3-6" >
-
-<h4>No clock model</h4>
-<img src="./media/Clock/NoClocks.svg" alt="NoClocks.svg" style="width:60%" />
-
-</section>
-<section id="sec-3-3-7" >
-
-<h4>Google Spanner</h4>
+<section id="slide-sec-4-2-17">
+<h4 id="sec-4-2-17">Twisted vs threads</h4>
 <p>
-GPS &amp; atomic clocks
+In terms of concurrency models
 </p>
-<blockquote nil>
-<p>
-Atomic clocks [&#x2026;] drift significantly due to frequency
-error.
-</p>
-</blockquote>
 
-<blockquote nil>
-<p>
-uncertainty [&#x2026;] generally less than 10ms
-</p>
-</blockquote>
+<ul class="org-ul"><li><a id="sec-4-2-17-1" name="sec-4-2-17-1"></a>Twisted: strongly serializable<br  /><ul>
+<li>Event loop with 1 reactor thread</li>
+<li>Serializable: reactor finds the ordering</li>
+<li>Linearizable: callbacks run by themselves</li>
+
+</ul>
+</li>
+
+<li><a id="sec-4-2-17-2" name="sec-4-2-17-2"></a>Threads: no defined model<br  /><ul>
+<li>Unladen Swallow tried to figure it out</li>
+<li>Nothing fancy; whatever your CPU gives you</li>
+<li>Probably okay (heap + GIL)</li>
+<li>Correct use of locks?</li>
+
+</ul>
+</li></ul>
 
 </section>
-<section id="sec-3-3-8" >
+<section id="slide-sec-4-3">
+<h3 id="sec-4-3">Time</h3>
+<div class="outline-text-3" id="text-4-3">
+</div></section>
+<section id="slide-sec-4-3-1">
+<h4 id="sec-4-3-1">What do we do with time?</h4>
 
-<h4>Time is a proxy</h4>
+</section>
+<section id="slide-sec-4-3-2">
+<h4 id="sec-4-3-2">Global clock model</h4>
+
+<div class="figure">
+<p><img src="./media/Clock/GlobalClock.svg" alt="GlobalClock.svg" style="width:60%" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-4-3-3">
+<h4 id="sec-4-3-3">Global clock</h4>
+<ul>
+<li>Everyone sees the same clock</li>
+<li>Access instant, uncertainty 0</li>
+<li>Can compare different timestamps</li>
+<li>Mental model: wallclock</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-4-3-4">
+<h4 id="sec-4-3-4">Local clock model</h4>
+
+<div class="figure">
+<p><img src="./media/Clock/LocalClocks.svg" alt="LocalClocks.svg" style="width:60%" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-4-3-5">
+<h4 id="sec-4-3-5">Local clocks</h4>
+<ul>
+<li>Each clock is kinda reliable</li>
+<li>Can't compare with other timestamps</li>
+<li>Mental model: stopwatch</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-4-3-6">
+<h4 id="sec-4-3-6">No clock model</h4>
+
+<div class="figure">
+<p><img src="./media/Clock/NoClocks.svg" alt="NoClocks.svg" style="width:60%" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-4-3-7">
+<h4 id="sec-4-3-7">Can't have a global clock</h4>
+<ul>
+<li>Can pretend they <i>almost</i> exist</li>
+<li>Going to be wrong often</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-4-3-8">
+<h4 id="sec-4-3-8">Example: Google Spanner</h4>
+<ul>
+<li>GPS &amp; atomic clocks</li>
+<li>"Atomic clocks [&#x2026;] drift significantly"</li>
+<li>"uncertainty [&#x2026;] generally &lt;10ms"</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-4-3-9">
+<h4 id="sec-4-3-9">Time is a proxy</h4>
 <p>
 Actual timestamp vs total order
 </p>
 
 </section>
-<section id="sec-3-3-9" >
+<section id="slide-sec-4-3-10">
+<h4 id="sec-4-3-10">Vector clocks</h4>
 
-<h4>Vector clocks</h4>
 </section>
-
 </section>
 <section>
-<section id="sec-4" >
-
-<h2>Good news</h2>
+<section id="slide-sec-5">
+<h2 id="sec-5">Good news</h2>
 <p>
 Stuff you <i>can</i> rely on
 </p>
 
 </section>
-<section id="sec-4-1" >
-
-<h3>Queues</h3>
+<section id="slide-sec-5-1">
+<h3 id="sec-5-1">Queues</h3>
 
 </section>
-<section id="sec-4-2" >
+<section id="slide-sec-5-2">
+<h3 id="sec-5-2">Consensus protocols</h3>
+<div class="outline-text-3" id="text-5-2">
+</div></section>
+<section id="slide-sec-5-2-1">
+<h4 id="sec-5-2-1">Examples</h4>
+<ul>
+<li>ZAB (Zookeeper)</li>
+<li>Paxos* (Chubby)</li>
+<li>Raft (<code>etcd</code>)</li>
 
-<h3>Consensus protocols</h3>
-</section>
-<section id="sec-4-2-1" >
-
-<h4>Examples</h4>
-<ul class="org-ul">
-<li>ZAB (Zookeeper)
-</li>
-<li>Paxos* (Chubby)
-</li>
-<li>Raft (<code>etcd</code>)
-</li>
 </ul>
 
 </section>
-<section id="sec-4-3" >
-
-<h3>Recipes</h3>
+<section id="slide-sec-5-3">
+<h3 id="sec-5-3">Recipes</h3>
 <p>
 On top of consensus protocols:
 </p>
 
-<ul class="org-ul">
-<li>Set partitioning
-</li>
-<li>Locks
-</li>
-<li>Barriers
-</li>
-<li>&#x2026;
-</li>
+<ul>
+<li>Set partitioning</li>
+<li>Locks</li>
+<li>Barriers</li>
+<li>&#x2026;</li>
+
 </ul>
 
 </section>
-<section id="sec-4-3-1" >
-
-<h4>Set partitioning</h4>
+<section id="slide-sec-5-3-1">
+<h4 id="sec-5-3-1">Set partitioning</h4>
 <p>
 {1, 2, 3, 4, 5}
 </p>
 
-<img src="./media/SetPartitioning/Happy.svg" alt="Happy.svg" style="width:60%" />
+
+<div class="figure">
+<p><img src="./media/SetPartitioning/Happy.svg" alt="Happy.svg" style="width:60%" />
+</p>
+</div>
 
 </section>
-<section id="sec-4-3-2" >
+<section id="slide-sec-5-3-2">
+<h4 id="sec-5-3-2">Failures</h4>
 
-<h4>Failures</h4>
-<img src="./media/SetPartitioning/Failures.svg" alt="Failures.svg" style="width:60%" />
-
-</section>
-<section id="sec-4-3-3" >
-
-<h4>Recovery</h4>
-<img src="./media/SetPartitioning/Recovery.svg" alt="Recovery.svg" style="width:60%" />
+<div class="figure">
+<p><img src="./media/SetPartitioning/Failures.svg" alt="Failures.svg" style="width:60%" />
+</p>
+</div>
 
 </section>
-<section id="sec-4-4" >
+<section id="slide-sec-5-3-3">
+<h4 id="sec-5-3-3">Recovery</h4>
 
-<h3>CRDTs</h3>
-<ul class="org-ul">
-<li>Conflict-free
-</li>
-<li>Replicated
-</li>
-<li>Data
-</li>
-<li>Type
-</li>
+<div class="figure">
+<p><img src="./media/SetPartitioning/Recovery.svg" alt="Recovery.svg" style="width:60%" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-5-4">
+<h3 id="sec-5-4">CRDTs</h3>
+<ul>
+<li>Conflict-free</li>
+<li>Replicated</li>
+<li>Data</li>
+<li>Type</li>
+
 </ul>
 
 </section>
-<section id="sec-4-4-1" >
+<section id="slide-sec-5-4-1">
+<h4 id="sec-5-4-1">Problem</h4>
+<ul>
+<li>Read, compute, write back</li>
+<li>Concurrency: multiple results</li>
+<li>Conflicts!</li>
 
-<h4>Problem</h4>
-<ul class="org-ul">
-<li>Read, compute, write back
-</li>
-<li>Concurrency: multiple results
-</li>
-<li>Conflicts!
-</li>
 </ul>
 
 </section>
-<section id="sec-4-4-2" >
+<section id="slide-sec-5-4-2">
+<h4 id="sec-5-4-2">Solutions?</h4>
+<ul>
+<li>Last write wins? Some write loses :-(</li>
+<li>Coordination?  Expensive! :-(</li>
 
-<h4>Solutions?</h4>
-<ul class="org-ul">
-<li>Last write wins? Some write loses :-(
-</li>
-<li>Coordination?  Expensive! :-(
-</li>
 </ul>
 
 </section>
-<section id="sec-4-4-3" >
-
-<h4>I want highly available data stores&#x2026;</h4>
+<section id="slide-sec-5-4-3">
+<h4 id="sec-5-4-3">I want highly available data stores&#x2026;</h4>
 <p>
 .. but I don't want nonsense data
 </p>
 
 </section>
-<section id="sec-4-4-4" >
+<section id="slide-sec-5-4-4">
+<h4 id="sec-5-4-4">Idea!</h4>
+<ul>
+<li>Describe what you want</li>
+<li>Describe conflict resolution</li>
 
-<h4>Idea!</h4>
-<ul class="org-ul">
-<li>Describe what you want
-</li>
-<li>Describe conflict resolution
-</li>
 </ul>
 
 </section>
-<section id="sec-4-4-5" >
-
-<h4>Specializations</h4>
+<section id="slide-sec-5-4-5">
+<h4 id="sec-5-4-5">Specializations</h4>
 <p>
 The C in CRDT can mean:
 </p>
 
-<ul class="org-ul">
-<li>Commutative (CmRDT)
-</li>
-<li>Convergent (CvRDT)
-</li>
+<ul>
+<li>Commutative (CmRDT)</li>
+<li>Convergent (CvRDT)</li>
+
 </ul>
 
 </section>
-<section id="sec-4-4-6" >
-
-<h4>Commutative RDTs</h4>
-<ul class="org-ul">
-<li>Broadcast operations
-</li>
+<section id="slide-sec-5-4-6">
+<h4 id="sec-5-4-6">Commutative RDTs</h4>
+<ul>
+<li>Broadcast operations</li>
 <li>Merge operation:
-<ul class="org-ul">
-<li>Commutative: <i>f(x, y) = f(y, x)</i>
-</li>
-<li>Not idempotent <i>f(x, y) != f(f(x, y), y)</i>
-</li>
-</ul>
-</li>
+<ul>
+<li>Commutative: <i>f(x, y) = f(y, x)</i></li>
+<li>Not idempotent <i>f(x, y) != f(f(x, y), y)</i></li>
+
+</ul></li>
+
 </ul>
 
 </section>
-<section id="sec-4-4-7" >
-
-<h4>Example: integers</h4>
-<ul class="org-ul">
-<li>+1, -2, +3, +5, -4: +3
-</li>
+<section id="slide-sec-5-4-7">
+<h4 id="sec-5-4-7">Example: integers</h4>
+<ul>
+<li>+1, -2, +3, +5, -4: +3</li>
 <li>Always get same answer:
-<ul class="org-ul">
-<li>As long as I see all ops <i>once</i>
-</li>
-<li>Duplicate an op, get wrong answer
-</li>
-<li>Order doesn't matter, though
-</li>
-</ul>
-</li>
+<ul>
+<li>As long as I see all ops <i>once</i></li>
+<li>Duplicate an op, get wrong answer</li>
+<li>Order doesn't matter, though</li>
+
+</ul></li>
+
 </ul>
 
 </section>
-<section id="sec-4-4-8" >
-
-<h4>Convergent RDTs</h4>
-<ul class="org-ul">
-<li>Broadcast states
-</li>
+<section id="slide-sec-5-4-8">
+<h4 id="sec-5-4-8">Convergent RDTs</h4>
+<ul>
+<li>Broadcast states</li>
 <li>Merge operation has many properties:
-<ul class="org-ul">
-<li>Commutative: <i>f(x, y) = f(y, x)</i>
-</li>
-<li>Idempotent: <i>f(x, y) = f(f(x, y), y)</i>
-</li>
-<li>Associative: <i>f(f(x, y), z) = f(x, f(y, z))</i>
-</li>
-<li>Informally: apply lots until done
-</li>
-</ul>
-</li>
+<ul>
+<li>Commutative: <i>f(x, y) = f(y, x)</i></li>
+<li>Idempotent: <i>f(x, y) = f(f(x, y), y)</i></li>
+<li>Associative: <i>f(f(x, y), z) = f(x, f(y, z))</i></li>
+<li>Informally: apply lots until done</li>
+
+</ul></li>
+
 </ul>
 
 </section>
-<section id="sec-4-4-9" >
+<section id="slide-sec-5-4-9">
+<h4 id="sec-5-4-9">Simple CvRDT conflict resolution</h4>
 
-<h4>Simple CvRDT conflict resolution</h4>
-<img src="./media/CvRDTMerge.svg" alt="CvRDTMerge.svg" />
+<div class="figure">
+<p><img src="./media/CvRDTMerge.svg" alt="CvRDTMerge.svg" />
+</p>
+</div>
 
 </section>
-<section id="sec-4-4-10" >
-
-<h4>Complex CvRDT conflict resolution</h4>
+<section id="slide-sec-5-4-10">
+<h4 id="sec-5-4-10">Complex CvRDT conflict resolution</h4>
 <p>
 It's okay if you see writes more than once!
 </p>
 
-<img src="./media/ComplexCvRDTMerge.svg" alt="ComplexCvRDTMerge.svg" />
+
+<div class="figure">
+<p><img src="./media/ComplexCvRDTMerge.svg" alt="ComplexCvRDTMerge.svg" />
+</p>
+</div>
 
 </section>
-<section id="sec-4-4-11" >
-
-<h4>CRDTs in practice: usually CvRDT</h4>
+<section id="slide-sec-5-4-11">
+<h4 id="sec-5-4-11">CRDTs in practice: usually CvRDT</h4>
 <p>
-Solve a hard local problem once
+Solve local problem once
 </p>
 
 <p>
@@ -980,98 +971,106 @@ vs
 </p>
 
 <p>
-Solve a hard distributed problem constantly
+Solve distributed problem constantly
 </p>
 
-</section>
-<section id="sec-4-4-12" >
+<aside class="notes">
+<p>
+Local problem: write an algorithm
+Distributed problem: exactly-once delivery
+</p>
 
-<h4>Examples</h4>
-<ul class="org-ul">
-<li>Counters (G, PN)
-</li>
-<li>Sets (G, 2P, LWW, PN, OR)
-</li>
-<li>Maps (sets of <i>(k, v)</i> tuples)
-</li>
-<li>Graphs (using multiple sets)
-</li>
-<li>Registers (LWW, MV)
-</li>
-<li>Sequences (continuous, RGA)
-</li>
+</aside>
+
+</section>
+<section id="slide-sec-5-4-12">
+<h4 id="sec-5-4-12">Examples</h4>
+<ul>
+<li>Counters (G, PN)</li>
+<li>Sets (G, 2P, LWW, PN, OR)</li>
+<li>Maps (sets of <i>(k, v)</i> tuples)</li>
+<li>Graphs (using multiple sets)</li>
+<li>Registers (LWW, MV)</li>
+<li>Sequences (continuous, RGA)</li>
+
 </ul>
 
 </section>
-<section id="sec-4-4-13" >
+<section id="slide-sec-5-4-13">
+<h4 id="sec-5-4-13">Using CRDTs</h4>
+<ul>
+<li>Designing them is tricky</li>
+<li>Using them is fairly easy</li>
 
-<h4>Using CRDTs</h4>
-<ul class="org-ul">
-<li>Designing them is tricky
-</li>
-<li>Using them is fairly easy
-</li>
 </ul>
 
 </section>
-<section id="sec-4-4-14" >
-
-<h4>Riak &lt;3</h4>
+<section id="slide-sec-5-4-14">
+<h4 id="sec-5-4-14">Riak &lt;3</h4>
 <p>
 Flags, registers, counters, sets, maps
 </p>
-</section>
 
+</section>
 </section>
 <section>
-<section id="sec-5" >
+<section id="slide-sec-6">
+<h2 id="sec-6">Wrap-up</h2>
+<div class="outline-text-2" id="text-6">
+</div></section>
+<section id="slide-sec-6-1">
+<h3 id="sec-6-1">Yay, distributed systems!</h3>
+<ul>
+<li>More resilient</li>
+<li>More performant</li>
+<li>Make problems tractable</li>
 
-<h2>Wrap-up</h2>
-</section>
-<section id="sec-5-1" >
-
-<h3>Yay, distributed systems!</h3>
-<ul class="org-ul">
-<li>More resilient
-</li>
-<li>More performant
-</li>
-<li>Make problems tractable
-</li>
 </ul>
 
 </section>
-<section id="sec-5-2" >
+<section id="slide-sec-6-2">
+<h3 id="sec-6-2">Argh, distributed systems!</h3>
+<ul>
+<li>Incredibly hard to reason about</li>
+<li>Huge state space, no repeat scenarios</li>
+<li>Expensive to operate</li>
 
-<h3>Argh, distributed systems!</h3>
-<ul class="org-ul">
-<li>Incredibly hard to reason about
-</li>
-<li>Huge state space, no repeat scenarios
-</li>
-<li>Expensive to operate
-</li>
 </ul>
 
 </section>
-<section id="sec-5-3" >
+<section id="slide-sec-6-3">
+<h3 id="sec-6-3">Lots of distributed systems</h3>
+<ul>
+<li>Everything is about tradeoffs</li>
+<li>Figure out what's right for your app</li>
+<li>Don't build what's on the shelf
 
-<h3>Why distributed systems?</h3>
+<aside class="notes">
+<p>
+Riak, Zookeeper
+</p>
+
+</aside></li>
+
+</ul>
+
+</section>
+<section id="slide-sec-6-4">
+<h3 id="sec-6-4">Why distributed systems?</h3>
 <p>
 Because you're <i>out of options</i>.
 </p>
 
 </section>
-<section id="sec-5-4" >
-
-<h3>Thank you!</h3>
+<section id="slide-sec-6-5">
+<h3 id="sec-6-5">Thank you!</h3>
 </section>
 </section>
 </div>
 </div>
 
 <script src="./reveal.js/lib/js/head.min.js"></script>
-<script src="./reveal.js/js/reveal.min.js"></script>
+<script src="./reveal.js/js/reveal.js"></script>
 
 <script>
 // Full list of configuration options available here:
