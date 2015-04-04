@@ -6,6 +6,10 @@
 #+REVEAL_TRANS: linear
 #+REVEAL_THEME: lvh
 
+* Slides
+
+  ~www.lvh.io/DistributedSystems101~
+
 * Introduction
 
 ** Who am I?
