@@ -29,7 +29,6 @@
 
 ** AutoScale
 
-   #+ATTR_REVEAL: :frag roll-in
    * Distributed system
    * Manages distributed systems
    * Running on distributed systems
@@ -39,7 +38,6 @@
 
    Parallels with Crypto 101
 
-   #+ATTR_REVEAL: :frag roll-in
    * Field considered exclusive domain of experts
    * Abstinence-only education doesn't work
    * Lots of material, but not organized for self-teaching
@@ -58,7 +56,6 @@
 
    "Just enough" distributed systems
 
-   #+ATTR_REVEAL: :frag roll-in
    * to whet your appetite
    * to shoot yourself in the foot
 
