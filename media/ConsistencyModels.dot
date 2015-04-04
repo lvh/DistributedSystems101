@@ -39,7 +39,7 @@ subgraph Unavailable {
         CS;
         RR;
         SI;
-        OSR [label="One-copy serializable"];
+        OSR [label="Serializable"];
         Recency;
         Safe;
         Regular;

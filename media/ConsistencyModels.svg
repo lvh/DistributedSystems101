@@ -50,8 +50,8 @@
 </g>
 <!-- WFR -->
 <g id="node6" class="node"><title>WFR</title>
-<ellipse fill="LightBlue" stroke="blue" cx="389" cy="-90" rx="30.4862" ry="18"/>
-<text text-anchor="middle" x="389" y="-85.8" font-family="Helvetica,sans-Serif" font-size="14.00">WFR</text>
+<ellipse fill="LightBlue" stroke="blue" cx="388" cy="-90" rx="30.4862" ry="18"/>
+<text text-anchor="middle" x="388" y="-85.8" font-family="Helvetica,sans-Serif" font-size="14.00">WFR</text>
 </g>
 <!-- MR -->
 <g id="node7" class="node"><title>MR</title>
@@ -70,38 +70,38 @@
 </g>
 <!-- PRAM -->
 <g id="node10" class="node"><title>PRAM</title>
-<ellipse fill="LemonChiffon" stroke="Gold" stroke-width="3" cx="305" cy="-90" rx="35.8147" ry="18"/>
-<text text-anchor="middle" x="305" y="-85.8" font-family="Helvetica,sans-Serif" font-size="14.00">PRAM</text>
+<ellipse fill="LemonChiffon" stroke="Gold" stroke-width="3" cx="304" cy="-90" rx="35.8147" ry="18"/>
+<text text-anchor="middle" x="304" y="-85.8" font-family="Helvetica,sans-Serif" font-size="14.00">PRAM</text>
 </g>
 <!-- PRAM&#45;&gt;MR -->
 <g id="edge19" class="edge"><title>PRAM&#45;&gt;MR</title>
-<path fill="none" stroke="black" d="M307.472,-71.6966C308.574,-63.9827 309.898,-54.7125 311.127,-46.1124"/>
-<polygon fill="black" stroke="black" points="314.607,-46.4988 312.557,-36.1043 307.677,-45.5088 314.607,-46.4988"/>
+<path fill="none" stroke="black" d="M306.719,-71.6966C307.931,-63.9827 309.388,-54.7125 310.739,-46.1124"/>
+<polygon fill="black" stroke="black" points="314.217,-46.5265 312.312,-36.1043 307.302,-45.4397 314.217,-46.5265"/>
 </g>
 <!-- PRAM&#45;&gt;MW -->
 <g id="edge20" class="edge"><title>PRAM&#45;&gt;MW</title>
-<path fill="none" stroke="black" d="M290.931,-73.1159C282.618,-63.7298 271.961,-51.6979 262.808,-41.3637"/>
-<polygon fill="black" stroke="black" points="265.416,-39.0292 256.165,-33.8639 260.176,-43.6705 265.416,-39.0292"/>
+<path fill="none" stroke="black" d="M290.158,-73.1159C282.059,-63.8218 271.699,-51.9336 262.754,-41.6681"/>
+<polygon fill="black" stroke="black" points="265.161,-39.1036 255.953,-33.8639 259.884,-43.7025 265.161,-39.1036"/>
 </g>
 <!-- PRAM&#45;&gt;RYW -->
 <g id="edge12" class="edge"><title>PRAM&#45;&gt;RYW</title>
-<path fill="none" stroke="black" d="M323.238,-74.1548C335.569,-64.1179 352.022,-50.7265 365.627,-39.6526"/>
-<polygon fill="black" stroke="black" points="368.122,-42.1349 373.668,-33.1076 363.703,-36.7059 368.122,-42.1349"/>
+<path fill="none" stroke="black" d="M322.45,-74.1548C335.008,-64.0514 351.789,-50.549 365.605,-39.4329"/>
+<polygon fill="black" stroke="black" points="368.162,-41.8673 373.76,-32.8716 363.774,-36.4135 368.162,-41.8673"/>
 </g>
 <!-- Causal -->
 <g id="node11" class="node"><title>Causal</title>
-<ellipse fill="LemonChiffon" stroke="Gold" stroke-width="3" cx="355" cy="-162" rx="37.7699" ry="18"/>
-<text text-anchor="middle" x="355" y="-157.8" font-family="Helvetica,sans-Serif" font-size="14.00">Causal</text>
+<ellipse fill="LemonChiffon" stroke="Gold" stroke-width="3" cx="320" cy="-162" rx="37.7699" ry="18"/>
+<text text-anchor="middle" x="320" y="-157.8" font-family="Helvetica,sans-Serif" font-size="14.00">Causal</text>
 </g>
 <!-- Causal&#45;&gt;WFR -->
 <g id="edge18" class="edge"><title>Causal&#45;&gt;WFR</title>
-<path fill="none" stroke="black" d="M363.058,-144.411C367.08,-136.129 372.036,-125.925 376.536,-116.662"/>
-<polygon fill="black" stroke="black" points="379.779,-117.994 381,-107.47 373.483,-114.936 379.779,-117.994"/>
+<path fill="none" stroke="black" d="M335.091,-145.465C344.285,-136.001 356.184,-123.752 366.368,-113.268"/>
+<polygon fill="black" stroke="black" points="368.96,-115.623 373.418,-106.011 363.939,-110.745 368.96,-115.623"/>
 </g>
 <!-- Causal&#45;&gt;PRAM -->
 <g id="edge11" class="edge"><title>Causal&#45;&gt;PRAM</title>
-<path fill="none" stroke="black" d="M343.403,-144.765C337.156,-136.018 329.323,-125.052 322.363,-115.308"/>
-<polygon fill="black" stroke="black" points="325.194,-113.25 316.534,-107.147 319.498,-117.319 325.194,-113.25"/>
+<path fill="none" stroke="black" d="M316.127,-144.055C314.345,-136.261 312.188,-126.822 310.189,-118.079"/>
+<polygon fill="black" stroke="black" points="313.589,-117.244 307.949,-108.275 306.765,-118.804 313.589,-117.244"/>
 </g>
 <!-- CS -->
 <g id="node12" class="node"><title>CS</title>
@@ -115,53 +115,53 @@
 </g>
 <!-- RR -->
 <g id="node13" class="node"><title>RR</title>
-<ellipse fill="Pink" stroke="red" stroke-width="4" cx="87" cy="-162" rx="27" ry="18"/>
-<text text-anchor="middle" x="87" y="-157.8" font-family="Helvetica,sans-Serif" font-size="14.00">RR</text>
+<ellipse fill="Pink" stroke="red" stroke-width="4" cx="95" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="95" y="-157.8" font-family="Helvetica,sans-Serif" font-size="14.00">RR</text>
 </g>
 <!-- RR&#45;&gt;MAV -->
 <g id="edge14" class="edge"><title>RR&#45;&gt;MAV</title>
-<path fill="none" stroke="black" d="M98.5405,-145.465C105.273,-136.402 113.901,-124.786 121.46,-114.612"/>
-<polygon fill="black" stroke="black" points="124.338,-116.606 127.492,-106.492 118.719,-112.432 124.338,-116.606"/>
+<path fill="none" stroke="black" d="M104.984,-145.116C110.42,-136.469 117.267,-125.575 123.391,-115.833"/>
+<polygon fill="black" stroke="black" points="126.391,-117.636 128.75,-107.307 120.465,-113.911 126.391,-117.636"/>
 </g>
 <!-- RR&#45;&gt;ICI -->
 <g id="edge17" class="edge"><title>RR&#45;&gt;ICI</title>
-<path fill="none" stroke="black" d="M86.0297,-143.995C85.7368,-125.086 87.6644,-94.2784 101,-72 110.466,-56.1866 126.604,-43.4881 141.001,-34.4896"/>
-<polygon fill="black" stroke="black" points="142.837,-37.4707 149.665,-29.3701 139.275,-31.4442 142.837,-37.4707"/>
+<path fill="none" stroke="black" d="M92.1339,-143.781C89.8775,-124.958 88.8611,-94.4852 101,-72 109.815,-55.6713 126.075,-42.8875 140.707,-33.9694"/>
+<polygon fill="black" stroke="black" points="142.587,-36.9261 149.525,-28.9191 139.108,-30.8517 142.587,-36.9261"/>
 </g>
 <!-- RR&#45;&gt;CS -->
 <g id="edge7" class="edge"><title>RR&#45;&gt;CS</title>
-<path fill="none" stroke="black" d="M73.9809,-145.811C65.9611,-136.455 55.5273,-124.282 46.5301,-113.785"/>
-<polygon fill="black" stroke="black" points="49.1591,-111.474 39.9937,-106.159 43.8442,-116.03 49.1591,-111.474"/>
+<path fill="none" stroke="black" d="M80.9104,-146.496C71.4281,-136.735 58.7557,-123.69 48.0799,-112.7"/>
+<polygon fill="black" stroke="black" points="50.55,-110.22 41.0716,-105.485 45.529,-115.097 50.55,-110.22"/>
 </g>
 <!-- SI -->
 <g id="node14" class="node"><title>SI</title>
-<ellipse fill="Pink" stroke="red" stroke-width="4" cx="181" cy="-162" rx="27" ry="18"/>
-<text text-anchor="middle" x="181" y="-157.8" font-family="Helvetica,sans-Serif" font-size="14.00">SI</text>
+<ellipse fill="Pink" stroke="red" stroke-width="4" cx="176" cy="-162" rx="27" ry="18"/>
+<text text-anchor="middle" x="176" y="-157.8" font-family="Helvetica,sans-Serif" font-size="14.00">SI</text>
 </g>
 <!-- SI&#45;&gt;MAV -->
 <g id="edge15" class="edge"><title>SI&#45;&gt;MAV</title>
-<path fill="none" stroke="black" d="M171.47,-145.116C166.334,-136.557 159.878,-125.797 154.079,-116.132"/>
-<polygon fill="black" stroke="black" points="156.93,-114.081 148.784,-107.307 150.928,-117.683 156.93,-114.081"/>
+<path fill="none" stroke="black" d="M167.418,-144.765C162.999,-136.404 157.508,-126.016 152.535,-116.606"/>
+<polygon fill="black" stroke="black" points="155.559,-114.839 147.792,-107.633 149.371,-118.11 155.559,-114.839"/>
 </g>
 <!-- SI&#45;&gt;PCI -->
 <g id="edge16" class="edge"><title>SI&#45;&gt;PCI</title>
-<path fill="none" stroke="black" d="M188.584,-144.411C192.369,-136.129 197.034,-125.925 201.269,-116.662"/>
-<polygon fill="black" stroke="black" points="204.496,-118.02 205.471,-107.47 198.13,-115.11 204.496,-118.02"/>
+<path fill="none" stroke="black" d="M184.582,-144.765C189.065,-136.283 194.651,-125.714 199.681,-116.197"/>
+<polygon fill="black" stroke="black" points="202.886,-117.624 204.465,-107.147 196.698,-114.353 202.886,-117.624"/>
 </g>
 <!-- OSR -->
 <g id="node15" class="node"><title>OSR</title>
-<ellipse fill="Pink" stroke="red" stroke-width="4" cx="181" cy="-234" rx="95.2865" ry="18"/>
-<text text-anchor="middle" x="181" y="-229.8" font-family="Helvetica,sans-Serif" font-size="14.00">One&#45;copy serializable</text>
+<ellipse fill="Pink" stroke="red" stroke-width="4" cx="176" cy="-234" rx="55.6456" ry="18"/>
+<text text-anchor="middle" x="176" y="-229.8" font-family="Helvetica,sans-Serif" font-size="14.00">Serializable</text>
 </g>
 <!-- OSR&#45;&gt;RR -->
 <g id="edge6" class="edge"><title>OSR&#45;&gt;RR</title>
-<path fill="none" stroke="black" d="M158.723,-216.411C144.836,-206.069 126.922,-192.729 112.472,-181.969"/>
-<polygon fill="black" stroke="black" points="114.532,-179.139 104.421,-175.973 110.351,-184.753 114.532,-179.139"/>
+<path fill="none" stroke="black" d="M157.213,-216.765C145.712,-206.825 130.894,-194.02 118.605,-183.399"/>
+<polygon fill="black" stroke="black" points="120.809,-180.678 110.955,-176.788 116.232,-185.975 120.809,-180.678"/>
 </g>
 <!-- OSR&#45;&gt;SI -->
 <g id="edge8" class="edge"><title>OSR&#45;&gt;SI</title>
-<path fill="none" stroke="black" d="M181,-215.697C181,-207.983 181,-198.712 181,-190.112"/>
-<polygon fill="black" stroke="black" points="184.5,-190.104 181,-180.104 177.5,-190.104 184.5,-190.104"/>
+<path fill="none" stroke="black" d="M176,-215.697C176,-207.983 176,-198.712 176,-190.112"/>
+<polygon fill="black" stroke="black" points="179.5,-190.104 176,-180.104 172.5,-190.104 179.5,-190.104"/>
 </g>
 <!-- Recency -->
 <g id="node16" class="node"><title>Recency</title>
@@ -170,58 +170,58 @@
 </g>
 <!-- Safe -->
 <g id="node17" class="node"><title>Safe</title>
-<ellipse fill="Pink" stroke="red" stroke-width="4" cx="466" cy="-90" rx="28.0994" ry="18"/>
-<text text-anchor="middle" x="466" y="-85.8" font-family="Helvetica,sans-Serif" font-size="14.00">Safe</text>
+<ellipse fill="Pink" stroke="red" stroke-width="4" cx="465" cy="-90" rx="28.0994" ry="18"/>
+<text text-anchor="middle" x="465" y="-85.8" font-family="Helvetica,sans-Serif" font-size="14.00">Safe</text>
 </g>
 <!-- Safe&#45;&gt;RYW -->
 <g id="edge9" class="edge"><title>Safe&#45;&gt;RYW</title>
-<path fill="none" stroke="black" d="M450.46,-74.496C439.971,-64.7066 425.944,-51.6145 414.148,-40.6048"/>
-<polygon fill="black" stroke="black" points="416.477,-37.9908 406.778,-33.7263 411.701,-43.1082 416.477,-37.9908"/>
+<path fill="none" stroke="black" d="M449.667,-74.496C439.318,-64.7066 425.478,-51.6145 413.839,-40.6048"/>
+<polygon fill="black" stroke="black" points="416.238,-38.0557 406.568,-33.7263 411.427,-43.141 416.238,-38.0557"/>
 </g>
 <!-- Safe&#45;&gt;Recency -->
 <g id="edge4" class="edge"><title>Safe&#45;&gt;Recency</title>
-<path fill="none" stroke="black" d="M470.357,-72.055C472.361,-64.2609 474.789,-54.8219 477.037,-46.0789"/>
-<polygon fill="black" stroke="black" points="480.457,-46.8319 479.558,-36.2753 473.678,-45.0886 480.457,-46.8319"/>
+<path fill="none" stroke="black" d="M469.599,-72.055C471.715,-64.2609 474.277,-54.8219 476.65,-46.0789"/>
+<polygon fill="black" stroke="black" points="480.069,-46.843 479.311,-36.2753 473.314,-45.0093 480.069,-46.843"/>
 </g>
 <!-- Regular -->
 <g id="node18" class="node"><title>Regular</title>
-<ellipse fill="Pink" stroke="red" stroke-width="4" cx="463" cy="-162" rx="41.1526" ry="18"/>
-<text text-anchor="middle" x="463" y="-157.8" font-family="Helvetica,sans-Serif" font-size="14.00">Regular</text>
+<ellipse fill="Pink" stroke="red" stroke-width="4" cx="449" cy="-162" rx="41.1526" ry="18"/>
+<text text-anchor="middle" x="449" y="-157.8" font-family="Helvetica,sans-Serif" font-size="14.00">Regular</text>
 </g>
 <!-- Regular&#45;&gt;Safe -->
 <g id="edge3" class="edge"><title>Regular&#45;&gt;Safe</title>
-<path fill="none" stroke="black" d="M463.742,-143.697C464.072,-135.983 464.469,-126.712 464.838,-118.112"/>
-<polygon fill="black" stroke="black" points="468.335,-118.245 465.267,-108.104 461.342,-117.945 468.335,-118.245"/>
+<path fill="none" stroke="black" d="M452.873,-144.055C454.655,-136.261 456.812,-126.822 458.811,-118.079"/>
+<polygon fill="black" stroke="black" points="462.235,-118.804 461.051,-108.275 455.411,-117.244 462.235,-118.804"/>
 </g>
 <!-- Linearizable -->
 <g id="node19" class="node"><title>Linearizable</title>
-<ellipse fill="Pink" stroke="red" stroke-width="4" cx="355" cy="-234" rx="57.5925" ry="18"/>
-<text text-anchor="middle" x="355" y="-229.8" font-family="Helvetica,sans-Serif" font-size="14.00">Linearizable</text>
+<ellipse fill="Pink" stroke="red" stroke-width="4" cx="320" cy="-234" rx="57.5925" ry="18"/>
+<text text-anchor="middle" x="320" y="-229.8" font-family="Helvetica,sans-Serif" font-size="14.00">Linearizable</text>
 </g>
 <!-- Linearizable&#45;&gt;Causal -->
 <g id="edge10" class="edge"><title>Linearizable&#45;&gt;Causal</title>
-<path fill="none" stroke="black" d="M355,-215.697C355,-207.983 355,-198.712 355,-190.112"/>
-<polygon fill="black" stroke="black" points="358.5,-190.104 355,-180.104 351.5,-190.104 358.5,-190.104"/>
+<path fill="none" stroke="black" d="M320,-215.697C320,-207.983 320,-198.712 320,-190.112"/>
+<polygon fill="black" stroke="black" points="323.5,-190.104 320,-180.104 316.5,-190.104 323.5,-190.104"/>
 </g>
 <!-- Linearizable&#45;&gt;Regular -->
 <g id="edge2" class="edge"><title>Linearizable&#45;&gt;Regular</title>
-<path fill="none" stroke="black" d="M378.969,-217.465C394.739,-207.243 415.519,-193.775 432.469,-182.789"/>
-<polygon fill="black" stroke="black" points="434.449,-185.676 440.937,-177.3 430.642,-179.802 434.449,-185.676"/>
+<path fill="none" stroke="black" d="M347.674,-217.983C367.407,-207.275 394.057,-192.814 415.073,-181.41"/>
+<polygon fill="black" stroke="black" points="416.872,-184.416 423.992,-176.57 413.534,-178.263 416.872,-184.416"/>
 </g>
 <!-- StrongOSR -->
 <g id="node20" class="node"><title>StrongOSR</title>
-<ellipse fill="Pink" stroke="red" stroke-width="4" cx="268" cy="-306" rx="89.4899" ry="18"/>
-<text text-anchor="middle" x="268" y="-301.8" font-family="Helvetica,sans-Serif" font-size="14.00">Strongly serializable</text>
+<ellipse fill="Pink" stroke="red" stroke-width="4" cx="248" cy="-306" rx="89.4899" ry="18"/>
+<text text-anchor="middle" x="248" y="-301.8" font-family="Helvetica,sans-Serif" font-size="14.00">Strongly serializable</text>
 </g>
 <!-- StrongOSR&#45;&gt;OSR -->
 <g id="edge5" class="edge"><title>StrongOSR&#45;&gt;OSR</title>
-<path fill="none" stroke="black" d="M247.382,-288.411C236.088,-279.324 221.917,-267.922 209.572,-257.989"/>
-<polygon fill="black" stroke="black" points="211.757,-255.254 201.771,-251.713 207.368,-260.708 211.757,-255.254"/>
+<path fill="none" stroke="black" d="M230.571,-288.055C221.417,-279.156 210.058,-268.112 200.077,-258.408"/>
+<polygon fill="black" stroke="black" points="202.383,-255.768 192.773,-251.307 197.503,-260.787 202.383,-255.768"/>
 </g>
 <!-- StrongOSR&#45;&gt;Linearizable -->
 <g id="edge1" class="edge"><title>StrongOSR&#45;&gt;Linearizable</title>
-<path fill="none" stroke="black" d="M288.618,-288.411C300.159,-279.125 314.705,-267.421 327.237,-257.338"/>
-<polygon fill="black" stroke="black" points="329.532,-259.984 335.129,-250.988 325.144,-254.53 329.532,-259.984"/>
+<path fill="none" stroke="black" d="M265.429,-288.055C274.583,-279.156 285.942,-268.112 295.923,-258.408"/>
+<polygon fill="black" stroke="black" points="298.497,-260.787 303.227,-251.307 293.617,-255.768 298.497,-260.787"/>
 </g>
 </g>
 </svg>
