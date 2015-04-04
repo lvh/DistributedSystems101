@@ -281,7 +281,7 @@
 
 *** Theoretical consistency models
 
-   #+ATTR_HTML: :style width:80%
+   #+ATTR_HTML: :style width:85%
    [[./media/ConsistencyModels.svg]]
 
    #+BEGIN_NOTES
