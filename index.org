@@ -15,7 +15,7 @@
 
 ** Rackspace
 
-   #+ATTR_HTML: :style width:90%
+   #+ATTR_HTML: :style width:50%
    [[./media/rackspace.svg]]
 
 ** AutoScale
