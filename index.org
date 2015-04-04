@@ -341,13 +341,20 @@
 
 *** Twisted vs threads
 
-    * Twisted: strongly serializable
-      * Event loop with 1 reactor thread
-      * Serializable: reactor finds the ordering
-      * Linearizable: callbacks run by themselves
-    * Threads: usually more like read uncommitted
-      * Many Python opcodes are atomic
-      * Correct use of locks?
+    In terms of concurrency models
+
+**** Twisted: strongly serializable
+
+     * Event loop with 1 reactor thread
+     * Serializable: reactor finds the ordering
+     * Linearizable: callbacks run by themselves
+
+**** Threads: no defined model
+
+     * Unladen Swallow tried to figure it out
+     * Nothing fancy; whatever your CPU gives you
+     * Probably okay (heap + GIL)
+     * Correct use of locks?
 
 ** Time
 
