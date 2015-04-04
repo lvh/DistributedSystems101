@@ -380,6 +380,11 @@
     [[./media/Clock/NoClocks.svg]]
 
 *** Google Spanner
+*** Can't have a global clock
+
+    * Can pretend they /almost/ exist
+    * Going to be wrong often
+
 
     * GPS & atomic clocks
     * "Atomic clocks [...] drift significantly"
