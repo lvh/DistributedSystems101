@@ -303,6 +303,11 @@
     2. /x ← 1/
     3. /x ← 2/
 
+    #+BEGIN_NOTES
+    Can be executed in any order
+    Therefore any answer is valid
+    #+END_NOTES
+
 *** Example: serializability being strong
 
     Precondition: /x = y = 0/
