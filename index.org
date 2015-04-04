@@ -493,11 +493,16 @@
 
 *** CRDTs in practice: usually CvRDT
 
-    Solve a hard local problem once
+    Solve local problem once
 
     vs
 
-    Solve a hard distributed problem constantly
+    Solve distributed problem constantly
+
+    #+BEGIN_NOTES
+    Local problem: write an algorithm
+    Distributed problem: exactly-once delivery
+    #+END_NOTES
 
 *** Examples
 
