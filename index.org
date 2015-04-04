@@ -371,15 +371,9 @@
 
 *** Google Spanner
 
-    GPS & atomic clocks
-    #+BEGIN_QUOTE
-    Atomic clocks [...] drift significantly due to frequency
-    error.
-    #+END_QUOTE
-
-    #+BEGIN_QUOTE
-    uncertainty [...] generally less than 10ms
-    #+END_QUOTE
+    * GPS & atomic clocks
+    * "Atomic clocks [...] drift significantly"
+    * "uncertainty [...] generally <10ms"
 
 *** Time is a proxy
 
