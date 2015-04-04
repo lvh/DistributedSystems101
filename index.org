@@ -316,6 +316,11 @@
     2. /x ← 1/, assuming /x = 0/
     3. /y ← x/, assuming /x = 1/
 
+    #+BEGIN_NOTES
+    Can only be executed in 1 order
+    (2, then 3 because x=1, then 1 because y = 1, net result: x=1 y=2)
+    #+END_NOTES
+
 *** Linearizability
 
    All operations appear to happen instantly
