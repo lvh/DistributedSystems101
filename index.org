@@ -293,7 +293,7 @@
 
    * ∃ serial execution with the same result
    * /Some/ serial execution: fairly weak
-   * No restrictions on /which/ serial execution
+   * No restrictions on which one
 
 *** Example: serializability being weak
 
