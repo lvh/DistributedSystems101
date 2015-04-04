@@ -548,6 +548,16 @@
    * Huge state space, no repeat scenarios
    * Expensive to operate
 
+** Lots of distributed systems
+
+   * Everything is about tradeoffs
+   * Figure out what's right for your app
+   * Don't build what's on the shelf
+
+     #+BEGIN_NOTES
+     Riak, Zookeeper
+     #+END_NOTES
+
 ** Why distributed systems?
 
    Because you're /out of options/.
