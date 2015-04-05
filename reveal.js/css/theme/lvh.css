@@ -30,6 +30,9 @@
 .reveal blockquote {
   box-shadow: none !important; }
 
+.reveal h4 {
+  font-size: 1em !important; }
+
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -76,7 +79,7 @@ body {
   font-size: 1.55em; }
 
 .reveal h4 {
-  font-size: 1.55em; }
+  font-size: 1em; }
 
 .reveal h1 {
   text-shadow: none; }
