@@ -38,9 +38,9 @@
 
    Parallels with Crypto 101
 
-   * Field considered exclusive domain of experts
-   * Abstinence-only education doesn't work
-   * Lots of material, but not organized for self-teaching
+   * Exclusive domain of experts
+   * Abstinence-only education
+   * Not organized for self-teaching
    * We can't afford not to care
 
 ** Disconnect
