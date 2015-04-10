@@ -87,6 +87,7 @@
 <li class="fragment roll-in">Manages distributed systems</li>
 <li class="fragment roll-in">Running on distributed systems</li>
 <li class="fragment roll-in">Orchestrating distributed systems</li>
+<li class="fragment roll-in">At scale</li>
 
 </ul>
 
@@ -253,7 +254,7 @@ Theory and consequences
 <ul>
 <li>C: linearizability (~ local behavior)</li>
 <li>A: all active nodes answer every query</li>
-<li>P: failure resistance</li>
+<li>P: resistance to failures</li>
 
 </ul>
 
@@ -292,7 +293,14 @@ Theory and consequences
 
 </section>
 <section id="slide-sec-4-1-6">
-<h4 id="sec-4-1-6">Pick any two: AP or CP</h4>
+<h4 id="sec-4-1-6">CA (!P)</h4>
+<p>
+"half of the time it doesn't actually work"
+</p>
+
+</section>
+<section id="slide-sec-4-1-7">
+<h4 id="sec-4-1-7">Pick any two: AP or CP</h4>
 
 <div class="figure">
 <p><img src="./media/cap-venn-any2-withp.svg" alt="cap-venn-any2-withp.svg" style="width:50%" />
@@ -300,29 +308,29 @@ Theory and consequences
 </div>
 
 </section>
-<section id="slide-sec-4-1-7">
-<h4 id="sec-4-1-7">CP example: Zookeeper</h4>
-<p>
-Consistent ops that sometimes fail
-</p>
-
-</section>
 <section id="slide-sec-4-1-8">
-<h4 id="sec-4-1-8">AP example: Cassandra</h4>
+<h4 id="sec-4-1-8">CP example: Zookeeper</h4>
 <p>
-Inconsistent ops that (usually) succeed
+Consistent ops that sometimes fail (!A)
 </p>
 
 </section>
 <section id="slide-sec-4-1-9">
-<h4 id="sec-4-1-9">Informally</h4>
+<h4 id="sec-4-1-9">AP example: Cassandra</h4>
+<p>
+Inconsistent ops (!C) that (usually) succeed
+</p>
+
+</section>
+<section id="slide-sec-4-1-10">
+<h4 id="sec-4-1-10">Informally</h4>
 <p>
 Let's look at a 5 node cluster
 </p>
 
 </section>
-<section id="slide-sec-4-1-10">
-<h4 id="sec-4-1-10">5-node connected cluster</h4>
+<section id="slide-sec-4-1-11">
+<h4 id="sec-4-1-11">5-node connected cluster</h4>
 
 <div class="figure">
 <p><img src="./media/CAP/Connected.svg" alt="Connected.svg" style="width:50%" />
@@ -330,15 +338,17 @@ Let's look at a 5 node cluster
 </div>
 
 </section>
-<section id="slide-sec-4-1-11">
-<h4 id="sec-4-1-11">What happens when stuff fails?</h4>
-<p>
-Idea: (N+1)/2 quorum
-</p>
+<section id="slide-sec-4-1-12">
+<h4 id="sec-4-1-12">What happens when stuff fails?</h4>
+<ul>
+<li>I still want to read/write!</li>
+<li>Idea: (N+1)/2 quorum</li>
+
+</ul>
 
 </section>
-<section id="slide-sec-4-1-12">
-<h4 id="sec-4-1-12">Some failures</h4>
+<section id="slide-sec-4-1-13">
+<h4 id="sec-4-1-13">Some failures</h4>
 
 <div class="figure">
 <p><img src="./media/CAP/Quorum.svg" alt="Quorum.svg" style="width:50%" />
@@ -346,8 +356,8 @@ Idea: (N+1)/2 quorum
 </div>
 
 </section>
-<section id="slide-sec-4-1-13">
-<h4 id="sec-4-1-13">Failures are indistinguishable</h4>
+<section id="slide-sec-4-1-14">
+<h4 id="sec-4-1-14">Failures are indistinguishable</h4>
 
 <div class="figure">
 <p><img src="./media/CAP/QuorumWithNodeFailures.svg" alt="QuorumWithNodeFailures.svg" style="width:50%" />
@@ -355,8 +365,8 @@ Idea: (N+1)/2 quorum
 </div>
 
 </section>
-<section id="slide-sec-4-1-14">
-<h4 id="sec-4-1-14">Too many failures, no quorum</h4>
+<section id="slide-sec-4-1-15">
+<h4 id="sec-4-1-15">Too many failures, no quorum</h4>
 
 <div class="figure">
 <p><img src="./media/CAP/NoQuorum.svg" alt="NoQuorum.svg" style="width:50%" />
@@ -364,8 +374,8 @@ Idea: (N+1)/2 quorum
 </div>
 
 </section>
-<section id="slide-sec-4-1-15">
-<h4 id="sec-4-1-15">Simple quorum isn't enough</h4>
+<section id="slide-sec-4-1-16">
+<h4 id="sec-4-1-16">Simple quorum isn't enough</h4>
 
 <div class="figure">
 <p><img src="./media/CAP/DoubleQuorum.svg" alt="DoubleQuorum.svg" style="width:50%" />
@@ -373,8 +383,21 @@ Idea: (N+1)/2 quorum
 </div>
 
 </section>
-<section id="slide-sec-4-1-16">
-<h4 id="sec-4-1-16">Back to reality</h4>
+<section id="slide-sec-4-1-17">
+<h4 id="sec-4-1-17">Not far-fetched</h4>
+<p>
+Real failures are:
+</p>
+
+<ul>
+<li>partial</li>
+<li>complex</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-4-1-18">
+<h4 id="sec-4-1-18">Back to reality</h4>
 <ul>
 <li>CAP's C is linearizability</li>
 <li>CAP's A is any <i>op</i> on <i>any</i> node</li>
@@ -383,8 +406,8 @@ Idea: (N+1)/2 quorum
 </ul>
 
 </section>
-<section id="slide-sec-4-1-17">
-<h4 id="sec-4-1-17">Gradations</h4>
+<section id="slide-sec-4-1-19">
+<h4 id="sec-4-1-19">Gradations</h4>
 
 <div class="figure">
 <p><img src="./media/ap-cp.svg" alt="ap-cp.svg" style="width:80%" />
@@ -392,34 +415,8 @@ Idea: (N+1)/2 quorum
 </div>
 
 </section>
-<section id="slide-sec-4-1-18">
-<h4 id="sec-4-1-18">Reality</h4>
-<ul>
-<li><i>Many</i> levels of consistency</li>
-<li><i>Many</i> levels of availability</li>
-<li>Systems can choose what to sacrifice (A vs C)</li>
-<li>No reason to sacrifice either outside of failures</li>
-
-</ul>
-
-</section>
-<section id="slide-sec-4-1-19">
-<h4 id="sec-4-1-19">Example of creative sacrifice: <code>etcd</code></h4>
-<ul>
-<li>Normally: consistency all the way</li>
-<li>Option of doing inconsistent reads</li>
-<li>Maybe get some stale data</li>
-<li>&#x2026; but still works if the cluster is on fire!</li>
-
-</ul>
-
-</section>
 <section id="slide-sec-4-1-20">
-<h4 id="sec-4-1-20">What lives in those gray areas?</h4>
-
-</section>
-<section id="slide-sec-4-1-21">
-<h4 id="sec-4-1-21">Trade-offs</h4>
+<h4 id="sec-4-1-20">Trade-offs</h4>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -440,42 +437,24 @@ Idea: (N+1)/2 quorum
 </tr>
 
 <tr>
-<td class="left">Availability</td>
-<td class="left">Transactionality</td>
-</tr>
-
-<tr>
 <td class="left">Scalability</td>
-<td class="left">Guarantees</td>
+<td class="left">Transactionality</td>
 </tr>
 </tbody>
 </table>
 
-</section>
-<section id="slide-sec-4-1-22">
-<h4 id="sec-4-1-22">Picking A over C can be fine!</h4>
 <p>
-Stats, aggregates, et cetera
-</p>
-
-<ul>
-<li>Counting Twitter followers: can be stale</li>
-<li>Average e-mail size: OK if you miss a few</li>
-
-</ul>
-
-<p>
-Doesn't need to be strongly consistent
+No universally correct choice!
 </p>
 
 </section>
-<section id="slide-sec-4-1-23">
-<h4 id="sec-4-1-23">Picking C over A can be fine!</h4>
+<section id="slide-sec-4-1-21">
+<h4 id="sec-4-1-21">Example of creative sacrifice: <code>etcd</code></h4>
 <ul>
-<li>Leader election</li>
-<li>Mutual excusion</li>
-<li>Consistent configuration</li>
-<li>Huge simplicity win</li>
+<li>Normally: consistency all the way</li>
+<li>Option of doing inconsistent reads</li>
+<li>Maybe get some stale data</li>
+<li>&#x2026; but still works under partial failure</li>
 
 </ul>
 
@@ -570,27 +549,12 @@ One node sees different orders when reading from different registers
 <section id="slide-sec-4-2-8">
 <h4 id="sec-4-2-8">All sorts of stuff can happen</h4>
 <ul>
-<li>Only get worse!
-<ul>
-<li>Multiple registers, semantics, nodes, failure modes&#x2026;</li>
-
-</ul></li>
-<li>E.g. SQL transactions
-<ul>
-<li>Phantom reads</li>
-<li>Non-repeatable reads</li>
-
-</ul></li>
+<li>Multiple registers</li>
+<li>More semantics</li>
+<li>More nodes</li>
+<li>More failure modes</li>
 
 </ul>
-
-<aside class="notes">
-<p>
-Phantom reads: rows change
-Non-repeatable reads: data in a row changes
-</p>
-
-</aside>
 
 </section>
 <section id="slide-sec-4-2-9">
@@ -683,12 +647,9 @@ All operations appear to happen instantly
 </section>
 <section id="slide-sec-4-2-15">
 <h4 id="sec-4-2-15">Strong serializability</h4>
-<ul>
-<li>Linearizable &amp; serializable</li>
-<li>There is a serial execution &#x2026;</li>
-<li>&#x2026; and that execution is unique &amp; matches wallclock time (???)</li>
-
-</ul>
+<p>
+Linearizable &amp; serializable
+</p>
 
 </section>
 <section id="slide-sec-4-2-16">
@@ -733,11 +694,7 @@ In terms of concurrency models
 <div class="outline-text-3" id="text-4-3">
 </div></section>
 <section id="slide-sec-4-3-1">
-<h4 id="sec-4-3-1">What do we do with time?</h4>
-
-</section>
-<section id="slide-sec-4-3-2">
-<h4 id="sec-4-3-2">Global clock model</h4>
+<h4 id="sec-4-3-1">Global clock model</h4>
 
 <div class="figure">
 <p><img src="./media/Clock/GlobalClock.svg" alt="GlobalClock.svg" style="width:60%" />
@@ -745,8 +702,8 @@ In terms of concurrency models
 </div>
 
 </section>
-<section id="slide-sec-4-3-3">
-<h4 id="sec-4-3-3">Global clock</h4>
+<section id="slide-sec-4-3-2">
+<h4 id="sec-4-3-2">Global clock</h4>
 <ul>
 <li>Everyone sees the same clock</li>
 <li>Access instant, uncertainty 0</li>
@@ -756,8 +713,8 @@ In terms of concurrency models
 </ul>
 
 </section>
-<section id="slide-sec-4-3-4">
-<h4 id="sec-4-3-4">Local clock model</h4>
+<section id="slide-sec-4-3-3">
+<h4 id="sec-4-3-3">Local clock model</h4>
 
 <div class="figure">
 <p><img src="./media/Clock/LocalClocks.svg" alt="LocalClocks.svg" style="width:60%" />
@@ -765,8 +722,8 @@ In terms of concurrency models
 </div>
 
 </section>
-<section id="slide-sec-4-3-5">
-<h4 id="sec-4-3-5">Local clocks</h4>
+<section id="slide-sec-4-3-4">
+<h4 id="sec-4-3-4">Local clocks</h4>
 <ul>
 <li>Each clock is kinda reliable</li>
 <li>Can't compare with other timestamps</li>
@@ -775,8 +732,8 @@ In terms of concurrency models
 </ul>
 
 </section>
-<section id="slide-sec-4-3-6">
-<h4 id="sec-4-3-6">No clock model</h4>
+<section id="slide-sec-4-3-5">
+<h4 id="sec-4-3-5">No clock model</h4>
 
 <div class="figure">
 <p><img src="./media/Clock/NoClocks.svg" alt="NoClocks.svg" style="width:60%" />
@@ -784,8 +741,8 @@ In terms of concurrency models
 </div>
 
 </section>
-<section id="slide-sec-4-3-7">
-<h4 id="sec-4-3-7">Can't have a global clock</h4>
+<section id="slide-sec-4-3-6">
+<h4 id="sec-4-3-6">Can't have a global clock</h4>
 <ul>
 <li>Can pretend they <i>almost</i> exist</li>
 <li>Going to be wrong often</li>
@@ -793,8 +750,8 @@ In terms of concurrency models
 </ul>
 
 </section>
-<section id="slide-sec-4-3-8">
-<h4 id="sec-4-3-8">Example: Google Spanner</h4>
+<section id="slide-sec-4-3-7">
+<h4 id="sec-4-3-7">Example: Google Spanner</h4>
 <ul>
 <li>GPS &amp; atomic clocks</li>
 <li>"Atomic clocks [&#x2026;] drift significantly"</li>
@@ -803,8 +760,8 @@ In terms of concurrency models
 </ul>
 
 </section>
-<section id="slide-sec-4-3-9">
-<h4 id="sec-4-3-9">Can't have <i>no</i> clock</h4>
+<section id="slide-sec-4-3-8">
+<h4 id="sec-4-3-8">Can't have <i>no</i> clock</h4>
 <ul>
 <li>Need time for failure detection</li>
 <li>FLP result says nothing works</li>
@@ -812,8 +769,8 @@ In terms of concurrency models
 </ul>
 
 </section>
-<section id="slide-sec-4-3-10">
-<h4 id="sec-4-3-10">Timestamps are often a proxy</h4>
+<section id="slide-sec-4-3-9">
+<h4 id="sec-4-3-9">Timestamps are often a proxy</h4>
 <ul>
 <li><i>Actually</i> care about progression, partial order</li>
 <li>Timestamps don't have to match real-world time</li>
@@ -821,8 +778,8 @@ In terms of concurrency models
 </ul>
 
 </section>
-<section id="slide-sec-4-3-11">
-<h4 id="sec-4-3-11">Example timeline</h4>
+<section id="slide-sec-4-3-10">
+<h4 id="sec-4-3-10">Example timeline</h4>
 
 <div class="figure">
 <p><img src="./media/Timeline.svg" alt="Timeline.svg" style="width:100%" />
@@ -834,12 +791,12 @@ Sequential numbers vs real timestamps?
 </p>
 
 </section>
-<section id="slide-sec-4-3-12">
-<h4 id="sec-4-3-12">Lamport &amp; vector clocks</h4>
+<section id="slide-sec-4-3-11">
+<h4 id="sec-4-3-11">Lamport &amp; vector clocks</h4>
 
 </section>
-<section id="slide-sec-4-3-13">
-<h4 id="sec-4-3-13">Lamport clocks</h4>
+<section id="slide-sec-4-3-12">
+<h4 id="sec-4-3-12">Lamport clocks</h4>
 <p>
 (informally)
 </p>
@@ -849,8 +806,8 @@ keep a version number of what you've seen
 </p>
 
 </section>
-<section id="slide-sec-4-3-14">
-<h4 id="sec-4-3-14">Vector clocks</h4>
+<section id="slide-sec-4-3-13">
+<h4 id="sec-4-3-13">Vector clocks</h4>
 <p>
 (informally)
 </p>
@@ -904,9 +861,9 @@ On top of consensus protocols:
 </p>
 
 <ul>
-<li>Set partitioning</li>
 <li>Locks</li>
 <li>Barriers</li>
+<li>Set partitioning</li>
 <li>&#x2026;</li>
 
 </ul>
@@ -926,16 +883,7 @@ On top of consensus protocols:
 
 </section>
 <section id="slide-sec-5-3-2">
-<h4 id="sec-5-3-2">Failures</h4>
-
-<div class="figure">
-<p><img src="./media/SetPartitioning/Failures.svg" alt="Failures.svg" style="width:60%" />
-</p>
-</div>
-
-</section>
-<section id="slide-sec-5-3-3">
-<h4 id="sec-5-3-3">Recovery</h4>
+<h4 id="sec-5-3-2">Recovery from failure</h4>
 
 <div class="figure">
 <p><img src="./media/SetPartitioning/Recovery.svg" alt="Recovery.svg" style="width:60%" />
@@ -963,7 +911,7 @@ Conflict-free replicated data type
 <section id="slide-sec-5-4-2">
 <h4 id="sec-5-4-2">Solutions?</h4>
 <ul>
-<li>Last write wins? Some write loses :-(</li>
+<li>Last write wins? Most writes lose :-(</li>
 <li>Coordination? Expensive! :-(</li>
 
 </ul>

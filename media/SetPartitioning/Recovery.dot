@@ -7,8 +7,8 @@ graph {
         B [label="{2}"];
         C [label="{3}"];
         D [label="{4, 5}"];
-        E [label="???"];        
-
+        E [label="???", style=filled,color=red,fillcolor="Pink"];        
+        
         A -- B -- C -- D;
         A -- C;
         A -- D;

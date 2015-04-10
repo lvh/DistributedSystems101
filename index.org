@@ -34,11 +34,12 @@
 
 ** AutoScale
 
-   #+ATTR_REVEAL: :frag (roll-in roll-in roll-in roll-in)
+   #+ATTR_REVEAL: :frag (roll-in roll-in roll-in roll-in roll-in roll-in)
    * Distributed system
    * Manages distributed systems
    * Running on distributed systems
    * Orchestrating distributed systems
+   * At scale
 
 ** Why this talk?
 
@@ -134,7 +135,7 @@
 
    * C: linearizability (~ local behavior)
    * A: all active nodes answer every query
-   * P: failure resistance
+   * P: resistance to failures
 
 *** Pick any two
 
@@ -155,6 +156,10 @@
    * P(no failures) < 1 - P(one node works)^N
      * Cascades, Hurst exponent
 
+*** CA (!P)
+
+    "half of the time it doesn't actually work"
+
 *** Pick any two: AP or CP
 
    #+ATTR_HTML: :style width:50%
@@ -162,11 +167,11 @@
 
 *** CP example: Zookeeper
 
-    Consistent ops that sometimes fail
+    Consistent ops that sometimes fail (!A)
 
 *** AP example: Cassandra
 
-    Inconsistent ops that (usually) succeed
+    Inconsistent ops (!C) that (usually) succeed
 
 *** Informally
 
@@ -179,7 +184,8 @@
 
 *** What happens when stuff fails?
 
-    Idea: (N+1)/2 quorum
+    * I still want to read/write!
+    * Idea: (N+1)/2 quorum
 
 *** Some failures
 
@@ -201,6 +207,13 @@
     #+ATTR_HTML: :style width:50%
     [[./media/CAP/DoubleQuorum.svg]]
 
+*** Not far-fetched
+
+    Real failures are:
+
+    * partial
+    * complex
+
 *** Back to reality
 
    * CAP's C is linearizability
@@ -212,44 +225,20 @@
    #+ATTR_HTML: :style width:80%
    [[./media/ap-cp.svg]]
 
-*** Reality
+*** Trade-offs
 
-   * /Many/ levels of consistency
-   * /Many/ levels of availability
-   * Systems can choose what to sacrifice (A vs C)
-   * No reason to sacrifice either outside of failures
+    | Availability | Consistency       |
+    | Performance  | Ease of reasoning |
+    | Scalability  | Transactionality  |
+
+    No universally correct choice!
 
 *** Example of creative sacrifice: ~etcd~
 
    * Normally: consistency all the way
    * Option of doing inconsistent reads
    * Maybe get some stale data
-   * ... but still works if the cluster is on fire!
-
-*** What lives in those gray areas?
-
-*** Trade-offs
-
-    | Availability | Consistency       |
-    | Performance  | Ease of reasoning |
-    | Availability | Transactionality  |
-    | Scalability  | Guarantees        |
-
-*** Picking A over C can be fine!
-
-    Stats, aggregates, et cetera
-
-    * Counting Twitter followers: can be stale
-    * Average e-mail size: OK if you miss a few
-
-    Doesn't need to be strongly consistent
-
-*** Picking C over A can be fine!
-
-    * Leader election
-    * Mutual excusion
-    * Consistent configuration
-    * Huge simplicity win
+   * ... but still works under partial failure
 
 ** Consistency models
 
@@ -302,16 +291,10 @@
 
 *** All sorts of stuff can happen
 
-    * Only get worse!
-      * Multiple registers, semantics, nodes, failure modes...
-    * E.g. SQL transactions
-      * Phantom reads
-      * Non-repeatable reads
-
-    #+BEGIN_NOTES
-    Phantom reads: rows change
-    Non-repeatable reads: data in a row changes
-    #+END_NOTES
+    * Multiple registers
+    * More semantics
+    * More nodes
+    * More failure modes
 
 *** Reasoning about the system
 
@@ -367,9 +350,7 @@
 
 *** Strong serializability
 
-   * Linearizable & serializable
-   * There is a serial execution ...
-   * ... and that execution is unique & matches wallclock time (???)
+    Linearizable & serializable
 
 *** Your computer is distributed
 
@@ -396,9 +377,6 @@
      * Correct use of locks?
 
 ** Time
-
-*** What do we do with time?
-
 *** Global clock model
 
     #+ATTR_HTML: :style width:60%
@@ -493,9 +471,9 @@
 
    On top of consensus protocols:
 
-   * Set partitioning
    * Locks
    * Barriers
+   * Set partitioning
    * ...
 
 *** Set partitioning
@@ -505,12 +483,7 @@
     #+ATTR_HTML: :style width:60%
     [[./media/SetPartitioning/Happy.svg]]
 
-*** Failures
-
-    #+ATTR_HTML: :style width:60%
-    [[./media/SetPartitioning/Failures.svg]]
-
-*** Recovery
+*** Recovery from failure
 
     #+ATTR_HTML: :style width:60%
     [[./media/SetPartitioning/Recovery.svg]]
@@ -527,7 +500,7 @@
 
 *** Solutions?
 
-    * Last write wins? Some write loses :-(
+    * Last write wins? Most writes lose :-(
     * Coordination? Expensive! :-(
 
 *** I want highly available data stores...
