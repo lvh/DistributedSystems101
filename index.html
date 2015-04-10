@@ -54,7 +54,16 @@
 
 </section>
 <section id="slide-sec-2-2">
-<h3 id="sec-2-2">Rackspace</h3>
+<h3 id="sec-2-2">PyCon</h3>
+
+<div class="figure">
+<p><img src="./media/PyCon.png" alt="PyCon.png" style="width:100%" />
+</p>
+</div>
+
+</section>
+<section id="slide-sec-2-3">
+<h3 id="sec-2-3">Rackspace</h3>
 
 <div class="figure">
 <p><img src="./media/rackspace.svg" alt="rackspace.svg" style="width:50%" />
@@ -62,8 +71,8 @@
 </div>
 
 </section>
-<section id="slide-sec-2-3">
-<h3 id="sec-2-3">AutoScale</h3>
+<section id="slide-sec-2-4">
+<h3 id="sec-2-4">AutoScale</h3>
 
 <div class="figure">
 <p><img src="./media/threeotters.jpg" alt="threeotters.jpg" style="width:90%" />
@@ -71,34 +80,34 @@
 </div>
 
 </section>
-<section id="slide-sec-2-4">
-<h3 id="sec-2-4">AutoScale</h3>
-<ul>
-<li>Distributed system</li>
-<li>Manages distributed systems</li>
-<li>Running on distributed systems</li>
-<li>Interacting with distributed systems</li>
-
-</ul>
-
-</section>
 <section id="slide-sec-2-5">
-<h3 id="sec-2-5">Why this talk?</h3>
-<p>
-Parallels with Crypto 101
-</p>
-
+<h3 id="sec-2-5">AutoScale</h3>
 <ul>
-<li>Exclusive domain of experts</li>
-<li>Abstinence-only education</li>
-<li>Not organized for self-teaching</li>
-<li>We can't afford not to care</li>
+<li class="fragment roll-in">Distributed system</li>
+<li class="fragment roll-in">Manages distributed systems</li>
+<li class="fragment roll-in">Running on distributed systems</li>
+<li class="fragment roll-in">Orchestrating distributed systems</li>
 
 </ul>
 
 </section>
 <section id="slide-sec-2-6">
-<h3 id="sec-2-6">Disconnect</h3>
+<h3 id="sec-2-6">Why this talk?</h3>
+<p>
+Parallels with Crypto 101
+</p>
+
+<ul>
+<li class="fragment roll-in">Exclusive domain of experts</li>
+<li class="fragment roll-in">Abstinence-only education</li>
+<li class="fragment roll-in">Not organized for self-teaching</li>
+<li class="fragment roll-in">We can't afford not to care</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-2-7">
+<h3 id="sec-2-7">Disconnect</h3>
 <p>
 Theory ⚡ practice
 </p>
@@ -114,8 +123,8 @@ Theory ⚡ practice
 </aside>
 
 </section>
-<section id="slide-sec-2-7">
-<h3 id="sec-2-7">Distributed Systems 101</h3>
+<section id="slide-sec-2-8">
+<h3 id="sec-2-8">Distributed Systems 101</h3>
 <p>
 "Just enough" distributed systems
 </p>
@@ -127,12 +136,19 @@ Theory ⚡ practice
 </ul>
 
 </section>
-<section id="slide-sec-2-8">
-<h3 id="sec-2-8">Goals</h3>
+<section id="slide-sec-2-9">
+<h3 id="sec-2-9">Goals</h3>
 <ul>
 <li><i>Not</i> exhaustive, <i>not</i> pedantically correct</li>
-<li>Give you some idea of where to look</li>
-<li>Convince you distributed systems are tricky</li>
+<li>Give you an idea of what there is &amp; where to look</li>
+<li>Convince you distributed systems are tricky
+
+<aside class="notes">
+<p>
+The worse I do&#x2026;
+</p>
+
+</aside></li>
 
 </ul>
 
@@ -145,7 +161,7 @@ Theory ⚡ practice
 </div></section>
 <section id="slide-sec-3-1">
 <h3 id="sec-3-1">What <i>is</i> a distributed system?</h3>
-<blockquotenil>
+<blockquote nil>
 <p>
 [&#x2026;] when a machine I've never heard of can cause my program to
 fail.
@@ -193,13 +209,13 @@ fail.
 <section id="slide-sec-3-5">
 <h3 id="sec-3-5">Examples of distributed systems</h3>
 <ul>
-<li>Basically everything (e.g., your laptop)
+<li class="fragment roll-in">Basically everything (e.g., your laptop)
 <ul>
 <li>Speed of light isn't infinite</li>
 <li>RAM is <i>all the way over there</i></li>
 
 </ul></li>
-<li>Typically:
+<li class="fragment roll-in">Typically:
 <ul>
 <li>Any system with &gt; 1 machine</li>
 <li>Connected via network</li>
@@ -263,10 +279,10 @@ Theory and consequences
 <section id="slide-sec-4-1-5">
 <h4 id="sec-4-1-5">Can't sacrifice partition tolerance</h4>
 <ul>
-<li>Partition tolerance is failure tolerance</li>
-<li>Networks, nodes fail all the time</li>
-<li>Latency happens; indistinguishable</li>
-<li>P(no failures) &lt; 1 - P(one node works)<sup>N</sup>
+<li class="fragment roll-in">Partition tolerance is failure tolerance</li>
+<li class="fragment roll-in">Networks, nodes fail all the time</li>
+<li class="fragment roll-in">Latency happens; indistinguishable</li>
+<li class="fragment roll-in">P(no failures) &lt; 1 - P(one node works)<sup>N</sup>
 <ul>
 <li>Cascades, Hurst exponent</li>
 
@@ -285,21 +301,17 @@ Theory and consequences
 
 </section>
 <section id="slide-sec-4-1-7">
-<h4 id="sec-4-1-7">Example: Zookeeper</h4>
-<ul>
-<li>Zookeeper is CP</li>
-<li>Consistent ops that sometimes fail</li>
-
-</ul>
+<h4 id="sec-4-1-7">CP example: Zookeeper</h4>
+<p>
+Consistent ops that sometimes fail
+</p>
 
 </section>
 <section id="slide-sec-4-1-8">
-<h4 id="sec-4-1-8">Examples: Cassandra</h4>
-<ul>
-<li>Cassandra is AP</li>
-<li>inconsistent ops that (usually) succeed</li>
-
-</ul>
+<h4 id="sec-4-1-8">AP example: Cassandra</h4>
+<p>
+Inconsistent ops that (usually) succeed
+</p>
 
 </section>
 <section id="slide-sec-4-1-9">
@@ -365,7 +377,7 @@ Idea: (N+1)/2 quorum
 <h4 id="sec-4-1-16">Back to reality</h4>
 <ul>
 <li>CAP's C is linearizability</li>
-<li>CAP's A is ops on <i>any</i> node</li>
+<li>CAP's A is any <i>op</i> on <i>any</i> node</li>
 <li>These are very strong guarantees!</li>
 
 </ul>
@@ -383,10 +395,10 @@ Idea: (N+1)/2 quorum
 <section id="slide-sec-4-1-18">
 <h4 id="sec-4-1-18">Reality</h4>
 <ul>
-<li><i>Many</i> consistency models (real &amp; theoretical)</li>
-<li><i>Many</i> levels of availability (0-100%)</li>
-<li>No reason to sacrifice either outside of failures</li>
+<li><i>Many</i> levels of consistency</li>
+<li><i>Many</i> levels of availability</li>
 <li>Systems can choose what to sacrifice (A vs C)</li>
+<li>No reason to sacrifice either outside of failures</li>
 
 </ul>
 
@@ -441,9 +453,9 @@ Idea: (N+1)/2 quorum
 
 </section>
 <section id="slide-sec-4-1-22">
-<h4 id="sec-4-1-22">High availability can be OK&#x2026;</h4>
+<h4 id="sec-4-1-22">Picking A over C can be fine!</h4>
 <p>
-Stats, aggregates&#x2026;
+Stats, aggregates, et cetera
 </p>
 
 <ul>
@@ -455,6 +467,17 @@ Stats, aggregates&#x2026;
 <p>
 Doesn't need to be strongly consistent
 </p>
+
+</section>
+<section id="slide-sec-4-1-23">
+<h4 id="sec-4-1-23">Picking C over A can be fine!</h4>
+<ul>
+<li>Leader election</li>
+<li>Mutual excusion</li>
+<li>Consistent configuration</li>
+<li>Huge simplicity win</li>
+
+</ul>
 
 </section>
 <section id="slide-sec-4-2">
@@ -512,6 +535,16 @@ Doesn't need to be strongly consistent
 </p>
 </div>
 
+<aside class="notes">
+<p>
+One node, two registers
+Write to first one
+Then read from second one
+Write hasn't propagated yet
+</p>
+
+</aside>
+
 </section>
 <section id="slide-sec-4-2-7">
 <h4 id="sec-4-2-7">Writes can get reordered</h4>
@@ -520,6 +553,18 @@ Doesn't need to be strongly consistent
 <p><img src="./media/SequenceDiagrams/ReorderedWrites.svg" alt="ReorderedWrites.svg" />
 </p>
 </div>
+
+<aside class="notes">
+<p>
+Two nodes, two registers
+One  writes x to the other register
+Other writes y to the other register
+Registers replicate writes to each other
+Nodes see different orders when reading from their respective register
+One node sees different orders when reading from different registers
+</p>
+
+</aside>
 
 </section>
 <section id="slide-sec-4-2-8">
@@ -532,12 +577,20 @@ Doesn't need to be strongly consistent
 </ul></li>
 <li>E.g. SQL transactions
 <ul>
-<li>Phantom reads (the rows change)</li>
-<li>Non-repeatable reads (a row changes)</li>
+<li>Phantom reads</li>
+<li>Non-repeatable reads</li>
 
 </ul></li>
 
 </ul>
+
+<aside class="notes">
+<p>
+Phantom reads: rows change
+Non-repeatable reads: data in a row changes
+</p>
+
+</aside>
 
 </section>
 <section id="slide-sec-4-2-9">
@@ -751,14 +804,60 @@ In terms of concurrency models
 
 </section>
 <section id="slide-sec-4-3-9">
-<h4 id="sec-4-3-9">Time is a proxy</h4>
-<p>
-Actual timestamp vs total order
-</p>
+<h4 id="sec-4-3-9">Can't have <i>no</i> clock</h4>
+<ul>
+<li>Need time for failure detection</li>
+<li>FLP result says nothing works</li>
+
+</ul>
 
 </section>
 <section id="slide-sec-4-3-10">
-<h4 id="sec-4-3-10">Vector clocks</h4>
+<h4 id="sec-4-3-10">Timestamps are often a proxy</h4>
+<ul>
+<li><i>Actually</i> care about progression, partial order</li>
+<li>Timestamps don't have to match real-world time</li>
+
+</ul>
+
+</section>
+<section id="slide-sec-4-3-11">
+<h4 id="sec-4-3-11">Example timeline</h4>
+
+<div class="figure">
+<p><img src="./media/Timeline.svg" alt="Timeline.svg" style="width:100%" />
+</p>
+</div>
+
+<p>
+Sequential numbers vs real timestamps?
+</p>
+
+</section>
+<section id="slide-sec-4-3-12">
+<h4 id="sec-4-3-12">Lamport &amp; vector clocks</h4>
+
+</section>
+<section id="slide-sec-4-3-13">
+<h4 id="sec-4-3-13">Lamport clocks</h4>
+<p>
+(informally)
+</p>
+
+<p>
+keep a version number of what you've seen
+</p>
+
+</section>
+<section id="slide-sec-4-3-14">
+<h4 id="sec-4-3-14">Vector clocks</h4>
+<p>
+(informally)
+</p>
+
+<p>
+keep version numbers of what you've seen other nodes see
+</p>
 
 </section>
 </section>
@@ -776,8 +875,18 @@ Stuff you <i>can</i> rely on
 </section>
 <section id="slide-sec-5-2">
 <h3 id="sec-5-2">Consensus protocols</h3>
-<div class="outline-text-3" id="text-5-2">
-</div></section>
+<p>
+Getting computers to agree on things
+</p>
+
+<aside class="notes">
+<p>
+About as hard as getting humans to agree on things
+</p>
+
+</aside>
+
+</section>
 <section id="slide-sec-5-2-1">
 <h4 id="sec-5-2-1">Examples</h4>
 <ul>
@@ -836,13 +945,9 @@ On top of consensus protocols:
 </section>
 <section id="slide-sec-5-4">
 <h3 id="sec-5-4">CRDTs</h3>
-<ul>
-<li>Conflict-free</li>
-<li>Replicated</li>
-<li>Data</li>
-<li>Type</li>
-
-</ul>
+<p>
+Conflict-free replicated data type
+</p>
 
 </section>
 <section id="slide-sec-5-4-1">
@@ -859,7 +964,7 @@ On top of consensus protocols:
 <h4 id="sec-5-4-2">Solutions?</h4>
 <ul>
 <li>Last write wins? Some write loses :-(</li>
-<li>Coordination?  Expensive! :-(</li>
+<li>Coordination? Expensive! :-(</li>
 
 </ul>
 
@@ -1064,6 +1169,14 @@ Because you're <i>out of options</i>.
 </section>
 <section id="slide-sec-6-5">
 <h3 id="sec-6-5">Thank you!</h3>
+</section>
+</section>
+<section>
+<section id="slide-sec-7">
+<h2 id="sec-7">Slides</h2>
+<p>
+<code>www.lvh.io/DistributedSystems101</code>
+</p>
 </section>
 </section>
 </div>

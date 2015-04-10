@@ -9,5 +9,5 @@ seqdiag {
         B ->> R [diagonal, label="Read"];        
         A ->> R [diagonal, label="Write x"];
         A <<- R [diagonal, label="Written x"];
-        B <<- R [diagonal, label="Read y", note="y was written before\nread was initiated!"];
+        B <<- R [diagonal, label="Read x", note="x was written\nafter read started!"];
 }

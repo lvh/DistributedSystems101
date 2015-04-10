@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   version="1.1"
+   id="svg2"
+   viewBox="0 0 567.75624 63.993617"
+   height="18.060421mm"
+   width="160.23343mm">
+  <defs
+     id="defs4" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-105.05586,-127.56754)"
+     id="layer1">
+    <path
+       id="path4138"
+       d="m 105.05586,159.38735 566.69558,0"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <path
+       id="path4140"
+       d="m 114.14724,127.56754 0,63.63961"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <use
+       style="stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       height="100%"
+       width="100%"
+       transform="translate(136,0)"
+       id="use4142"
+       xlink:href="#path4140"
+       y="0"
+       x="0" />
+    <use
+       style="stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       height="100%"
+       width="100%"
+       transform="translate(98,0)"
+       id="use4144"
+       xlink:href="#use4142"
+       y="0"
+       x="0" />
+    <use
+       style="stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       height="100%"
+       width="100%"
+       transform="translate(196,0)"
+       id="use4146"
+       xlink:href="#use4144"
+       y="0"
+       x="0" />
+    <path
+       id="path4148"
+       d="M 671.75144,159.38735 645.99255,133.62846"
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <use
+       style="stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none"
+       height="100%"
+       width="100%"
+       transform="matrix(1,0,0,-1,0,319.01581)"
+       id="use4150"
+       xlink:href="#path4148"
+       y="0"
+       x="0" />
+    <text
+       id="text4152"
+       y="191.20715"
+       x="124.14724"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         style="font-size:25px"
+         y="191.20715"
+         x="124.14724"
+         id="tspan4154">t0</tspan></text>
+    <text
+       id="text4156"
+       y="191.20715"
+       x="258.14725"
+       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="191.20715"
+         x="258.14725"
+         id="tspan4158">t1</tspan></text>
+    <text
+       id="text4160"
+       y="191.20715"
+       x="356.14725"
+       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="191.20715"
+         x="356.14725"
+         id="tspan4162">t2</tspan></text>
+    <text
+       id="text4164"
+       y="191.20715"
+       x="552.14722"
+       style="font-style:normal;font-weight:normal;font-size:25px;line-height:125%;font-family:Sans;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       xml:space="preserve"><tspan
+         y="191.20715"
+         x="552.14722"
+         id="tspan4166">t3</tspan><tspan
+         id="tspan4168"
+         y="222.45715"
+         x="552.14722" /></text>
+  </g>
+</svg>

@@ -17,6 +17,11 @@
    #+ATTR_HTML: :style width:80%
    [[./media/lvh.svg]]
 
+** PyCon
+
+   #+ATTR_HTML: :style width:100%
+   [[./media/PyCon.png]]
+
 ** Rackspace
 
    #+ATTR_HTML: :style width:50%
@@ -29,15 +34,17 @@
 
 ** AutoScale
 
+   #+ATTR_REVEAL: :frag (roll-in roll-in roll-in roll-in)
    * Distributed system
    * Manages distributed systems
    * Running on distributed systems
-   * Interacting with distributed systems
+   * Orchestrating distributed systems
 
 ** Why this talk?
 
    Parallels with Crypto 101
 
+   #+ATTR_REVEAL: :frag (roll-in roll-in roll-in roll-in)
    * Exclusive domain of experts
    * Abstinence-only education
    * Not organized for self-teaching
@@ -62,8 +69,12 @@
 ** Goals
 
    * /Not/ exhaustive, /not/ pedantically correct
-   * Give you some idea of where to look
+   * Give you an idea of what there is & where to look
    * Convince you distributed systems are tricky
+
+     #+BEGIN_NOTES
+     The worse I do...
+     #+END_NOTES
 
 * Distributed systems?
 
@@ -99,6 +110,7 @@
 
 ** Examples of distributed systems
 
+   #+ATTR_REVEAL: :frag (roll-in roll-in)
    * Basically everything (e.g., your laptop)
      * Speed of light isn't infinite
      * RAM is /all the way over there/
@@ -136,6 +148,7 @@
 
 *** Can't sacrifice partition tolerance
 
+   #+ATTR_REVEAL: :frag (roll-in roll-in roll-in roll-in)
    * Partition tolerance is failure tolerance
    * Networks, nodes fail all the time
    * Latency happens; indistinguishable
@@ -147,15 +160,13 @@
    #+ATTR_HTML: :style width:50%
    [[./media/cap-venn-any2-withp.svg]]
 
-*** Example: Zookeeper
+*** CP example: Zookeeper
 
-    * Zookeeper is CP
-    * Consistent ops that sometimes fail
+    Consistent ops that sometimes fail
 
-*** Examples: Cassandra
+*** AP example: Cassandra
 
-   * Cassandra is AP
-   * inconsistent ops that (usually) succeed
+    Inconsistent ops that (usually) succeed
 
 *** Informally
 
@@ -193,7 +204,7 @@
 *** Back to reality
 
    * CAP's C is linearizability
-   * CAP's A is ops on /any/ node
+   * CAP's A is any /op/ on /any/ node
    * These are very strong guarantees!
 
 *** Gradations
@@ -203,10 +214,10 @@
 
 *** Reality
 
-   * /Many/ consistency models (real & theoretical)
-   * /Many/ levels of availability (0-100%)
-   * No reason to sacrifice either outside of failures
+   * /Many/ levels of consistency
+   * /Many/ levels of availability
    * Systems can choose what to sacrifice (A vs C)
+   * No reason to sacrifice either outside of failures
 
 *** Example of creative sacrifice: ~etcd~
 
@@ -224,14 +235,21 @@
     | Availability | Transactionality  |
     | Scalability  | Guarantees        |
 
-*** High availability can be OK...
+*** Picking A over C can be fine!
 
-    Stats, aggregates...
+    Stats, aggregates, et cetera
 
     * Counting Twitter followers: can be stale
     * Average e-mail size: OK if you miss a few
 
     Doesn't need to be strongly consistent
+
+*** Picking C over A can be fine!
+
+    * Leader election
+    * Mutual excusion
+    * Consistent configuration
+    * Huge simplicity win
 
 ** Consistency models
 
@@ -262,17 +280,38 @@
 
     [[./media/SequenceDiagrams/StaleRead.svg]]
 
+    #+BEGIN_NOTES
+    One node, two registers
+    Write to first one
+    Then read from second one
+    Write hasn't propagated yet
+    #+END_NOTES
+
 *** Writes can get reordered
 
     [[./media/SequenceDiagrams/ReorderedWrites.svg]]
+
+    #+BEGIN_NOTES
+    Two nodes, two registers
+    One  writes x to the other register
+    Other writes y to the other register
+    Registers replicate writes to each other
+    Nodes see different orders when reading from their respective register
+    One node sees different orders when reading from different registers
+    #+END_NOTES
 
 *** All sorts of stuff can happen
 
     * Only get worse!
       * Multiple registers, semantics, nodes, failure modes...
     * E.g. SQL transactions
-      * Phantom reads (the rows change)
-      * Non-repeatable reads (a row changes)
+      * Phantom reads
+      * Non-repeatable reads
+
+    #+BEGIN_NOTES
+    Phantom reads: rows change
+    Non-repeatable reads: data in a row changes
+    #+END_NOTES
 
 *** Reasoning about the system
 
@@ -399,11 +438,36 @@
     * "Atomic clocks [...] drift significantly"
     * "uncertainty [...] generally <10ms"
 
-*** Time is a proxy
+*** Can't have /no/ clock
 
-    Actual timestamp vs total order
+    * Need time for failure detection
+    * FLP result says nothing works
+
+*** Timestamps are often a proxy
+
+    * /Actually/ care about progression, partial order
+    * Timestamps don't have to match real-world time
+
+*** Example timeline
+
+    #+ATTR_HTML: :style width:100%
+    [[./media/Timeline.svg]]
+
+    Sequential numbers vs real timestamps?
+
+*** Lamport & vector clocks
+
+*** Lamport clocks
+
+    (informally)
+
+    keep a version number of what you've seen
 
 *** Vector clocks
+
+    (informally)
+
+    keep version numbers of what you've seen other nodes see
 
 * Good news
 
@@ -412,6 +476,12 @@
 ** Queues
 
 ** Consensus protocols
+
+   Getting computers to agree on things
+
+   #+BEGIN_NOTES
+   About as hard as getting humans to agree on things
+   #+END_NOTES
 
 *** Examples
 
@@ -447,10 +517,7 @@
 
 ** CRDTs
 
-   * Conflict-free
-   * Replicated
-   * Data
-   * Type
+   Conflict-free replicated data type
 
 *** Problem
 
@@ -461,7 +528,7 @@
 *** Solutions?
 
     * Last write wins? Some write loses :-(
-    * Coordination?  Expensive! :-(
+    * Coordination? Expensive! :-(
 
 *** I want highly available data stores...
 
@@ -572,3 +639,6 @@
    Because you're /out of options/.
 
 ** Thank you!
+* Slides
+
+  ~www.lvh.io/DistributedSystems101~
