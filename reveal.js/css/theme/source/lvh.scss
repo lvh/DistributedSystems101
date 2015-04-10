@@ -62,6 +62,10 @@ $selectionBackgroundColor: rgba(0, 0, 0, 0.99);
   font-size: 1.55em !important;
 }
 
+.reveal .progress {
+  height: 7px;
+}
+
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
