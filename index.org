@@ -41,26 +41,17 @@
    * Orchestrating distributed systems
    * At scale
 
-** Why this talk?
+# ** Why this talk?
 
-   Parallels with Crypto 101
+#    Parallels with Crypto 101
 
-   #+ATTR_REVEAL: :frag (roll-in roll-in roll-in roll-in)
-   * Exclusive domain of experts
-   * Abstinence-only education
-   * Not organized for self-teaching
-   * We can't afford not to care
+#    #+ATTR_REVEAL: :frag (roll-in roll-in roll-in roll-in)
+#    * Exclusive domain of experts
+#    * Abstinence-only education
+#    * Not organized for self-teaching
+#    * We can't afford not to care
 
-** Disconnect
-
-   Theory ⚡ practice
-
-   #+BEGIN_NOTES
-    * Many theoreticians ignore practice
-    * Many practitioners ignore theory
-   #+END_NOTES
-
-** Distributed Systems 101
+** Goals
 
    "Just enough" distributed systems
 
@@ -253,7 +244,7 @@
 
 *** This is how we expect stuff to work
 
-    (We are a spoiled bunch)
+    We are a spoiled bunch
 
 *** Information travels at /c/
 
@@ -524,6 +515,7 @@
     * Broadcast operations
     * Merge operation:
       * Commutative: /f(x, y) = f(y, x)/
+      * Associative: /f(f(x, y), z) = f(x, f(y, z))/
       * Not idempotent /f(x, y) != f(f(x, y), y)/
 
 *** Example: integers
@@ -536,15 +528,16 @@
 
 *** Convergent RDTs
 
-    * Broadcast states
+    * Broadcast (sometimes partial) states
     * Merge operation has many properties:
       * Commutative: /f(x, y) = f(y, x)/
-      * Idempotent: /f(x, y) = f(f(x, y), y)/
       * Associative: /f(f(x, y), z) = f(x, f(y, z))/
+      * Idempotent: /f(x, y) = f(f(x, y), y)/
       * Informally: apply lots until done
 
 *** Simple CvRDT conflict resolution
 
+    #+ATTR_HTML: :style width:40%
     [[./media/CvRDTMerge.svg]]
 
 *** Complex CvRDT conflict resolution

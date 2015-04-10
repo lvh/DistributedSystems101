@@ -93,39 +93,7 @@
 
 </section>
 <section id="slide-sec-2-6">
-<h3 id="sec-2-6">Why this talk?</h3>
-<p>
-Parallels with Crypto 101
-</p>
-
-<ul>
-<li class="fragment roll-in">Exclusive domain of experts</li>
-<li class="fragment roll-in">Abstinence-only education</li>
-<li class="fragment roll-in">Not organized for self-teaching</li>
-<li class="fragment roll-in">We can't afford not to care</li>
-
-</ul>
-
-</section>
-<section id="slide-sec-2-7">
-<h3 id="sec-2-7">Disconnect</h3>
-<p>
-Theory ⚡ practice
-</p>
-
-<aside class="notes">
-<ul class="org-ul">
-<li>Many theoreticians ignore practice
-</li>
-<li>Many practitioners ignore theory
-</li>
-</ul>
-
-</aside>
-
-</section>
-<section id="slide-sec-2-8">
-<h3 id="sec-2-8">Distributed Systems 101</h3>
+<h3 id="sec-2-6">Goals</h3>
 <p>
 "Just enough" distributed systems
 </p>
@@ -137,8 +105,8 @@ Theory ⚡ practice
 </ul>
 
 </section>
-<section id="slide-sec-2-9">
-<h3 id="sec-2-9">Goals</h3>
+<section id="slide-sec-2-7">
+<h3 id="sec-2-7">Goals</h3>
 <ul>
 <li><i>Not</i> exhaustive, <i>not</i> pedantically correct</li>
 <li>Give you an idea of what there is &amp; where to look</li>
@@ -484,7 +452,7 @@ No universally correct choice!
 <section id="slide-sec-4-2-3">
 <h4 id="sec-4-2-3">This is how we expect stuff to work</h4>
 <p>
-(We are a spoiled bunch)
+We are a spoiled bunch
 </p>
 
 </section>
@@ -953,6 +921,7 @@ The C in CRDT can mean:
 <li>Merge operation:
 <ul>
 <li>Commutative: <i>f(x, y) = f(y, x)</i></li>
+<li>Associative: <i>f(f(x, y), z) = f(x, f(y, z))</i></li>
 <li>Not idempotent <i>f(x, y) != f(f(x, y), y)</i></li>
 
 </ul></li>
@@ -978,12 +947,12 @@ The C in CRDT can mean:
 <section id="slide-sec-5-4-8">
 <h4 id="sec-5-4-8">Convergent RDTs</h4>
 <ul>
-<li>Broadcast states</li>
+<li>Broadcast (sometimes partial) states</li>
 <li>Merge operation has many properties:
 <ul>
 <li>Commutative: <i>f(x, y) = f(y, x)</i></li>
-<li>Idempotent: <i>f(x, y) = f(f(x, y), y)</i></li>
 <li>Associative: <i>f(f(x, y), z) = f(x, f(y, z))</i></li>
+<li>Idempotent: <i>f(x, y) = f(f(x, y), y)</i></li>
 <li>Informally: apply lots until done</li>
 
 </ul></li>
@@ -995,7 +964,7 @@ The C in CRDT can mean:
 <h4 id="sec-5-4-9">Simple CvRDT conflict resolution</h4>
 
 <div class="figure">
-<p><img src="./media/CvRDTMerge.svg" alt="CvRDTMerge.svg" />
+<p><img src="./media/CvRDTMerge.svg" alt="CvRDTMerge.svg" style="width:40%" />
 </p>
 </div>
 
